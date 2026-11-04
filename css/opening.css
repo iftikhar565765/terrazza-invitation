@@ -1,0 +1,380 @@
+/* ═══════════════════════════════════════════════════════════════
+   AURELIA · opening.css
+   The opening ceremony — a folded letter sealed in gold wax,
+   waiting on the ivory table. Press the seal: the wax breaks,
+   the letter opens, and the invitation begins.
+   ═══════════════════════════════════════════════════════════════ */
+
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  overflow-y: auto;
+  padding: clamp(1.4rem, 4vh, 3rem) 1.25rem;
+  background: var(--ivory);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* a soft vignette, like lamplight on a table */
+.opening::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 8%, transparent 40%, color-mix(in srgb, var(--parchment) 72%, transparent) 100%);
+}
+
+.opening__spray {
+  position: absolute;
+  pointer-events: none;
+  opacity: .96;
+  filter: drop-shadow(0 18px 30px color-mix(in srgb, var(--night) 14%, transparent));
+}
+
+.opening__spray--tl {
+  top: -3rem;
+  left: -3.5rem;
+  width: clamp(220px, 30vw, 430px);
+}
+
+.opening__spray--br {
+  bottom: -3rem;
+  right: -3rem;
+  width: clamp(240px, 32vw, 470px);
+}
+
+.opening__glow {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: min(620px, 92vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side,
+    color-mix(in srgb, var(--champagne) 22%, transparent), transparent 72%);
+  opacity: .55;
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+
+.opening__inner {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 620px;
+}
+
+.opening__eyebrow { color: var(--burgundy-deep); letter-spacing: .34em; }
+
+.opening__names {
+  margin-top: .9rem;
+  font-size: clamp(2.35rem, 6vw, 3.7rem);
+  color: var(--wine);
+}
+
+/* ── the sealed letter ────────────────────────────────────────── */
+
+.sealcard-stage {
+  position: relative;
+  margin: clamp(1.6rem, 4.5vh, 2.8rem) 0 clamp(3rem, 7vh, 4rem);
+}
+
+.sealcard-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -1.4rem;
+  width: 78%;
+  height: 2.4rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side,
+    color-mix(in srgb, var(--night) 26%, transparent), transparent 70%);
+  filter: blur(10px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+
+.sealcard {
+  position: relative;
+  display: block;
+  width: min(320px, 76vw);
+  aspect-ratio: 5 / 7;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1500px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sealcard:focus-visible {
+  outline: 1.5px solid var(--burgundy);
+  outline-offset: 8px;
+  border-radius: 3px;
+}
+
+.sealcard__book {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* the letter's printed inside — revealed as the cover lifts */
+.sealcard__inside {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  background:
+    linear-gradient(160deg, var(--paper-raised), var(--parchment));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+
+.sealcard__inside::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+
+.sealcard__mono {
+  font-size: 3.1rem;
+  color: var(--burgundy-deep);
+}
+
+.sealcard__sprig {
+  width: 108px;
+  color: var(--line-strong);
+}
+
+.sealcard__date {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  letter-spacing: .42em;
+  text-indent: .42em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* the front cover — folds open around its top edge */
+.sealcard__front {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.sealcard__front-face,
+.sealcard__front-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.sealcard__front-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  background:
+    linear-gradient(165deg, var(--paper-raised) 0%, var(--ivory) 58%, var(--parchment) 100%);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+
+.sealcard__rule {
+  width: 116px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.sealcard__rule--bottom { margin-top: .4rem; }
+
+.sealcard__wreath {
+  width: 58%;
+  opacity: .9;
+}
+
+.sealcard__front-line {
+  font-family: var(--font-body);
+  font-size: .68rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.sealcard__front-guests {
+  font-size: 1.9rem;
+  color: var(--wine);
+  margin-top: -0.3rem;
+}
+
+/* the cover's inner face, seen for a heartbeat as it opens */
+.sealcard__front-back {
+  transform: rotateX(180deg);
+  background: linear-gradient(200deg, var(--parchment), var(--paper-raised));
+  border: 1px solid var(--line);
+}
+
+.sealcard__front-back::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--line);
+}
+
+.sealcard__front-back::after {
+  content: "A · T";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: color-mix(in srgb, var(--burgundy) 34%, transparent);
+}
+
+/* ── the wax seal ─────────────────────────────────────────────── */
+
+.seal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: clamp(84px, 24vw, 100px);
+  aspect-ratio: 1;
+  transform: translate(-50%, 54%);
+  z-index: 3;
+  filter: drop-shadow(0 10px 16px color-mix(in srgb, var(--night) 30%, transparent));
+  animation: seal-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes seal-breathe {
+  0%, 100% { transform: translate(-50%, 54%) scale(1); }
+  50% { transform: translate(-50%, 54%) scale(1.045); }
+}
+
+.seal__half {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: transform .7s var(--ease), opacity .6s var(--ease);
+  will-change: transform;
+}
+
+.seal__half img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seal__half--l {
+  clip-path: polygon(-2% -2%, 55% -2%, 47% 27%, 55% 52%, 45% 75%, 51% 102%, -2% 102%);
+}
+
+.seal__half--r {
+  clip-path: polygon(45% -2%, 102% -2%, 102% 102%, 49% 102%, 55% 75%, 45% 52%, 53% 27%);
+}
+
+/* ── the hint, the buttons ────────────────────────────────────── */
+
+.opening__hint {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-family: var(--font-body);
+  font-size: .72rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.opening__hint-orn {
+  width: 84px;
+  color: var(--line-strong);
+}
+
+.opening__open { margin-top: 1.3rem; }
+
+.opening__skip {
+  margin-top: 1.05rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--line-strong);
+  transition: color .3s var(--ease);
+}
+
+.opening__skip:hover { color: var(--night-deep); }
+
+/* ── GSAP choreography support states ─────────────────────────── */
+
+.opening.is-leaving {
+  opacity: 0;
+  transition: opacity .95s var(--ease);
+}
+
+/* ── no-GSAP fallback: the same story in pure CSS ─────────────── */
+
+.sealcard.is-fallback-open .seal__half--l {
+  transform: translate(-12px, 18px) rotate(-16deg);
+  opacity: 0;
+}
+
+.sealcard.is-fallback-open .seal__half--r {
+  transform: translate(12px, 18px) rotate(16deg);
+  opacity: 0;
+}
+
+.sealcard.is-fallback-open .sealcard__front {
+  transition: transform 1.3s var(--ease-open) .3s;
+  transform: rotateX(-168deg);
+}
+
+.sealcard.is-fallback-open .sealcard__book {
+  transition: transform 1s var(--ease) .55s;
+  transform: translateY(-12px) scale(1.04);
+}
+
+.sealcard.is-fallback-open ~ * { /* siblings untouched */ }
+
+.sealcard.is-fallback-open .sealcard-shadow {
+  opacity: .3;
+  transform: translateX(-50%) scale(.9);
+}
+
+.sealcard.is-fallback-open ~ .opening__hint,
+.sealcard.is-fallback-open ~ .opening__open,
+.sealcard.is-fallback-open ~ .opening__skip { opacity: 0; }
+
+/* compact phones — keep the whole ceremony one gentle glance */
+@media (max-height: 740px) {
+  .opening__names { font-size: clamp(2rem, 5vw, 2.8rem); }
+  .sealcard { width: min(272px, 66vw); }
+  .sealcard-stage { margin-block: 1.2rem 2.6rem; }
+  .opening__open { margin-top: .9rem; }
+  .opening__skip { margin-top: .7rem; }
+}

@@ -1,135 +1,133 @@
 /* ═══════════════════════════════════════════════════════════════
-   EVERMORE · responsive.css — "Rose Silk"
-   Every scene re-flows for tablets and phones: garlands tuck in,
-   grids stack, the gatefold shrinks, ovals pair up. Nothing
-   overflows, nothing overlaps, tap targets stay generous.
+   AURELIA · responsive.css
+   Every device, one suite — the breakpoints that keep the
+   letterpress feel from the largest screen to the smallest phone.
    ═══════════════════════════════════════════════════════════════ */
 
-/* ══ tablet and down ════════════════════════════════════════════ */
-
-@media (max-width: 1020px) {
-  .nav__links { display: none; }
-  .menu-toggle { display: inline-grid; }
-
-  .story__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .story__bouquet { grid-column: 1; grid-row: 1; width: min(240px, 70%); }
-  .postcard--first { grid-column: 2; grid-row: 1 / span 2; }
-  .postcard--second { grid-column: 1; grid-row: 2; }
-  .story__quote { grid-column: 1 / -1; }
-  .story__mini { grid-column: 1 / -1; }
-  .story__note { grid-column: 1 / -1; }
-
-  .enclosures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .enclosure--raised { transform: none; }
-  .enclosure--raised:hover { transform: translateY(-5px); }
-}
-
-/* ══ phones ═════════════════════════════════════════════════════ */
-
-@media (max-width: 760px) {
-  .nav__inner { padding-block: 0.6rem; }
-
-  .hero {
-    min-height: auto;
-    padding-top: calc(var(--space-5) + 4.5rem);
-  }
-
-  .hero__stage { width: 100%; }
-
-  .hero__crest { margin-bottom: calc(clamp(58px, 17vw, 80px) * -1); }
-
-  .hero__petals { opacity: 0.5; right: -18vw; }
-
-  .story__aside { display: none; }
-
-  .story__grid {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
-  }
-
-  .story__bouquet {
-    grid-column: 1;
-    grid-row: auto;
-    width: min(230px, 64%);
-    margin: 0 auto;
-    order: 5;
-  }
-
-  .postcard--first { grid-column: 1; grid-row: auto; }
-  .postcard--second { grid-column: 1; grid-row: auto; }
-
-  .postcard { rotate: 0deg; }
-  .postcard--second { rotate: 0deg; }
-  .postcard__postmark { right: -18px; }
-
-  .story__mini { max-width: 210px; }
-
-  .enclosures { grid-template-columns: 1fr; max-width: 420px; }
-
-  .particulars__list { grid-template-columns: 1fr; }
-
-  .palette__swatches { gap: 1.1rem; padding-inline: 1rem; }
-
-  .venue__moments { grid-template-columns: 1fr; gap: 1.1rem; }
-
-  .venue__card { margin-top: calc(var(--space-2) * -1); }
-
-  .attendance { grid-template-columns: 1fr; }
-
-  .countdown__clock { gap: 1.1rem; padding-top: 2.2rem; }
-  .countdown__oval { width: clamp(132px, 38vw, 158px); height: clamp(160px, 46vw, 190px); }
-  .countdown__oval::before { height: 1.6rem; }
-
-  .closing__garland { width: clamp(150px, 42vw, 260px); opacity: 0.85; }
-
-  .closing__actions { flex-direction: column; }
-}
-
-@media (max-width: 560px) {
-  main > section { padding-inline: 1.1rem; }
-
-  .hero__actions .btn { width: 100%; }
-
-  .std::before { left: 10%; }
-  .std::after { right: 10%; }
-
-  .std__rose { left: -12px; top: -40px; width: 96px; }
-
-  .std__ribbon { padding-inline: 1.8rem; }
-  .std__ribbon-inner { font-size: 1.4rem; }
-
-  .postcard__stamp { width: 68px; top: -20px; right: -8px; }
-  .postcard__postmark { width: 58px; height: 58px; top: -26px; right: -26px; }
-
-  .rsvp__frame { inset: max(-40px, -6vw) max(-26px, -4vw); opacity: 0.42; }
-
-  .enclosure { padding: 1.9rem 1.3rem 1.7rem; }
-
-  .menu__links a { font-size: clamp(1.7rem, 7.2vw, 2.1rem); }
-
-  .footer { padding-top: var(--space-4); }
-}
-
-/* ══ short landscape phones — the opening must always fit ══════ */
-
-@media (max-height: 560px) and (orientation: landscape) {
-  .opening__inner { gap: 0.4rem; padding-block: 0.8rem; }
-  .opening__names { font-size: clamp(1.6rem, 5.4vh, 2.2rem); }
-  .gatefold-stage { display: none; }
-  .opening__hint { margin-top: 0.2rem; }
-  .opening__skip { margin-top: 0.2rem; }
-}
-
-/* ══ wide screens — keep the suite intimate ═════════════════════ */
-
+/* ── large desktop refinement ─────────────────────────────────── */
 @media (min-width: 1600px) {
-  .hero__stage { width: min(720px, 100%); }
-  .story__grid { max-width: 1160px; }
+  :root { --wrap: 1140px; }
 }
 
-/* ══ editor-live niceties (customizer preview) ══════════════════ */
+/* ── laptops & down: tighten the frame ────────────────────────── */
+@media (max-width: 1100px) {
+  .hero__spray--tl { width: clamp(200px, 26vw, 330px); }
+  .hero__spray--br { width: clamp(210px, 27vw, 350px); }
+}
 
-body.editor-live [data-drift] { transform: none !important; }
+/* ── the nav folds into the menu ──────────────────────────────── */
+@media (max-width: 860px) {
+  .menu-toggle { display: inline-grid; }
+  .nav__links { display: none; }
+
+  .savethedate__wreath { display: none; }
+  .story__columns { grid-template-columns: 1fr; max-width: 620px; }
+
+  .details__plates { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+
+  .particulars { grid-template-columns: 1fr; max-width: 460px; }
+
+  .itinerary__swag { width: clamp(260px, 62vw, 440px); }
+}
+
+/* ── small tablets & phones ───────────────────────────────────── */
+@media (max-width: 640px) {
+  body { font-size: 1.03rem; }
+
+  :root { --nav-h: 60px; }
+
+  .wrap { width: calc(100% - 2.4rem); }
+
+  /* the announcement keeps its frame, softly */
+  .hero__frame { inset: 10px; }
+  .hero__corner { width: 44px; }
+  .hero { padding: calc(var(--nav-h) + 2.2rem) 1.1rem 3.2rem; }
+  .hero__crest { width: 88px; margin-bottom: 1.3rem; }
+  .hero__crest-rings { width: 36px; height: 36px; }
+  .hero__names { font-size: clamp(2.25rem, 10.5vw, 3rem); }
+  .hero__words { font-size: 1.08rem; }
+  .hero__spray--tl { top: -2rem; left: -2.4rem; width: clamp(170px, 44vw, 240px); }
+  .hero__spray--br { bottom: -2rem; right: -2.2rem; width: clamp(180px, 46vw, 250px); }
+  .hero__glow { width: 130vw; top: 44%; }
+
+  .opening__spray--tl { top: -2.8rem; left: -3.2rem; width: clamp(150px, 40vw, 220px); }
+  .opening__spray--br { bottom: -2.6rem; right: -2.8rem; width: clamp(160px, 42vw, 230px); }
+
+  .vow__card { padding-inline: 1.4rem; }
+  .vow__corner { width: 42px; }
+  .vow__eyebrow { font-size: 1.6rem; }
+  .vow__lead { font-size: 1.12rem; }
+
+  .story__quote-text { font-size: 1.22rem; }
+  .story__quote-corner { width: 36px; }
+  .story__bouquet { width: clamp(130px, 40vw, 170px); }
+  .story__aside { font-size: 1.5rem; }
+
+  .savethedate__card { padding-inline: 1.4rem; }
+  .savethedate__actions .btn { width: 100%; }
+
+  .particulars__item { padding: 1rem; }
+
+  .field__choices { grid-template-columns: 1fr; }
+
+  .countdown__clock { gap: .9rem; }
+  .countdown__dial { width: 74px; }
+  .countdown__num { font-size: 1.5rem; }
+  .countdown__label { font-size: .54rem; }
+
+  .venue__painting { width: 100%; }
+  .venue__facts { text-align: center; }
+  .venue__fact { grid-template-columns: 1fr; gap: .15rem; text-align: center; }
+
+  /* the order of the day becomes a vertical gold thread */
+  .itinerary__thread {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .day-word { justify-content: center; }
+
+  .day-word + .day-word::before {
+    width: 1px;
+    height: 20px;
+    margin: .3rem auto;
+    background: linear-gradient(180deg, transparent, var(--line-strong) 30% 70%, transparent);
+  }
+
+  .closing__seal { width: 96px; }
+  .closing__actions .btn { width: 100%; }
+  .closing__script { font-size: 1.9rem; }
+  .closing__message { font-size: 1.12rem; }
+
+  .rsvp__spray { width: clamp(150px, 40vw, 220px); bottom: -1.5rem; left: -1.8rem; }
+}
+
+/* ── very small phones ────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .hero__names { font-size: clamp(2rem, 11vw, 2.6rem); }
+  .btn { padding-inline: 1.4rem; letter-spacing: .16em; }
+  .sealcard { width: min(272px, 84vw); }
+  .menu__links a em.script { font-size: 1.8rem; }
+}
+
+/* ── landscape phones — keep the opening calm ─────────────────── */
+@media (max-height: 480px) and (orientation: landscape) {
+  .opening__names { margin-top: .4rem; }
+  .sealcard-stage { margin-block: .9rem; }
+  .sealcard { width: min(220px, 52vh); }
+  .opening__hint { display: none; }
+}
+
+/* ── the editor's preview pane — always show the full nav ─────── */
+body.editor-live .menu-toggle { display: none; }
+body.editor-live .nav__links { display: flex; }
+
+@media (max-width: 860px) {
+  body.editor-live .nav__links {
+    display: flex;
+    gap: 1rem;
+  }
+  body.editor-live .nav__links a { font-size: .62rem; letter-spacing: .14em; }
+}

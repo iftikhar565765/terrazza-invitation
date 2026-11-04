@@ -1,113 +1,61 @@
 /* ═══════════════════════════════════════════════════════════════
-   EVERMORE · variables.css — "Rose Silk" identity
-   ---------------------------------------------------------------
-   A romantic, all-light wedding palette: warm ivory silk, blush
-   and garden-rose pinks, antique gold and eucalyptus sage.
-   No dark panels anywhere — the whole suite glows like June.
-   Token names follow the editor's colour roles so the theme
-   picker recolours every surface.
+   AURELIA · variables.css
+   Porcelain ivory & antique gold. The palette variables below are
+   the theme defaults — main.js re-applies them (and the whole
+   theme) whenever the couple picks another palette in the editor.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Palette (theme presets refine these at runtime) ──────────
-     blush        : the rose garden at golden hour (default)
-     porcelain    : ivory silk and champagne
-     meadow       : sage green, lavender and rose
-     powder       : powder blue and blush                          */
-  --burgundy:      #A76A6F;   /* primary — dusty rose               */
-  --burgundy-deep: #8F555C;
-  --wine:          #6E4048;   /* deep velvet rose                   */
-  --crimson:       #C08587;   /* open rose                          */
-  --ivory:         #FAF6EF;
-  --paper-raised:  #FDFBF6;
-  --parchment:     #F4ECE2;
-  --champagne:     #C2A165;   /* gilded accents                     */
-  --champagne-soft:#AC8D57;
-  --olive:         #97A28B;   /* foliage                            */
-  --olive-deep:    #7E8A73;
-  --sage:          #B4BBA6;
-  --rose:          #D8A3A1;   /* petal pink                         */
-  --ink:           #54444B;   /* warm plum charcoal                 */
-  --ink-soft:      #6F5D64;
-  --charcoal:      #97848B;
-  /* the velvet finale — deep rose, never black                     */
-  --night:         #5E343D;
-  --night-deep:    #4C2A33;
-  --gold:          #C2A165;
+  /* ── typography (re-applied from config by main.js) ─────────── */
+  --font-editorial: 'Bodoni Moda', 'Playfair Display', serif;
+  --font-display: 'Cormorant Garamond', 'EB Garamond', serif;
+  --font-script: 'Pinyon Script', 'Great Vibes', cursive;
+  --font-hand: 'La Belle Aurore', 'Caveat', cursive;
+  --font-body: 'Jost', 'DM Sans', sans-serif;
 
-  /* ── Derived silk washes — always light, always romantic ────── */
-  --silk:          #FFFDF9;
-  --wash-rose:
-    radial-gradient(58% 44% at 18% 0%, rgba(216, 163, 161, 0.20), transparent 70%),
-    radial-gradient(52% 40% at 86% 12%, rgba(192, 133, 135, 0.14), transparent 72%);
-  --wash-rose-deep:
-    radial-gradient(46% 34% at 82% 88%, rgba(216, 163, 161, 0.22), transparent 74%),
-    radial-gradient(50% 36% at 12% 96%, rgba(192, 133, 135, 0.12), transparent 76%);
-  --site-background:
-    radial-gradient(120% 74% at 12% -6%, rgba(216, 163, 161, 0.18), transparent 62%),
-    radial-gradient(110% 64% at 88% 30%, rgba(244, 236, 226, 0.9), transparent 64%),
-    radial-gradient(120% 70% at 20% 104%, rgba(216, 163, 161, 0.14), transparent 60%),
-    linear-gradient(180deg, #FBF5EF 0%, var(--ivory) 44%, #F9F1EC 100%);
+  /* ── porcelain theme (defaults; themed by main.js) ──────────── */
+  --burgundy: #B08D57;        /* antique gold — the primary metal   */
+  --burgundy-deep: #997747;
+  --wine: #55483A;            /* deep bronze                        */
+  --crimson: #C4A472;
+  --champagne: #C9A86A;
+  --champagne-soft: #B39258;
+  --parchment: #F5F0E6;
+  --ivory: #FBF8F1;
+  --paper-raised: #FEFCF8;
+  --night: #4E463C;           /* espresso                           */
+  --night-deep: #3F382F;
+  --olive: #A8AC96;
+  --olive-deep: #8B907C;
+  --sage: #C0C2B0;
+  --rose: #DDB4AC;
+  --ink: #4E463F;
+  --ink-soft: #6A6154;
+  --charcoal: #958C7E;
 
-  /* ── Typography — five voices, five jobs ─────────────────────
-     Editorial     : Cormorant Garamond — the stationery voice
-     Display       : Playfair Display   — mid headings, numerals
-     Expressive    : Great Vibes        — names & signature script
-     Handwritten   : La Belle Aurore    — annotations & tiny notes
-     Functional    : Lato               — labels, nav, forms         */
-  --font-editorial: 'Cormorant Garamond', 'Didot', 'Times New Roman', serif;
-  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Great Vibes', 'Snell Roundhand', 'Apple Chancery', cursive;
-  --font-hand: 'La Belle Aurore', 'Segoe Script', cursive;
-  --font-body: 'Lato', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
-
-  /* fluid scale */
-  --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.86rem);
-  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.06rem);
-  --step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
-  --step-2: clamp(1.45rem, 1.25rem + 1vw, 1.9rem);
-  --step-3: clamp(1.9rem, 1.5rem + 2vw, 2.9rem);
-  --step-4: clamp(2.5rem, 1.7rem + 3.6vw, 4.3rem);
-  --step-5: clamp(3.2rem, 2rem + 5.4vw, 6rem);
-
-  /* rhythm */
-  --space-1: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem);
-  --space-2: clamp(0.8rem, 0.7rem + 0.5vw, 1.2rem);
-  --space-3: clamp(1.4rem, 1.1rem + 1.2vw, 2.4rem);
-  --space-4: clamp(2.4rem, 1.8rem + 2.4vw, 4.4rem);
-  --space-5: clamp(3.6rem, 2.4rem + 4.4vw, 7rem);
-  --space-6: clamp(5rem, 3rem + 6.4vw, 9.5rem);
-
-  --container: 74rem;
-  --container-narrow: 46rem;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
-
-  /* fine stationery lines */
-  --hairline: 1px solid rgba(194, 161, 101, 0.42);
-  --hairline-soft: 1px solid rgba(194, 161, 101, 0.24);
-  --hairline-rose: 1px solid rgba(167, 106, 111, 0.26);
-
-  /* elevation — petals on silk, always warm and rosy */
-  --shadow-card:
-    0 1px 2px rgba(110, 64, 72, 0.05),
-    0 12px 36px rgba(167, 106, 111, 0.12),
-    0 32px 76px rgba(167, 106, 111, 0.10);
-  --shadow-soft:
-    0 2px 8px rgba(167, 106, 111, 0.07),
-    0 18px 44px rgba(167, 106, 111, 0.12);
   --shadow-seal:
-    0 4px 10px color-mix(in srgb, #6E4048 45%, transparent),
-    0 14px 30px color-mix(in srgb, #6E4048 28%, transparent);
+    0 4px 10px color-mix(in srgb, var(--night) 35%, transparent),
+    0 14px 30px color-mix(in srgb, var(--night) 22%, transparent);
 
-  /* motion */
-  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --ease-soft: cubic-bezier(0.45, 0, 0.15, 1);
-  --dur-1: 160ms;
-  --dur-2: 340ms;
-  --dur-3: 720ms;
+  /* ── derived gold linework ──────────────────────────────────── */
+  --line: color-mix(in srgb, var(--burgundy) 26%, transparent);
+  --line-strong: color-mix(in srgb, var(--burgundy) 52%, transparent);
+  --gold-wash: color-mix(in srgb, var(--burgundy) 7%, transparent);
+  --gold-wash-strong: color-mix(in srgb, var(--burgundy) 13%, transparent);
 
-  /* signature shapes — arches & scallops, the language of the suite */
-  --radius-card: 18px;
-  --radius-soft: 12px;
-  --arch: 999px;
+  --shadow-card:
+    0 1px 2px color-mix(in srgb, var(--night) 6%, transparent),
+    0 26px 60px -18px color-mix(in srgb, var(--night) 22%, transparent);
+  --shadow-card-soft:
+    0 1px 2px color-mix(in srgb, var(--night) 5%, transparent),
+    0 16px 40px -16px color-mix(in srgb, var(--night) 16%, transparent);
+
+  /* ── paper grain (an inline whisper of texture) ─────────────── */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.055'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* ── rhythm ─────────────────────────────────────────────────── */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --ease-open: cubic-bezier(.65, 0, .35, 1);
+  --nav-h: 68px;
+  --wrap: 1080px;
 }

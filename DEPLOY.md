@@ -1,4 +1,4 @@
-# Deploying Evermore to Cloudflare
+# Deploying Aurelia to Cloudflare
 
 The site is a **Cloudflare Worker** (static assets + a small API) with a
 **D1 database** for invitations and RSVPs. The free plan is enough:

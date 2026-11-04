@@ -1,15 +1,16 @@
-# Evermore — a romantic garden-rose wedding invitation
+# Aurelia — a porcelain & gold wedding invitation
 
-An invitation that feels like wedding stationery in the hand: a folded
-silk gatefold card tied with a blush ribbon bow that unties on arrival,
-a rose-wreath monogram crowning an arched announcement, a letterpress
-formal card beneath a garden swag, postcards from the love story, a
-calendar page with a ribbon across it, enclosure cards for the details,
-silk-ribbon palette swatches, moments strung on a gold thread, a rose
-arbour in an arch window, a reply card framed in watercolour roses and
-gold hearts — and a monogram-medallion farewell. Fully customisable in
-the browser with a guided, auto-saving visual editor — then published
-live with one click on Cloudflare.
+An invitation that feels like a fine engraved wedding suite: a folded
+letter sealed in gold wax that opens on arrival, a ring crest crowning
+a framed announcement in Bodoni and copperplate script, a letterpress
+wording card with engraved corners, a two-chapter love story with a
+keepsake posy, a calling card with a fine double rule, three engraved
+plates for the particulars, palette swatches, the order of the day
+strung along a gold thread, a watercolour Orangery, slim gold countdown
+dials, a reply card ready for the post — and a farewell beneath the
+wax seal on espresso ground. Fully customisable in the browser with a
+guided, auto-saving visual editor — then published live with one click
+on Cloudflare.
 
 **Live template pieces**
 
@@ -53,22 +54,22 @@ See **[DEPLOY.md](DEPLOY.md)** — two paths: dashboard + GitHub
 
 ## Design notes
 
-- **Palette** — porcelain paper, blush rose, dusty rose, champagne
-  gold and whisper sage. Four moods ship with the editor:
-  *Blush garden* (default), *Porcelain ivory*, *Sage meadow* and
-  *Powder blue*. Every colour role can be fine-tuned live.
-- **Type** — Cormorant Garamond for display, EB Garamond for prose,
-  Parisienne for the couple's names, La Belle Aurore for ink notes,
-  Jost for letterspaced labels. Six curated pairings are one click
-  away in the editor.
-- **Decorative art** — the watercolour garden roses, the bouquet, the
-  rose wreath, the rose wax seal and the orangery scene are static
-  WebP images in `assets/art/` (transparent backgrounds). No guest
-  uploads are used anywhere, so the template is fully static-hosting
-  friendly.
-- **The opening** — a sealed envelope scene with a GSAP choreography
-  (vellum band slides away, the card is lifted from the table) and a
-  pure-CSS fallback; always skippable, reduced-motion aware.
+- **Palette** — porcelain ivory, antique gold, quiet sage, champagne
+  and espresso. Four moods ship with the editor: *Blush garden*,
+  *Porcelain ivory* (default), *Sage meadow* and *Powder blue*. Every
+  colour role can be fine-tuned live.
+- **Type** — Bodoni Moda for the couple's names, Cormorant Garamond
+  for display and prose, Pinyon Script for the calligraphic voice,
+  La Belle Aurore for ink notes, Jost for letterspaced labels. Six
+  curated pairings are one click away in the editor.
+- **Decorative art** — the white-rose corner sprays, the posy, the
+  gold wreath, the gold wax seal, the garland swags and the Orangery
+  painting are static WebP images in `assets/art/` (transparent
+  backgrounds). No guest uploads are used anywhere, so the template
+  is fully static-hosting friendly.
+- **The opening** — a folded letter sealed in gold wax, with a GSAP
+  choreography (the seal cracks, the cover folds open) and a pure-CSS
+  fallback; always skippable, reduced-motion aware.
 - **Accessibility** — every scene is keyboard-reachable, the RSVP form
   is fully labelled with inline errors, reveals respect
   `prefers-reduced-motion`, and nothing essential depends on JS.

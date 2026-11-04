@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
-   EVERMORE · main.js
-   Content injection · navigation · palette swatches · wedding-day
-   string of lemons · countdown · calendar files · reveals ·
-   parallax · audio. Everything degrades gracefully:
+   AURELIA · main.js
+   Content injection · navigation · palette swatches · order of the
+   day · countdown · calendar files · reveals · parallax · audio.
+   Everything degrades gracefully:
    · no GSAP      → reveals still run (CSS + IntersectionObserver)
    · reduced motion → no scroll effects, countdown still runs
    · no JS at all → the page reads fully (see README)
@@ -228,59 +228,53 @@
   /* Removable & recolourable pieces of the suite — keyed in HTML
      via data-element-key and hidden through config.hiddenElements. */
   var elementLabels = {
-    'opening-garland-top': 'Rose garland · top left',
-    'opening-garland-bottom': 'Rose garland · bottom right',
-    'opening-glow': 'Silk glow',
+    'opening-spray-top': 'Corner spray · upper left',
+    'opening-spray-bottom': 'Trailing spray · lower right',
+    'opening-glow': 'Candlelight glow',
     'opening-eyebrow': 'Opening introduction',
     'opening-names': 'Opening names',
-    'gatefold-shadow': 'Card shadow',
-    'gatefold-door-left': 'Silk door · left',
-    'gatefold-door-right': 'Silk door · right',
-    'gatefold-bow': 'Silk ribbon bow',
-    'gatefold-address': 'Address tag',
+    'card-shadow': 'Letter shadow',
+    'card-front': 'Letter cover',
+    'card-wreath': 'Letter-cover wreath',
+    'card-seal': 'The gold wax seal',
     'opening-hint': 'Invitation hint',
     'open-button': 'Open button',
-    'hero-garland-top': 'Rose garland · announcement top',
-    'hero-garland-bottom': 'Rose garland · announcement bottom',
+    'hero-spray-top': 'Corner spray · announcement top',
+    'hero-spray-bottom': 'Trailing spray · announcement bottom',
     'hero-glow': 'Announcement glow',
-    'hero-wreath': 'Rose-wreath monogram crest',
+    'hero-frame': 'Engraved frame',
+    'hero-crest': 'Ring crest',
     'hero-eyebrow': 'Announcement introduction',
-    'hero-names': 'First name',
-    'hero-names-two': 'Second name',
+    'hero-words': 'Announcement date line',
     'hero-actions': 'Announcement buttons',
-    'hero-petals': 'Petal frame · corner',
-    'vow-swag': 'Formal card garland',
-    'story-aside': 'Story side inscription',
-    'story-card-one': 'Story postcard i',
-    'story-card-two': 'Story postcard ii',
-    'story-keepsake': 'Stamp & postmark',
-    'story-bouquet': 'The wedding bouquet',
-    'story-quote-card': 'Keepsake quote card',
-    'story-caption': 'Story keepsake print',
-    'story-note': 'Story handwritten note',
-    'std-glow': 'Blush glow',
-    'std-rose': 'Save-the-date roses',
-    'std-ribbon': 'Save-the-date ribbon',
+    'vow-card': 'The formal wording card',
+    'vow-lead': 'Formal wording',
+    'story-text-one': 'Story chapter i',
+    'story-text-two': 'Story chapter ii',
+    'story-keepsake': 'Keepsake inscription',
+    'story-bouquet': 'The wedding posy',
+    'story-quote': 'Keepsake quote card',
+    'std-glow': 'Candlelight glow · save the date',
+    'std-wreath': 'Save-the-date wreath',
+    'std-card': 'Save-the-date card',
+    'std-numerals': 'Save-the-date numerals',
     'std-actions': 'Calendar buttons',
-    'particulars-spray': 'Details centerpiece',
     'detail-ceremony': 'Details · ceremony',
     'detail-reception': 'Details · reception',
     'detail-reply': 'Details · kindly reply',
     'particulars-strip': 'The particulars list',
-    'palette-bow': 'Palette silk bow',
-    'palette-swatches': 'Palette ribbons',
+    'palette-swatches': 'Palette swatches',
     'palette-dresscode': 'Dress code card',
-    'itinerary-spray-a': 'Programme spray · top',
-    'itinerary-spray-b': 'Programme spray · bottom',
-    'day-words': 'Wedding-day programme',
-    'venue-arbor': 'The rose-arbour painting',
+    'itinerary-swag': 'Order-of-the-day garland',
+    'day-words': 'Order of the day',
+    'venue-scene': 'The Orangery painting',
+    'venue-arch': 'The Orangery painting',
     'venue-card': 'Venue details card',
-    'rsvp-frame': 'RSVP rose frame',
-    'countdown-bunting': 'Countdown garland',
-    'countdown-clock': 'Countdown ovals',
-    'closing-garland-top': 'Closing garland · top left',
-    'closing-garland-bottom': 'Closing garland · bottom right',
-    'closing-seal': 'Monogram medallion',
+    'rsvp-frame': 'Reply card petals',
+    'countdown-clock': 'Countdown dials',
+    'closing-swag': 'Closing garland',
+    'closing-sprig': 'Closing sprig',
+    'closing-seal': 'The gold wax seal · closing',
     'closing-actions': 'Closing buttons',
     'footer-ornament': 'Footer ornament'
   };
@@ -455,12 +449,12 @@
       '}' +
       /* decorative pieces ignore pointer events on the guest page —
          the editor needs to reach them for recolour & removal      */
-      '.opening__garland,.opening__glow,.gatefold__bow,.gatefold__tag,' +
-      '.gatefold__door,.hero__garland,.hero__glow,.hero__crest,.hero__petals,' +
-      '.vow__swag,.postcard__stamp,.story__bouquet,.story__mini,.story__quote,' +
-      '.std__glow,.std__rose,.std__ribbon,.particulars__spray,.palette__bow,' +
-      '.itinerary__spray,.venue__arch,.rsvp__frame,.countdown__bunting,' +
-      '.closing__garland,.closing__seal{' +
+      '.opening__spray,.opening__glow,.seal,.sealcard__front,' +
+      '.sealcard__wreath,.hero__spray,.hero__glow,.hero__frame,.hero__crest,' +
+      '.story__keepsake,.story__bouquet,.story__quote,.savethedate__glow,' +
+      '.savethedate__wreath,.itinerary__swag,.venue__painting,.rsvp__spray,' +
+      '.closing__swag,.closing__seal,.hero__corner,.vow__corner,' +
+      '.story__quote-corner,.footer__ornament,.opening__hint-orn{' +
         'pointer-events:auto!important;' +
       '}' +
       '[data-element-key]:not([contenteditable="true"]){cursor:crosshair;}';
@@ -555,8 +549,8 @@
       /* card faces paint over their keyed wrappers — select the
          face itself for recolouring; Remove targets the keyed
          parent (passed as removeKey) so the whole piece comes away */
-      var cardFace = event.target.closest('.gatefold__door-face, .gatefold__inner, ' +
-        '.gatefold__card, .gatefold__tag');
+      var cardFace = event.target.closest('.sealcard__front-face, .sealcard__front-back, ' +
+        '.sealcard__inside, .sealcard__front');
       if (cardFace) {
         event.preventDefault();
         event.stopPropagation();
@@ -996,10 +990,10 @@
       var lines = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//Evermore//Wedding Invitation//EN',
+        'PRODID:-//Aurelia//Wedding Invitation//EN',
         'CALSCALE:GREGORIAN',
         'BEGIN:VEVENT',
-        'UID:' + icsUTC(data.start.getTime()) + '-evermore@invitation',
+        'UID:' + icsUTC(data.start.getTime()) + '-aurelia@invitation',
         'DTSTAMP:' + icsUTC(Date.now()),
         'DTSTART:' + icsUTC(data.start.getTime()),
         'DTEND:' + icsUTC(data.end.getTime()),
