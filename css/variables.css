@@ -1,9 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
-   EVERMORE · variables.css
-   Design tokens — the whole visual identity in one place.
-   Porcelain paper, blush garden roses, champagne gold and
-   whisper-sage foliage. Token names follow the editor's colour
-   roles so the theme picker recolours every surface.
+   EVERMORE · variables.css — "Rose Silk" identity
+   ---------------------------------------------------------------
+   A romantic, all-light wedding palette: warm ivory silk, blush
+   and garden-rose pinks, antique gold and eucalyptus sage.
+   No dark panels anywhere — the whole suite glows like June.
+   Token names follow the editor's colour roles so the theme
+   picker recolours every surface.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -32,23 +34,32 @@
   --night:         #5E343D;
   --night-deep:    #4C2A33;
   --gold:          #C2A165;
+
+  /* ── Derived silk washes — always light, always romantic ────── */
+  --silk:          #FFFDF9;
+  --wash-rose:
+    radial-gradient(58% 44% at 18% 0%, rgba(216, 163, 161, 0.20), transparent 70%),
+    radial-gradient(52% 40% at 86% 12%, rgba(192, 133, 135, 0.14), transparent 72%);
+  --wash-rose-deep:
+    radial-gradient(46% 34% at 82% 88%, rgba(216, 163, 161, 0.22), transparent 74%),
+    radial-gradient(50% 36% at 12% 96%, rgba(192, 133, 135, 0.12), transparent 76%);
   --site-background:
-    radial-gradient(120% 90% at 85% -10%, rgba(216,163,161,.10), transparent 60%),
-    linear-gradient(180deg, #FBF7F0 0%, var(--ivory) 46%, #F8F2E9 100%);
+    radial-gradient(120% 74% at 12% -6%, rgba(216, 163, 161, 0.18), transparent 62%),
+    radial-gradient(110% 64% at 88% 30%, rgba(244, 236, 226, 0.9), transparent 64%),
+    radial-gradient(120% 70% at 20% 104%, rgba(216, 163, 161, 0.14), transparent 60%),
+    linear-gradient(180deg, #FBF5EF 0%, var(--ivory) 44%, #F9F1EC 100%);
 
   /* ── Typography — five voices, five jobs ─────────────────────
-     Editorial     : Cormorant Garamond — headings, numerals, the
-                                          stationery voice
-     Romantic serif: EB Garamond       — prose, leads, small values
-     Expressive    : Parisienne        — ONLY the couple's names and
-                                          signature script moments
-     Handwritten   : La Belle Aurore   — annotations & tiny notes
-     Functional    : Jost              — labels, nav, forms         */
+     Editorial     : Cormorant Garamond — the stationery voice
+     Display       : Playfair Display   — mid headings, numerals
+     Expressive    : Great Vibes        — names & signature script
+     Handwritten   : La Belle Aurore    — annotations & tiny notes
+     Functional    : Lato               — labels, nav, forms         */
   --font-editorial: 'Cormorant Garamond', 'Didot', 'Times New Roman', serif;
-  --font-display: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Parisienne', 'Snell Roundhand', 'Apple Chancery', cursive;
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', 'Snell Roundhand', 'Apple Chancery', cursive;
   --font-hand: 'La Belle Aurore', 'Segoe Script', cursive;
-  --font-body: 'Jost', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Lato', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
 
   /* fluid scale */
   --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.86rem);
@@ -72,15 +83,18 @@
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
 
   /* fine stationery lines */
-  --hairline: 1px solid rgba(172, 141, 87, 0.32);
-  --hairline-soft: 1px solid rgba(172, 141, 87, 0.2);
+  --hairline: 1px solid rgba(194, 161, 101, 0.42);
+  --hairline-soft: 1px solid rgba(194, 161, 101, 0.24);
+  --hairline-rose: 1px solid rgba(167, 106, 111, 0.26);
 
-  /* elevation — paper on paper, always warm */
+  /* elevation — petals on silk, always warm and rosy */
   --shadow-card:
     0 1px 2px rgba(110, 64, 72, 0.05),
-    0 10px 34px rgba(110, 64, 72, 0.09),
-    0 30px 70px rgba(110, 64, 72, 0.08);
-  --shadow-soft: 0 2px 8px rgba(110, 64, 72, 0.06), 0 18px 44px rgba(110, 64, 72, 0.10);
+    0 12px 36px rgba(167, 106, 111, 0.12),
+    0 32px 76px rgba(167, 106, 111, 0.10);
+  --shadow-soft:
+    0 2px 8px rgba(167, 106, 111, 0.07),
+    0 18px 44px rgba(167, 106, 111, 0.12);
   --shadow-seal:
     0 4px 10px color-mix(in srgb, #6E4048 45%, transparent),
     0 14px 30px color-mix(in srgb, #6E4048 28%, transparent);
@@ -92,6 +106,8 @@
   --dur-2: 340ms;
   --dur-3: 720ms;
 
-  --radius-card: 14px;
-  --radius-soft: 10px;
+  /* signature shapes — arches & scallops, the language of the suite */
+  --radius-card: 18px;
+  --radius-soft: 12px;
+  --arch: 999px;
 }

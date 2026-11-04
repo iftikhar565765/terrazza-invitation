@@ -1,12 +1,15 @@
 # Evermore — a romantic garden-rose wedding invitation
 
-An invitation that feels like wedding stationery in the hand: a blush
-envelope sealed with a rose in wax, an arched invitation card framed in
-fine gold, watercolour garden roses leaning into every corner, a
-manuscript story with pressed-rose keepsakes, silk-ribbon palette
-swatches, a reply card with ruled lines — and a velvet-rose finale.
-Fully customisable in the browser with a guided, auto-saving visual
-editor — then published live with one click on Cloudflare.
+An invitation that feels like wedding stationery in the hand: a folded
+silk gatefold card tied with a blush ribbon bow that unties on arrival,
+a rose-wreath monogram crowning an arched announcement, a letterpress
+formal card beneath a garden swag, postcards from the love story, a
+calendar page with a ribbon across it, enclosure cards for the details,
+silk-ribbon palette swatches, moments strung on a gold thread, a rose
+arbour in an arch window, a reply card framed in watercolour roses and
+gold hearts — and a monogram-medallion farewell. Fully customisable in
+the browser with a guided, auto-saving visual editor — then published
+live with one click on Cloudflare.
 
 **Live template pieces**
 

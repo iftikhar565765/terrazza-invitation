@@ -228,51 +228,60 @@
   /* Removable & recolourable pieces of the suite — keyed in HTML
      via data-element-key and hidden through config.hiddenElements. */
   var elementLabels = {
-    'opening-florals-top': 'Garden roses · top',
-    'opening-florals-bottom': 'Garden roses · bottom',
-    'opening-glow': 'Morning glow',
-    'opening-watermark': 'Evermore watermark',
+    'opening-garland-top': 'Rose garland · top left',
+    'opening-garland-bottom': 'Rose garland · bottom right',
+    'opening-glow': 'Silk glow',
     'opening-eyebrow': 'Opening introduction',
     'opening-names': 'Opening names',
-    'envelope-shadow': 'Envelope shadow',
-    'envelope-stamps': 'Rose postage stamp',
-    'envelope-flap': 'Vellum band',
-    'envelope-address': 'Addressee line',
-    'envelope-seal': 'Wax seal',
+    'gatefold-shadow': 'Card shadow',
+    'gatefold-door-left': 'Silk door · left',
+    'gatefold-door-right': 'Silk door · right',
+    'gatefold-bow': 'Silk ribbon bow',
+    'gatefold-address': 'Address tag',
     'opening-hint': 'Invitation hint',
     'open-button': 'Open button',
-    'invite-spray-top': 'Card spray · top',
-    'invite-spray-bottom': 'Card spray · bottom',
-    'folio-quote': 'Keepsake quote card',
-    'folio-note-one': 'Folio note i',
-    'folio-note-two': 'Folio note ii',
-    'folio-note-three': 'Folio note iii',
-    'story-garland-top': 'Rose centerpiece',
-    'story-garland-bottom': 'Rose · corner',
-    'story-caption': 'Story inscription',
-    'story-note': 'Story handwritten note',
+    'hero-garland-top': 'Rose garland · announcement top',
+    'hero-garland-bottom': 'Rose garland · announcement bottom',
+    'hero-glow': 'Announcement glow',
+    'hero-wreath': 'Rose-wreath monogram crest',
+    'hero-eyebrow': 'Announcement introduction',
+    'hero-names': 'First name',
+    'hero-names-two': 'Second name',
+    'hero-actions': 'Announcement buttons',
+    'hero-petals': 'Petal frame · corner',
+    'vow-swag': 'Formal card garland',
+    'story-aside': 'Story side inscription',
+    'story-card-one': 'Story postcard i',
+    'story-card-two': 'Story postcard ii',
     'story-keepsake': 'Stamp & postmark',
-    'std-glow': 'Blush wash',
-    'std-candles': 'Rose centerpiece',
-    'std-note': 'Save-the-date note',
-    'std-seal': 'Save-the-date seal',
+    'story-bouquet': 'The wedding bouquet',
+    'story-quote-card': 'Keepsake quote card',
+    'story-caption': 'Story keepsake print',
+    'story-note': 'Story handwritten note',
+    'std-glow': 'Blush glow',
+    'std-rose': 'Save-the-date roses',
+    'std-ribbon': 'Save-the-date ribbon',
+    'std-actions': 'Calendar buttons',
+    'particulars-spray': 'Details centerpiece',
     'detail-ceremony': 'Details · ceremony',
     'detail-reception': 'Details · reception',
     'detail-reply': 'Details · kindly reply',
-    'details-bouquet': 'The wedding bouquet',
-    'details-arch': 'Laurel monogram crest',
-    'palette-swatches': 'Palette swatches',
+    'particulars-strip': 'The particulars list',
+    'palette-bow': 'Palette silk bow',
+    'palette-swatches': 'Palette ribbons',
     'palette-dresscode': 'Dress code card',
+    'itinerary-spray-a': 'Programme spray · top',
+    'itinerary-spray-b': 'Programme spray · bottom',
     'day-words': 'Wedding-day programme',
-    'venue-lights': 'The venue painting',
-    'venue-ornament': 'Venue ornament',
-    'rsvp-watermark': 'RSVP watermark',
-    'rsvp-ornament': 'RSVP ornament',
-    'countdown-clock': 'Countdown clock',
-    'countdown-wreath': 'Rose wreath',
-    'closing-swag': 'Closing garland',
-    'closing-message': 'Closing message',
-    'closing-seal': 'Closing wax seal',
+    'venue-arbor': 'The rose-arbour painting',
+    'venue-card': 'Venue details card',
+    'rsvp-frame': 'RSVP rose frame',
+    'countdown-bunting': 'Countdown garland',
+    'countdown-clock': 'Countdown ovals',
+    'closing-garland-top': 'Closing garland · top left',
+    'closing-garland-bottom': 'Closing garland · bottom right',
+    'closing-seal': 'Monogram medallion',
+    'closing-actions': 'Closing buttons',
     'footer-ornament': 'Footer ornament'
   };
 
@@ -446,10 +455,12 @@
       '}' +
       /* decorative pieces ignore pointer events on the guest page —
          the editor needs to reach them for recolour & removal      */
-      '.opening__florals,.opening__glow,.opening__watermark,' +
-      '.envelope__seal-wrap,.envelope__stamp,.envelope__band,.invitation-bloom,' +
-      '.story-swag,.fc-quote__bloom,.story-keepsake,.std-candles,.std-glow,' +
-      '.details-art__arch,.venue-lights,.closing-swag,.countdown-wreath{' +
+      '.opening__garland,.opening__glow,.gatefold__bow,.gatefold__tag,' +
+      '.gatefold__door,.hero__garland,.hero__glow,.hero__crest,.hero__petals,' +
+      '.vow__swag,.postcard__stamp,.story__bouquet,.story__mini,.story__quote,' +
+      '.std__glow,.std__rose,.std__ribbon,.particulars__spray,.palette__bow,' +
+      '.itinerary__spray,.venue__arch,.rsvp__frame,.countdown__bunting,' +
+      '.closing__garland,.closing__seal{' +
         'pointer-events:auto!important;' +
       '}' +
       '[data-element-key]:not([contenteditable="true"]){cursor:crosshair;}';
@@ -544,8 +555,8 @@
       /* card faces paint over their keyed wrappers — select the
          face itself for recolouring; Remove targets the keyed
          parent (passed as removeKey) so the whole piece comes away */
-      var cardFace = event.target.closest('.envelope__card-frame, .envelope__card-inner, ' +
-        '.envelope__card, .envelope__band');
+      var cardFace = event.target.closest('.gatefold__door-face, .gatefold__inner, ' +
+        '.gatefold__card, .gatefold__tag');
       if (cardFace) {
         event.preventDefault();
         event.stopPropagation();

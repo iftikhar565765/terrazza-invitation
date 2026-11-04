@@ -12,10 +12,10 @@ window.HEIRLOOM = {
 
   /* ── The couple — SAMPLE content, replace with your names ────── */
   couple: {
-    partnerOne: "Aurelia",                   // SAMPLE
-    partnerTwo: "James",                     // SAMPLE
-    initials:  "A · J",                      // SAMPLE — used on seals & monograms
-    namesLine: "Aurelia & James"             // SAMPLE — used across the site
+    partnerOne: "Evangeline",                // SAMPLE
+    partnerTwo: "Charles",                   // SAMPLE
+    initials:  "E · C",                      // SAMPLE — used on seals & monograms
+    namesLine: "Evangeline & Charles"        // SAMPLE — used across the site
   },
 
   /* ── The wedding date & time ─────────────────────────────────
@@ -23,22 +23,22 @@ window.HEIRLOOM = {
            countdown and the calendar files are correct on every
            guest's device, wherever they are in the world.
            Format: "YYYY-MM-DDTHH:MM:SS±HH:MM"
-           The sample below = 12 June 2027, 4:00 PM, GMT+1 (BST).
+           The sample below = 19 June 2027, 4:00 PM, GMT+1 (BST).
      display / words / numerals : how the date reads in the copy. */
   wedding: {
-    iso: "2027-06-12T16:00:00+01:00",                                  // EDIT
-    endIso: "2027-06-13T00:30:00+01:00",                               // EDIT — end of the celebration
-    display: "Saturday, 12 June 2027 · Four in the afternoon",        // EDIT
+    iso: "2027-06-19T16:00:00+01:00",                                   // EDIT
+    endIso: "2027-06-20T00:30:00+01:00",                                // EDIT — end of the celebration
+    display: "Saturday, 19 June 2027 · Four in the afternoon",         // EDIT
     zoneLabel: "BST",                                                  // EDIT — optional note for guests abroad
-    words: "Saturday · The Twelfth of June · Two Thousand Twenty-Seven", // EDIT
-    numerals: "12 · 06 · 2027",                                       // EDIT
-    eventTitle: "Aurelia & James — Wedding"                           // EDIT (calendar entry)
+    words: "Saturday · The Nineteenth of June · Two Thousand Twenty-Seven", // EDIT
+    numerals: "19 · 06 · 2027",                                       // EDIT
+    eventTitle: "Evangeline & Charles — Wedding"                      // EDIT (calendar entry)
   },
 
   /* ── The venue ──────────────────────────────────────────────── */
   venue: {
-    name: "The Rose Garden at Ashcombe Manor",   // SAMPLE
-    address: "Ashcombe Manor, the Cotswolds",    // SAMPLE
+    name: "The Walled Garden at Rosethwaite Manor",   // SAMPLE
+    address: "Rosethwaite Manor, the Surrey Hills",   // SAMPLE
     mapsQuery: "",                               // optional Maps search override
     /* A full URL here overrides the map link built above, e.g. an
        exact Google Maps place link or an Apple Maps URL.          */
@@ -48,10 +48,10 @@ window.HEIRLOOM = {
   /* ── Copy shown throughout the invitation ────────────────────
      The visual editor can change these values without editing HTML. */
   content: {
-    pageTitle: "Aurelia & James · 12 June 2027 — The Rose Garden at Ashcombe Manor",
-    pageDescription: "Aurelia and James request the pleasure of your company in the rose garden at Ashcombe Manor on Saturday the twelfth of June 2027. Open your invitation.",
-    socialTitle: "Aurelia & James — An Invitation · 12.06.2027",
-    socialDescription: "Roses, ivory and champagne gold — you are cordially invited.",
+    pageTitle: "Evangeline & Charles · 19 June 2027 — The Walled Garden at Rosethwaite Manor",
+    pageDescription: "Evangeline and Charles request the pleasure of your company in the walled garden at Rosethwaite Manor on Saturday the nineteenth of June 2027. Open your invitation.",
+    socialTitle: "Evangeline & Charles — An Invitation · 19.06.2027",
+    socialDescription: "Roses, silk ribbons and a June afternoon — you are warmly invited.",
     navStory: "Story",
     navDetails: "Details",
     navVenue: "Venue",
@@ -67,18 +67,18 @@ window.HEIRLOOM = {
     menuCountdown: "The Countdown",
     menuClosing: "A Closing Note",
     openingEyebrow: "The wedding of",
-    openingHint: "You are cordially invited",
+    openingHint: "Untie the bow",
     openButton: "Open the Invitation",
     skipButton: "Skip straight to the invitation",
     envelopeAddress: "friends & family",
     invitationEyebrow: "Together with their families",
-    invitationLead: "request the pleasure of your company as they exchange vows in the rose garden, and dine beneath the open sky as the evening turns to gold.",
-    invitationVenueSuffix: "· the Cotswolds",
+    invitationLead: "request the honour of your presence as they exchange vows beneath the rose arch, and celebrate the golden evening away with dinner, dancing and a toast or two.",
+    invitationVenueSuffix: "· Surrey Hills",
     storyKicker: "№ 02 · Their Story",
     storyTitle: "Our",
     storyTitleScript: "Story",
-    storyParagraphOne: "We met on a June morning, beneath roses that had climbed further than anyone intended — a borrowed umbrella, a sudden shower, and one long conversation neither of us wanted to end.",
-    storyParagraphTwo: "Seven years, two cities and one rather opinionated cat later, we are finally planting the garden we always talked about. Nothing would mean more than to have you standing beside us when we do.",
+    storyParagraphOne: "We met one rain-washed June morning, beneath roses that had climbed further than anyone intended — a borrowed umbrella, a shared laugh, and one long conversation neither of us wanted to end.",
+    storyParagraphTwo: "Seven years, two cities and one rather opinionated cat later, we are finally planting the garden we always talked about. Nothing would mean more than to have you standing beside us when we say forever.",
     storyQuote: "“Somewhere between the first hello and every promise since, we found our always.”",
     storyQuoteLabel: "— a page from our notebook",
     storyNote: "written beneath the roses, one june",
@@ -98,7 +98,7 @@ window.HEIRLOOM = {
     detailsIntro: "The day, at a glance.",
     ceremonyLabel: "The Ceremony",
     ceremonyTime: "Four in the afternoon",
-    ceremonyNote: "Vows in the rose garden as the light turns golden.",
+    ceremonyNote: "Vows beneath the rose arch as the light turns golden.",
     receptionLabel: "The Reception",
     receptionTime: "Six in the evening",
     receptionNote: "A long dinner beneath the linen marquee and dancing until the stars arrive.",
@@ -116,7 +116,7 @@ window.HEIRLOOM = {
     paletteKicker: "№ 05 · A Note on Colour",
     paletteTitleFirst: "The wedding",
     paletteTitleSecond: "palette",
-    paletteIntro: "A study in blush rose, porcelain ivory and champagne gold — chosen to feel like an English June.",
+    paletteIntro: "A study in rose silk, warm ivory and antique gold — chosen to feel like a June afternoon in the garden.",
     dressCodeLabel: "Attire · Garden celebration",
     dressCodeTitle: "Garden formal",
     dressCodeNote: "Soft colours, silk and a touch of gold. The palette is only a suggestion — wear what makes you feel wonderful.",
@@ -124,9 +124,9 @@ window.HEIRLOOM = {
     weddingDayTitleFirst: "The Wedding",
     weddingDayTitleSecond: "Day",
     venueKicker: "№ 07 · The Place",
-    venueDescription: "A Georgian manor wrapped in climbing roses and old walled gardens — where the vows are said beneath the orangery arches and dinner is served as the light fades to gold.",
+    venueDescription: "A Georgian manor wrapped in climbing roses and old walled gardens — where the vows are said beneath the rose arch and dinner is served as the light fades to gold.",
     venueCeremonyLabel: "Ceremony",
-    venueCeremonyText: "in the rose garden, at four in the afternoon",
+    venueCeremonyText: "in the walled garden, at four in the afternoon",
     venueReceptionLabel: "Reception",
     venueReceptionText: "dinner & dancing beneath the linen marquee",
     mapButton: "View Location",
@@ -159,29 +159,29 @@ window.HEIRLOOM = {
     countdownPromise: "“I do”",
     closingScript: "with all our love",
     closingMessage: "Thank you, from the bottom of our hearts, for being part of our story. We cannot wait to celebrate with you among the roses and the golden evening light, in a garden that will forever be the beginning of our always.",
-    footerTagline: "A vow, a rose, a forever."
+    footerTagline: "Two hearts, one garden, always."
   },
 
   palette: [
-    { name: "Porcelain",     color: "#FAF6EF" },
-    { name: "Blush",         color: "#EFD6D2" },
-    { name: "Dusty Rose",    color: "#C08587" },
-    { name: "Champagne",     color: "#C2A165" },
-    { name: "Whisper Sage",  color: "#B4BBA6" }
+    { name: "Ivory Silk",    color: "#FBF6EE" },
+    { name: "Blush Petal",   color: "#F0D9D6" },
+    { name: "Garden Rose",   color: "#D8A3A1" },
+    { name: "Antique Gold",  color: "#C9A26B" },
+    { name: "Eucalyptus",    color: "#AEBBA6" }
   ],
   theme: "blush",
   themeColors: {},
   fonts: {
     editorial: "cormorant",
-    display: "ebGaramond",
-    script: "parisienne",
+    display: "playfair",
+    script: "greatVibes",
     hand: "laBelle",
-    body: "jost"
+    body: "lato"
   },
 
   /* ── Wedding-day moments — SAMPLE words for the wedding programme.
      Use one short word per entry; an empty list hides the section. */
-  moments: ["Arrival", "Vows", "Aperitifs", "The Feast", "Toasts", "First Dance", "Carriages"],
+  moments: ["Arrival", "The Vows", "Champagne", "The Feast", "Toasts", "First Dance", "Carriages"],
 
   /* ── RSVP ─────────────────────────────────────────────────────
      endpoint : leave "" for the honest demonstration mode — the
@@ -194,7 +194,7 @@ window.HEIRLOOM = {
   rsvp: {
     endpoint: "",
     maxGuests: 2,
-    deadline: "the twelfth of April, 2027"         // SAMPLE
+    deadline: "the nineteenth of May, 2027"        // SAMPLE
   },
 
   /* ── Countdown wording (invalid or passed dates) ─────────────── */

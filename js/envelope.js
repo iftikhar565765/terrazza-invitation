@@ -1,9 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
-   NOCTURNE · envelope.js
-   The opening experience — the wax seal breaks, the vellum band
-   slides away, and the card is lifted from the garden table.
+   EVERMORE · gatefold.js (loaded as envelope.js)
+   The opening ceremony — the silk bow unties, the two doors of
+   the folded card swing open, and the invitation lifts into the
+   June light.
    · GSAP choreography when GSAP is available
-   · Pure-CSS keyframe fallback when GSAP fails to load
+   · Pure-CSS transition fallback when GSAP fails to load
    · Instant, motion-free handover under prefers-reduced-motion
    · Always escapable: skip control, the open button, Escape key
    ═══════════════════════════════════════════════════════════════ */
@@ -16,23 +17,25 @@
 
   var body = document.body;
   var opening = document.getElementById('opening');
-  var envelope = document.getElementById('envelope');
+  var gatefold = document.getElementById('gatefold');
   var skipBtn = document.getElementById('skip-intro');
   var openBtn = document.getElementById('open-invitation');
 
-  if (!opening || !envelope) {
+  if (!opening || !gatefold) {
     // Nothing to orchestrate — reveal the site immediately.
     body.classList.remove('intro-pending');
     body.classList.add('intro-done');
     return;
   }
 
-  var card = envelope.querySelector('.envelope__card');
-  var band = envelope.querySelector('.envelope__band');
-  var sealWrap = envelope.querySelector('.envelope__seal-wrap');
+  var card = gatefold.querySelector('.gatefold__card');
+  var doorLeft = gatefold.querySelector('.gatefold__door--left');
+  var doorRight = gatefold.querySelector('.gatefold__door--right');
+  var bow = gatefold.querySelector('.gatefold__bow');
+  var tag = gatefold.querySelector('.gatefold__tag');
   var fadingParts = '.opening__eyebrow, .opening__names, .opening__hint, ' +
-                    '.opening__florals, .opening__glow, .opening__watermark, ' +
-                    '.table-shadow, .envelope__stamp';
+                    '.opening__garland, .opening__glow, .gatefold-shadow, ' +
+                    '.opening__open, .opening__skip';
 
   var reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   var hasGsap = typeof window.gsap !== 'undefined';
@@ -54,8 +57,6 @@
     body.classList.add('intro-done');
 
     // Hand focus to the invitation headline for keyboard & screen readers.
-    // preventScroll keeps the arrival at the very top of the suite —
-    // focusing must never yank the guest into the middle of the card.
     var h1 = document.getElementById('invitation-title');
     if (h1) {
       try { h1.focus({ preventScroll: true }); } catch (e) { h1.focus(); }
@@ -75,60 +76,67 @@
 
   /* ── GSAP choreography ───────────────────────────────────────── */
   function openWithGsap() {
-    envelope.classList.add('is-open');
+    gatefold.classList.add('is-open');
 
-    gsap.set(envelope, { rotation: -1.6 });
-    gsap.set(card, { yPercent: 0, scale: 1 });
-    gsap.set(band, { xPercent: 0, opacity: 1 });
-    gsap.set(sealWrap, { rotation: 0, y: 0, scale: 1, opacity: 1 });
+    gsap.set(gatefold, { y: 0, scale: 1 });
+    gsap.set(bow, { xPercent: -50, yPercent: -50, rotation: 0, scale: 1, opacity: 1 });
+    gsap.set(tag, { xPercent: 0, y: 0, opacity: 1 });
+    gsap.set(doorLeft, { rotationY: 0 });
+    gsap.set(doorRight, { rotationY: 0 });
 
     timeline = gsap.timeline({ onComplete: function () { completeIntro(false); } });
 
     timeline
       /* 1 · the card acknowledges the touch */
-      .to(envelope, { rotation: 0, scale: 1.025, duration: 0.38, ease: 'power2.out' })
+      .to(gatefold, { scale: 1.03, duration: 0.4, ease: 'power2.out' })
 
-      /* 2 · the wax seal cracks and drops from the card */
-      .to(sealWrap, {
-        rotation: 26, y: 84, scale: 0.7, opacity: 0,
-        duration: 0.72, ease: 'power1.in'
-      }, 0.1)
+      /* 2 · the silk bow unties and slips away */
+      .to(bow, {
+        rotation: 14, yPercent: 30, scale: 0.8, opacity: 0,
+        duration: 0.85, ease: 'power1.in'
+      }, 0.12)
 
-      /* 3 · the vellum band slides away like a sleeve */
-      .to(band, { xPercent: 125, opacity: 0, duration: 0.9, ease: 'power2.in' }, 0.46)
+      /* 3 · the little tag falls with it */
+      .to(tag, { y: 54, opacity: 0, duration: 0.6, ease: 'power1.in' }, 0.3)
 
-      /* 4 · the card is lifted from the table toward the viewer */
-      .to(card, { yPercent: -7, scale: 1.9, duration: 0.98, ease: 'power2.in' }, 1.32)
+      /* 4 · the two silk doors swing open */
+      .to(doorLeft, { rotationY: -108, duration: 1.15, ease: 'power2.inOut' }, 0.62)
+      .to(doorRight, { rotationY: 108, duration: 1.15, ease: 'power2.inOut' }, 0.62)
 
-      /* 5 · the table setting fades — the invitation begins */
-      .to(fadingParts, { opacity: 0, duration: 0.5, ease: 'power1.out' }, 1.42)
+      /* 5 · the letter inside warms into view */
+      .to(card.querySelector('.gatefold__inner'), { opacity: 1, duration: 0.7, ease: 'power1.out' }, 1.05)
 
-      /* 6 · the lifted card dissolves as the page materialises behind it */
-      .to(envelope, { scale: 2.02, opacity: 0, duration: 0.58, ease: 'power2.in' }, 1.78)
+      /* 6 · the opened card lifts toward the light */
+      .to(gatefold, { y: -24, scale: 1.1, duration: 0.9, ease: 'power2.inOut' }, 1.62)
 
-      /* 7 · the cover sheet lifts away, crossfading into the suite */
-      .to(opening, { opacity: 0, duration: 0.62, ease: 'power1.inOut' }, 1.86);
+      /* 7 · the garden table fades — the invitation begins */
+      .to(fadingParts, { opacity: 0, duration: 0.5, ease: 'power1.out' }, 1.72)
+
+      /* 8 · the opened card dissolves as the page materialises */
+      .to(gatefold, { scale: 1.32, opacity: 0, duration: 0.6, ease: 'power2.in' }, 2.08)
+
+      /* 9 · the cover sheet lifts away, crossfading into the suite */
+      .to(opening, { opacity: 0, duration: 0.62, ease: 'power1.inOut' }, 2.16);
   }
 
-  /* ── CSS-keyframes fallback (no GSAP) ────────────────────────── */
+  /* ── CSS-transition fallback (no GSAP) ───────────────────────── */
   function openWithFallback() {
-    var wait = reducedQuery.matches ? 300 : 3100;
-    envelope.classList.add('is-fallback-open');
+    var wait = reducedQuery.matches ? 300 : 3350;
+    gatefold.classList.add('is-fallback-open');
     window.setTimeout(function () { completeIntro(true); }, wait);
   }
 
   /* ── Reduced motion: quiet, near-instant handover ─────────────── */
   function openReduced() {
-    envelope.classList.add('is-open');
+    gatefold.classList.add('is-open');
     window.setTimeout(function () { completeIntro(true); }, 120);
   }
 
   /* ── Entry point ─────────────────────────────────────────────── */
   function open() {
-    if (inEditor) return;
     if (started || finished) return;
     started = true;
-    skipBtn.disabled = true;
+    if (skipBtn) skipBtn.disabled = true;
     if (openBtn) openBtn.disabled = true;
 
     if (reducedQuery.matches)      openReduced();
@@ -136,19 +144,23 @@
     else                           openWithFallback();
   }
 
-  /* Inside the customizer preview the card is an editable scene,
+  /* Inside the customizer preview the cover is an editable scene,
      not a control — clicks select & recolour its parts instead of
      opening it. Guests (top-level page) keep the full choreography. */
   var inEditor = window.parent !== window;
 
-  envelope.addEventListener('click', open);
-  if (!inEditor && openBtn) openBtn.addEventListener('click', open);
+  if (!inEditor) {
+    gatefold.addEventListener('click', open);
+    if (openBtn) openBtn.addEventListener('click', open);
+  }
 
-  skipBtn.addEventListener('click', function () {
-    if (started) return;
-    started = true;
-    completeIntro(true);
-  });
+  if (skipBtn) {
+    skipBtn.addEventListener('click', function () {
+      if (started) return;
+      started = true;
+      completeIntro(true);
+    });
+  }
 
   // Escape always offers a way out of the opening.
   document.addEventListener('keydown', function (e) {
@@ -163,7 +175,7 @@
     if (!finished) return;
     finished = false;
     started = false;
-    skipBtn.disabled = false;
+    if (skipBtn) skipBtn.disabled = false;
     if (openBtn) openBtn.disabled = false;
 
     if (window.ScrollTrigger) {
@@ -171,19 +183,19 @@
     }
 
     // Reset the card to its sealed state.
-    envelope.classList.remove('is-open', 'is-fallback-open');
-    [card, band, sealWrap].forEach(function (el) {
+    gatefold.classList.remove('is-open', 'is-fallback-open');
+    [card, doorLeft, doorRight, bow, tag].forEach(function (el) {
       if (el && el.style) el.removeAttribute('style');
     });
-    envelope.querySelectorAll('.envelope__stamp').forEach(function (el) {
+    gatefold.querySelectorAll('.gatefold__inner').forEach(function (el) {
       el.removeAttribute('style');
     });
     opening.querySelectorAll('.opening__eyebrow, .opening__names, .opening__hint, ' +
-      '.opening__florals, .opening__glow, .opening__watermark, .table-shadow')
+      '.opening__garland, .opening__glow, .gatefold-shadow, .opening__open, .opening__skip')
       .forEach(function (el) { el.removeAttribute('style'); });
     if (hasGsap) {
-      gsap.set([card, band, sealWrap], { clearProps: 'all' });
-      gsap.set(envelope, { clearProps: 'all' });
+      gsap.set([card, doorLeft, doorRight, bow, tag], { clearProps: 'all' });
+      gsap.set(gatefold, { clearProps: 'all' });
     }
 
     // Reset the overlay.
@@ -200,7 +212,7 @@
     catch (e) { window.scrollTo(0, 0); }
 
     window.setTimeout(function () {
-      try { envelope.focus({ preventScroll: true }); } catch (e) { envelope.focus(); }
+      try { gatefold.focus({ preventScroll: true }); } catch (e) { gatefold.focus(); }
     }, 60);
   };
 

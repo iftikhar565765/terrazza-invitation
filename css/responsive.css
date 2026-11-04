@@ -1,150 +1,135 @@
 /* ═══════════════════════════════════════════════════════════════
-   EVERMORE · responsive.css
-   Tablet & phone refinements. The suite is built mobile-first;
-   these rules widen the compositions and then re-tune them.
+   EVERMORE · responsive.css — "Rose Silk"
+   Every scene re-flows for tablets and phones: garlands tuck in,
+   grids stack, the gatefold shrinks, ovals pair up. Nothing
+   overflows, nothing overlaps, tap targets stay generous.
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── desktop ≥ 720px ────────────────────────────────────────── */
-@media (min-width: 720px) {
-  .invite-side { display: inline-flex; }
+/* ══ tablet and down ════════════════════════════════════════════ */
 
-  .story-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: var(--space-5);
-  }
-
-  .details-grid {
-    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
-    gap: var(--space-5);
-  }
-
-  .venue-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: var(--space-5);
-  }
-
-  .std-actions,
-  .invite-actions { gap: 1rem; }
-}
-
-/* ── short viewports: the opening must always fit ───────────── */
-@media (max-height: 760px) and (min-width: 721px) {
-  .opening__names { font-size: clamp(2.2rem, 5.5vw, 3.2rem); margin-bottom: 0.3rem; }
-  .opening__eyebrow { margin-bottom: 0.1rem; }
-  .envelope { width: min(74vw, 460px); }
-  .envelope-stage { margin-block: 0.2rem 0.6rem; }
-  .opening__open { margin-top: 0.55rem; }
-  .opening__skip { margin-top: 0.5rem; }
-}
-
-@media (max-height: 680px) {
-  .opening__florals { width: clamp(140px, 24vw, 240px); }
-  .opening__watermark { font-size: 22rem; }
-  .envelope { width: min(62vw, 400px); }
-  .opening__hint { display: none; }
-}
-
-/* ── phones ≤ 560px ─────────────────────────────────────────── */
-@media (max-width: 560px) {
-  .scene { padding-block: var(--space-5); }
-  .scene--invitation { padding-top: calc(var(--space-4) + 2.2rem); }
-
-  /* navigation collapses to brand + controls */
+@media (max-width: 1020px) {
   .nav__links { display: none; }
+  .menu-toggle { display: inline-grid; }
 
-  .nav__wordmark { font-size: 1.18rem; }
-  .nav__mono { width: 2.2rem; height: 2.2rem; font-size: 0.92rem; }
-
-  /* the arched invitation card, tuned for narrow glass */
-  .invite-card {
-    border-radius: 999px 999px 10px 10px;
-    padding: 2.9rem 1.25rem 2.2rem;
-  }
-  .invite-card__frame { inset: 8px; }
-  .invite-card__spray--tl { top: -22px; left: -26px; width: 128px; }
-  .invite-card__spray--br { bottom: -20px; right: -26px; width: 128px; }
-  .invite-card__names { font-size: clamp(2.9rem, 13.5vw, 3.6rem); }
-  .invite-card__lead { margin-bottom: 1.2rem; }
-  .invite-card__ornament { width: 104px; margin-bottom: 1.2rem; }
-  .invite-card__venue { margin-bottom: 1.7rem; }
-
-  .invite-actions .btn,
-  .std-actions .btn,
-  .closing-actions .btn {
-    width: min(100%, 300px);
+  .story__grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  /* story keepsakes stack neatly */
-  .fc-note--one,
-  .fc-note--two,
-  .fc-note--three {
-    justify-self: center;
-    width: min(100%, 19rem);
-  }
-  .fc-quote { padding: 2.2rem 1.4rem 1.7rem; }
-  .fc-quote__bloom { width: 62px; top: -20px; right: -8px; }
-  .story-keepsake { right: 0; bottom: -1.4rem; }
+  .story__bouquet { grid-column: 1; grid-row: 1; width: min(240px, 70%); }
+  .postcard--first { grid-column: 2; grid-row: 1 / span 2; }
+  .postcard--second { grid-column: 1; grid-row: 2; }
+  .story__quote { grid-column: 1 / -1; }
+  .story__mini { grid-column: 1 / -1; }
+  .story__note { grid-column: 1 / -1; }
 
-  /* save the date */
-  .std-candles { margin-bottom: 0.4rem; }
-  .std-date { padding-inline: 1.4rem; }
-  .std-date::before, .std-date::after { width: 2.2rem; }
-  .std-date-eyebrow { letter-spacing: 0.24em; }
-
-  /* details list tightens */
-  .detail-item { gap: 0.9rem; padding-block: 1.25rem; }
-  .details-art__arch { width: min(88%, 320px); margin-bottom: -1.6rem; }
-  .details-art__bouquet { width: min(72%, 270px); }
-
-  /* palette swatches wrap tighter */
-  .palette-swatches { gap: 1.2rem 1.1rem; }
-  .swatch { width: 60px; height: 80px; }
-
-  /* programme words wrap into a gentle braid */
-  .day-words { gap: 0.7rem 0; }
-  .day-word { gap: 0.65rem; }
-  .day-word__text { font-size: clamp(1.3rem, 6vw, 1.7rem); }
-
-  /* venue */
-  .venue-plate { border-radius: 24px; padding: 10px; }
-  .venue-name { font-size: clamp(1.7rem, 7.4vw, 2.3rem); }
-  .venue-aside { justify-items: center; text-align: center; }
-  .venue-address { flex-direction: column; gap: 0.45rem; text-align: center; }
-
-  /* countdown — 2 × 2 grid, no separators */
-  .countdown-wreath { width: min(120vw, 420px); opacity: 0.38; }
-  .count-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(110px, 1fr));
-    gap: 1.5rem 1rem;
-    max-width: 20rem;
-    margin-inline: auto;
-  }
-  .count-unit + .count-unit::before { display: none; }
-
-  /* closing */
-  .closing-swag { width: 92vw; top: -14px; }
-
-  .footer { padding-block: var(--space-4) var(--space-3); }
+  .enclosures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .enclosure--raised { transform: none; }
+  .enclosure--raised:hover { transform: translateY(-5px); }
 }
 
-/* ── very small phones ≤ 380px ──────────────────────────────── */
-@media (max-width: 380px) {
-  .invite-card__names { font-size: 2.7rem; }
-  .opening__names { font-size: 2.4rem; }
-  .std-date { font-size: 2.5rem; }
-  .count-row { grid-template-columns: repeat(2, minmax(90px, 1fr)); }
-  .menu a span:last-child { font-size: 1.25rem; }
+/* ══ phones ═════════════════════════════════════════════════════ */
+
+@media (max-width: 760px) {
+  .nav__inner { padding-block: 0.6rem; }
+
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--space-5) + 4.5rem);
+  }
+
+  .hero__stage { width: 100%; }
+
+  .hero__crest { margin-bottom: calc(clamp(58px, 17vw, 80px) * -1); }
+
+  .hero__petals { opacity: 0.5; right: -18vw; }
+
+  .story__aside { display: none; }
+
+  .story__grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .story__bouquet {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(230px, 64%);
+    margin: 0 auto;
+    order: 5;
+  }
+
+  .postcard--first { grid-column: 1; grid-row: auto; }
+  .postcard--second { grid-column: 1; grid-row: auto; }
+
+  .postcard { rotate: 0deg; }
+  .postcard--second { rotate: 0deg; }
+  .postcard__postmark { right: -18px; }
+
+  .story__mini { max-width: 210px; }
+
+  .enclosures { grid-template-columns: 1fr; max-width: 420px; }
+
+  .particulars__list { grid-template-columns: 1fr; }
+
+  .palette__swatches { gap: 1.1rem; padding-inline: 1rem; }
+
+  .venue__moments { grid-template-columns: 1fr; gap: 1.1rem; }
+
+  .venue__card { margin-top: calc(var(--space-2) * -1); }
+
+  .attendance { grid-template-columns: 1fr; }
+
+  .countdown__clock { gap: 1.1rem; padding-top: 2.2rem; }
+  .countdown__oval { width: clamp(132px, 38vw, 158px); height: clamp(160px, 46vw, 190px); }
+  .countdown__oval::before { height: 1.6rem; }
+
+  .closing__garland { width: clamp(150px, 42vw, 260px); opacity: 0.85; }
+
+  .closing__actions { flex-direction: column; }
 }
 
-/* ── landscape phones (height very short) ───────────────────── */
-@media (max-height: 460px) and (orientation: landscape) {
-  .opening { overflow: auto; }
-  .opening__florals, .petal-drift { display: none; }
-  .opening__names { font-size: 1.9rem; margin-bottom: 0.2rem; }
-  .envelope { width: min(52vw, 380px); }
-  .envelope-stage { margin-block: 0.15rem 0.4rem; }
-  .opening__open { margin-top: 0.4rem; }
-  .opening__skip { margin-top: 0.35rem; }
-  .opening__hint { display: none; }
+@media (max-width: 560px) {
+  main > section { padding-inline: 1.1rem; }
+
+  .hero__actions .btn { width: 100%; }
+
+  .std::before { left: 10%; }
+  .std::after { right: 10%; }
+
+  .std__rose { left: -12px; top: -40px; width: 96px; }
+
+  .std__ribbon { padding-inline: 1.8rem; }
+  .std__ribbon-inner { font-size: 1.4rem; }
+
+  .postcard__stamp { width: 68px; top: -20px; right: -8px; }
+  .postcard__postmark { width: 58px; height: 58px; top: -26px; right: -26px; }
+
+  .rsvp__frame { inset: max(-40px, -6vw) max(-26px, -4vw); opacity: 0.42; }
+
+  .enclosure { padding: 1.9rem 1.3rem 1.7rem; }
+
+  .menu__links a { font-size: clamp(1.7rem, 7.2vw, 2.1rem); }
+
+  .footer { padding-top: var(--space-4); }
 }
+
+/* ══ short landscape phones — the opening must always fit ══════ */
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .opening__inner { gap: 0.4rem; padding-block: 0.8rem; }
+  .opening__names { font-size: clamp(1.6rem, 5.4vh, 2.2rem); }
+  .gatefold-stage { display: none; }
+  .opening__hint { margin-top: 0.2rem; }
+  .opening__skip { margin-top: 0.2rem; }
+}
+
+/* ══ wide screens — keep the suite intimate ═════════════════════ */
+
+@media (min-width: 1600px) {
+  .hero__stage { width: min(720px, 100%); }
+  .story__grid { max-width: 1160px; }
+}
+
+/* ══ editor-live niceties (customizer preview) ══════════════════ */
+
+body.editor-live [data-drift] { transform: none !important; }
