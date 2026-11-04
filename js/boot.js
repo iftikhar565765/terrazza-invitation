@@ -37,7 +37,7 @@
     var notice = document.createElement('div');
     notice.setAttribute('role', 'alert');
     notice.textContent = message;
-    notice.style.cssText = 'position:fixed;z-index:99999;inset:0;display:grid;place-items:center;padding:2rem;background:#24090d;color:#f7f4ee;font:18px Georgia,serif;text-align:center';
+    notice.style.cssText = 'position:fixed;z-index:99999;inset:0;display:grid;place-items:center;padding:2rem;background:#5E343D;color:#FAF6EF;font:18px Georgia,serif;text-align:center';
     document.body.appendChild(notice);
     document.body.classList.remove('intro-pending');
   }

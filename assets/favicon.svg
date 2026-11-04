@@ -1,11 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- La Terrazza · a lemon on majolica blue -->
-  <rect width="64" height="64" rx="14" fill="#243841"/>
-  <g transform="rotate(38 32 34)">
-    <ellipse cx="32" cy="34" rx="12.5" ry="9" fill="#D9A648"/>
-    <path d="M44.5 32c2.8-.4 4.6.6 4.4 2.2-.2 1.5-2.2 2.3-4.6 1.8Z" fill="#D9A648"/>
-    <path d="M32 22.6c6.8 0 12 4.6 12 11" fill="none" stroke="#FCF7EB" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
-    <path d="M32 22.5c-1.6-3-1-5.4 1.6-7.2 1.8 2.6 1.4 5.2-.8 7.4Z" fill="#7C7C4E"/>
-    <path d="M38 20c2.4-1.8 4.8-1.6 6.6.6-2.2 1.8-4.6 1.8-6.6-.6Z" fill="#656640"/>
+  <!-- Evermore · a blush rose in a champagne ring -->
+  <rect width="64" height="64" rx="16" fill="#FAF6EF"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#C2A165" stroke-width="1.6" opacity=".85"/>
+  <g transform="translate(20 20)">
+    <!-- outer petals -->
+    <path d="M12 2c5.6 0 10 3.4 10 8.6 3.4 1.8 5 5.2 3.6 8.6 2 2.6 1.4 6-1.4 7.8.2 3.4-2.6 6-6.2 5.8-2 2.8-6.2 3.2-9 .8-3.4 1.2-7-.4-8-3.8-3.2-.8-5.2-4-4.4-7.2-2.4-2.2-2.6-5.8-.4-8.2C-4.2 11-2.6 7.6.8 6.6 1.6 3.4 4.8 1.4 8 2.2 9 2 10.5 2 12 2Z" fill="#E9C7C5"/>
+    <!-- inner rose swirl -->
+    <path d="M12 9.5c3.4 0 6 2 6 4.8 0 2.6-2.2 4.4-5 4.4-2.4 0-4.2-1.4-4.2-3.4 0-1.8 1.4-3 3.4-3 1.6 0 2.8 1 2.8 2.4" fill="none" stroke="#B76E74" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M12 6c5 0 8.8 3.2 8.8 7.6 0 4-3 6.8-7.2 6.8" fill="none" stroke="#B76E74" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+    <!-- leaves -->
+    <path d="M4 34c1.8-4 4.6-6.2 8.4-6.6-.8 4-3.4 6.4-8.4 6.6Z" fill="#97A28B"/>
+    <path d="M22 33c-.6-4.2-3-6.8-6.6-7.8.2 4 2.4 6.6 6.6 7.8Z" fill="#7E8A73"/>
   </g>
 </svg>

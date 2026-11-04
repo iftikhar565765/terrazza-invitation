@@ -90,7 +90,7 @@ export async function withinRateLimit(env, request, scope, limit, windowSeconds)
 
 export function publicConfig(record) {
   const config = JSON.parse(record.config_json);
-  config.templateId = record.template_id || "terrazza";
+  config.templateId = record.template_id || "evermore";
   config.rsvp = config.rsvp && typeof config.rsvp === "object" ? config.rsvp : {};
   config.rsvp.endpoint = `/api/rsvp?id=${encodeURIComponent(record.id)}`;
   config.rsvp.maxGuests = record.max_guests;

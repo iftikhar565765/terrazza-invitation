@@ -518,7 +518,7 @@
   }
 
   function prepareConfigForPublish() {
-    config.templateId = config.templateId || 'terrazza';
+    config.templateId = config.templateId || 'evermore';
     sendPreview();
     return Promise.resolve(clone(config));
   }
@@ -1149,19 +1149,19 @@
   /* ── design step: curated moods & voices ───────────────────── */
 
   var THEME_META = [
-    { key: 'terracotta', name: 'Terracotta sun', chips: ['#A85432', '#F8F1E3', '#D9A648', '#243841'] },
-    { key: 'aegean', name: 'Majolica sea', chips: ['#33607A', '#F4F2E9', '#D9A648', '#1C2F39'] },
-    { key: 'limone', name: 'Lemon grove', chips: ['#A07B23', '#FAF5E1', '#CE9A3A', '#2A2D1E'] },
-    { key: 'oliva', name: 'Olive terrace', chips: ['#6B7048', '#F7F4E9', '#C9A86A', '#272A1E'] }
+    { key: 'blush', name: 'Blush garden', chips: ['#A76A6F', '#FAF6EF', '#C2A165', '#5E343D'] },
+    { key: 'porcelain', name: 'Porcelain ivory', chips: ['#B08D57', '#FBF8F1', '#C9A86A', '#4E463C'] },
+    { key: 'meadow', name: 'Sage meadow', chips: ['#74836B', '#F8F8F0', '#BFA46A', '#3D4637'] },
+    { key: 'powder', name: 'Powder blue', chips: ['#7A8FA6', '#F7F8FA', '#C2A165', '#46586B'] }
   ];
 
   var TYPE_PAIRINGS = [
-    { name: 'Riviera Editorial', fonts: { editorial: 'italiana', display: 'cormorant', script: 'mrsSaintDelafield', hand: 'laBelle', body: 'jost' } },
-    { name: 'Golden Hour', fonts: { editorial: 'prata', display: 'ebGaramond', script: 'pinyon', hand: 'caveat', body: 'dmSans' } },
-    { name: 'Modern Terrazzo', fonts: { editorial: 'dmSerif', display: 'lora', script: 'allura', hand: 'shadowsIntoLight', body: 'montserrat' } },
-    { name: 'Galleria', fonts: { editorial: 'italiana', display: 'prata', script: 'parisienne', hand: 'nothingYouCouldDo', body: 'lato' } },
-    { name: 'The Old Villa', fonts: { editorial: 'libreBaskerville', display: 'cardo', script: 'tangerine', hand: 'cedarville', body: 'karla' } },
-    { name: 'Positano Storybook', fonts: { editorial: 'crimsonPro', display: 'cormorant', script: 'alexBrush', hand: 'homemadeApple', body: 'lato' } }
+    { name: 'Rose Atelier', fonts: { editorial: 'cormorant', display: 'ebGaramond', script: 'parisienne', hand: 'laBelle', body: 'jost' } },
+    { name: 'Copperplate', fonts: { editorial: 'italiana', display: 'crimsonPro', script: 'pinyon', hand: 'cedarville', body: 'jost' } },
+    { name: 'Love Letter', fonts: { editorial: 'libreCaslon', display: 'cardo', script: 'greatVibes', hand: 'nothingYouCouldDo', body: 'karla' } },
+    { name: 'Vellum', fonts: { editorial: 'bodoni', display: 'spectral', script: 'allura', hand: 'shadowsIntoLight', body: 'workSans' } },
+    { name: 'Sonnet', fonts: { editorial: 'playfair', display: 'lora', script: 'mrsSaintDelafield', hand: 'caveat', body: 'dmSans' } },
+    { name: 'Garden Notes', fonts: { editorial: 'marcellus', display: 'libreBaskerville', script: 'alexBrush', hand: 'homemadeApple', body: 'montserrat' } }
   ];
 
   function fontPreviewFamily(font) {
@@ -1234,7 +1234,7 @@
       });
       card.appendChild(chips);
       card.appendChild(el('span', 'choice-card__name', theme.name));
-      if ((config.theme || 'terracotta') === theme.key) card.classList.add('is-selected');
+      if ((config.theme || 'blush') === theme.key) card.classList.add('is-selected');
       card.addEventListener('click', function () {
         if (config.theme === theme.key) return;
         config.theme = theme.key;
@@ -1332,12 +1332,12 @@
 
       groupLabel(inner, 'The website colours');
       var themeColorDefaults = {
-        terracotta: { primary: '#A85432', darkBackground: '#243841', paper: '#F8F1E3', accent: '#D9A648', botanical: '#7C7C4E', rose: '#D69080' },
-        aegean: { primary: '#33607A', darkBackground: '#1C2F39', paper: '#F4F2E9', accent: '#D9A648', botanical: '#6F7C63', rose: '#D9A3A0' },
-        limone: { primary: '#A07B23', darkBackground: '#2A2D1E', paper: '#FAF5E1', accent: '#CE9A3A', botanical: '#77784A', rose: '#D9B98A' },
-        oliva: { primary: '#6B7048', darkBackground: '#272A1E', paper: '#F7F4E9', accent: '#C9A86A', botanical: '#6B7048', rose: '#C99B8C' }
+        blush: { primary: '#A76A6F', darkBackground: '#5E343D', paper: '#FAF6EF', accent: '#C2A165', botanical: '#97A28B', rose: '#D8A3A1' },
+        porcelain: { primary: '#B08D57', darkBackground: '#4E463C', paper: '#FBF8F1', accent: '#C9A86A', botanical: '#A8AC96', rose: '#DDB4AC' },
+        meadow: { primary: '#74836B', darkBackground: '#3D4637', paper: '#F8F8F0', accent: '#BFA46A', botanical: '#6F7F62', rose: '#CFAFA0' },
+        powder: { primary: '#7A8FA6', darkBackground: '#46586B', paper: '#F7F8FA', accent: '#C2A165', botanical: '#93A2A6', rose: '#D9A9A6' }
       };
-      var activeThemeColors = themeColorDefaults[config.theme] || themeColorDefaults.terracotta;
+      var activeThemeColors = themeColorDefaults[config.theme] || themeColorDefaults.blush;
       var palette = el('div', 'palette-editor');
       [
         ['primary', 'Primary'],

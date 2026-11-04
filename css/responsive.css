@@ -1,150 +1,150 @@
 /* ═══════════════════════════════════════════════════════════════
-   LA TERRAZZA · responsive.css
-   Every scene keeps its composure from a 320px phone to a 4K
-   canvas. Nothing essential is hidden on small screens — the
-   layout simply breathes differently.
+   EVERMORE · responsive.css
+   Tablet & phone refinements. The suite is built mobile-first;
+   these rules widen the compositions and then re-tune them.
    ═══════════════════════════════════════════════════════════════ */
 
-/* the mobile menu button is hidden while the full link row fits */
-@media (min-width: 881px) {
-  .menu-toggle { display: none; }
+/* ── desktop ≥ 720px ────────────────────────────────────────── */
+@media (min-width: 720px) {
+  .invite-side { display: inline-flex; }
+
+  .story-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .details-grid {
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    gap: var(--space-5);
+  }
+
+  .venue-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .std-actions,
+  .invite-actions { gap: 1rem; }
 }
 
-@media (max-width: 880px) {
-  .nav__links { display: none; }
+/* ── short viewports: the opening must always fit ───────────── */
+@media (max-height: 760px) and (min-width: 721px) {
+  .opening__names { font-size: clamp(2.2rem, 5.5vw, 3.2rem); margin-bottom: 0.3rem; }
+  .opening__eyebrow { margin-bottom: 0.1rem; }
+  .envelope { width: min(74vw, 460px); }
+  .envelope-stage { margin-block: 0.2rem 0.6rem; }
+  .opening__open { margin-top: 0.55rem; }
+  .opening__skip { margin-top: 0.5rem; }
 }
 
-@media (max-width: 760px) {
-  .nav__wordmark { display: none; }
-
-  /* ── the opening ─────────────────────────────────────────── */
-  .opening { padding-block: 4.5rem; }
-  .opening__florals { width: clamp(8.5rem, 42vw, 14rem); opacity: .78; }
-  .opening__florals--tl { top: -1.6rem; left: -2.2rem; }
-  .opening__florals--br { bottom: -1.8rem; right: -2rem; }
-  .opening__watermark { font-size: clamp(13rem, 46vw, 22rem); }
-  .opening__names { font-size: clamp(2.9rem, 13vw, 4.4rem); }
-  .envelope-stage { width: min(21rem, 84vw); margin-block: 1.4rem 3rem; }
-  .envelope__stamp { width: 19%; top: 7%; right: 7%; }
-  .envelope__card-inner { padding: 20% 12% 22%; }
-  .envelope__letter-names { font-size: clamp(1.5rem, 6.4vw, 2rem); }
-  .envelope__letter-sprig { width: 6.2rem; }
-  .envelope__band { padding: .6rem .8rem .8rem; }
-  .envelope__address .script { font-size: 1.25rem; }
-  .envelope__seal-wrap { width: 30%; }
-  .envelope__seal { font-size: .68rem; }
-  .opening__hint-rule { width: 2.2rem; }
-  .opening__hint { gap: .7rem; }
-
-  /* ── № 01 invitation ─────────────────────────────────────── */
-  .scene--invitation { padding-block: 5rem 3.6rem; }
-  .invite-card { padding-top: clamp(4.4rem, 13vw, 5.6rem); }
-  .invite-card__spray { width: clamp(6rem, 24vw, 9rem); }
-  .invite-card__spray--tl { top: -2rem; left: -1.6rem; }
-  .invite-card__spray--br { bottom: -2.2rem; right: -1.8rem; }
-  .invite-card__names { font-size: clamp(2.9rem, 13.5vw, 4.6rem); }
-  .invite-card__ampersand { padding-inline: 2.2em; }
-  .invite-actions { display: grid; grid-template-columns: 1fr; width: 100%; }
-  .invitation-bloom { opacity: .2; }
-  .invite-side { display: none; }
-
-  /* ── № 02 story ──────────────────────────────────────────── */
-  .story-grid { grid-template-columns: 1fr; }
-  .story-folio { padding-top: 3.2rem; }
-  .story-swag { width: min(12rem, 74%); top: -2.2rem; }
-  .fc-quote { rotate: -1deg; }
-  .fc-quote__bloom { width: 2.7rem; top: -1.2rem; }
-  .fc-note { max-width: none; }
-  .fc-note--one { justify-self: start; }
-  .story-caption { position: static; display: block; margin-top: 1.8rem; writing-mode: horizontal-tb; rotate: -2deg; }
-  .story-keepsake { position: static; margin-top: 2.4rem; }
-  .story-bloom--bottom { opacity: .28; bottom: -2.6rem; }
-
-  /* ── № 03 save the date ──────────────────────────────────── */
-  .std-date { font-size: clamp(2.9rem, 13vw, 4.8rem); }
-  .std-candles { width: clamp(7.5rem, 30vw, 10rem); }
-  .scene--std::before { inset: .9rem; }
-
-  /* ── № 04 details ────────────────────────────────────────── */
-  .details-grid { grid-template-columns: 1fr; }
-  .details-art { max-width: 21rem; margin-inline: auto; }
-  .details-art__bouquet { width: min(14rem, 74%); }
-
-  /* ── № 05 palette ────────────────────────────────────────── */
-  .palette-swatches { gap: 1.2rem 1rem; }
-  .palette-swatches li { min-width: 5.6rem; }
-  .swatch { width: clamp(3rem, 10vw, 3.7rem); }
-
-  /* ── № 06 string of lemons ───────────────────────────────── */
-  .day-words { gap: 1.5rem 1.7rem; padding-top: 1.5rem; background: none; }
-  .day-words::before, .day-words::after { display: none; }
-  .day-word { min-width: 5rem; }
-
-  /* ── № 07 venue ──────────────────────────────────────────── */
-  .venue-lights { width: 118%; }
-  .venue-name { font-size: clamp(1.8rem, 7.5vw, 2.8rem); }
-  .venue-body { padding-top: clamp(8.5rem, 32vw, 11rem); }
-  .venue-grid { grid-template-columns: 1fr; }
-  .venue-copy::before { width: min(19rem, 100%); }
-  .venue-aside { justify-items: center; text-align: center; }
-  .venue-address { justify-content: center; }
-
-  /* ── № 08 rsvp ───────────────────────────────────────────── */
-  .watermark-script { font-size: clamp(5.4rem, 24vw, 9rem); top: 1.4rem; }
-
-  /* ── № 09 countdown ──────────────────────────────────────── */
-  .countdown-wreath { width: clamp(14rem, 68vw, 22rem); opacity: .3; }
-  .count-row { flex-wrap: nowrap; gap: clamp(.8rem, 3.4vw, 1.6rem); }
-  .count-unit { min-width: 3.2rem; }
-
-  /* ── № 10 closing ────────────────────────────────────────── */
-  .closing-swag { width: min(13rem, 78%); top: -1.4rem; }
-  .closing-names { font-size: clamp(2.9rem, 13vw, 4.6rem); }
+@media (max-height: 680px) {
+  .opening__florals { width: clamp(140px, 24vw, 240px); }
+  .opening__watermark { font-size: 22rem; }
+  .envelope { width: min(62vw, 400px); }
+  .opening__hint { display: none; }
 }
 
+/* ── phones ≤ 560px ─────────────────────────────────────────── */
 @media (max-width: 560px) {
-  .rsvp-summary > div {
-    flex-direction: column;
-    gap: .2rem;
+  .scene { padding-block: var(--space-5); }
+  .scene--invitation { padding-top: calc(var(--space-4) + 2.2rem); }
+
+  /* navigation collapses to brand + controls */
+  .nav__links { display: none; }
+
+  .nav__wordmark { font-size: 1.18rem; }
+  .nav__mono { width: 2.2rem; height: 2.2rem; font-size: 0.92rem; }
+
+  /* the arched invitation card, tuned for narrow glass */
+  .invite-card {
+    border-radius: 999px 999px 10px 10px;
+    padding: 2.9rem 1.25rem 2.2rem;
+  }
+  .invite-card__frame { inset: 8px; }
+  .invite-card__spray--tl { top: -22px; left: -26px; width: 128px; }
+  .invite-card__spray--br { bottom: -20px; right: -26px; width: 128px; }
+  .invite-card__names { font-size: clamp(2.9rem, 13.5vw, 3.6rem); }
+  .invite-card__lead { margin-bottom: 1.2rem; }
+  .invite-card__ornament { width: 104px; margin-bottom: 1.2rem; }
+  .invite-card__venue { margin-bottom: 1.7rem; }
+
+  .invite-actions .btn,
+  .std-actions .btn,
+  .closing-actions .btn {
+    width: min(100%, 300px);
   }
 
-  .rsvp-summary dd { text-align: left; }
-
-  .std-actions { display: grid; grid-template-columns: 1fr; width: 100%; }
-  .std-actions .btn { justify-content: center; }
-
-  .choices { flex-direction: column; }
-  .choice { justify-content: flex-start; }
-
-  .footer { padding-block: 3.4rem 2.4rem; }
-}
-
-@media (max-width: 440px) {
-  .opening__eyebrow { max-width: 30ch; margin-inline: auto; }
-  .envelope__to { letter-spacing: .22em; }
-  .invite-card__timezone { max-width: 30ch; margin-inline: auto; }
-  .count-unit { min-width: 2.8rem; }
-  .count-num { font-size: clamp(1.9rem, 9.4vw, 2.5rem); }
-  .detail-item { grid-template-columns: auto minmax(0, 1fr); column-gap: .85rem; }
-}
-
-@media (max-width: 360px) {
-  .rsvp-summary > div { gap: .15rem; }
-}
-
-/* short landscape screens: let the opening scroll instead of
-   squeezing the card */
-@media (max-height: 620px) and (max-width: 1024px) {
-  .opening {
-    min-height: auto;
-    padding-block: 5.5rem;
+  /* story keepsakes stack neatly */
+  .fc-note--one,
+  .fc-note--two,
+  .fc-note--three {
+    justify-self: center;
+    width: min(100%, 19rem);
   }
-  .opening__glow { top: 50%; }
+  .fc-quote { padding: 2.2rem 1.4rem 1.7rem; }
+  .fc-quote__bloom { width: 62px; top: -20px; right: -8px; }
+  .story-keepsake { right: 0; bottom: -1.4rem; }
+
+  /* save the date */
+  .std-candles { margin-bottom: 0.4rem; }
+  .std-date { padding-inline: 1.4rem; }
+  .std-date::before, .std-date::after { width: 2.2rem; }
+  .std-date-eyebrow { letter-spacing: 0.24em; }
+
+  /* details list tightens */
+  .detail-item { gap: 0.9rem; padding-block: 1.25rem; }
+  .details-art__arch { width: min(88%, 320px); margin-bottom: -1.6rem; }
+  .details-art__bouquet { width: min(72%, 270px); }
+
+  /* palette swatches wrap tighter */
+  .palette-swatches { gap: 1.2rem 1.1rem; }
+  .swatch { width: 60px; height: 80px; }
+
+  /* programme words wrap into a gentle braid */
+  .day-words { gap: 0.7rem 0; }
+  .day-word { gap: 0.65rem; }
+  .day-word__text { font-size: clamp(1.3rem, 6vw, 1.7rem); }
+
+  /* venue */
+  .venue-plate { border-radius: 24px; padding: 10px; }
+  .venue-name { font-size: clamp(1.7rem, 7.4vw, 2.3rem); }
+  .venue-aside { justify-items: center; text-align: center; }
+  .venue-address { flex-direction: column; gap: 0.45rem; text-align: center; }
+
+  /* countdown — 2 × 2 grid, no separators */
+  .countdown-wreath { width: min(120vw, 420px); opacity: 0.38; }
+  .count-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    gap: 1.5rem 1rem;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+  .count-unit + .count-unit::before { display: none; }
+
+  /* closing */
+  .closing-swag { width: 92vw; top: -14px; }
+
+  .footer { padding-block: var(--space-4) var(--space-3); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .btn:hover { transform: none; }
-  .envelope:hover,
-  .envelope:focus-visible { transform: rotate(-.4deg); }
+/* ── very small phones ≤ 380px ──────────────────────────────── */
+@media (max-width: 380px) {
+  .invite-card__names { font-size: 2.7rem; }
+  .opening__names { font-size: 2.4rem; }
+  .std-date { font-size: 2.5rem; }
+  .count-row { grid-template-columns: repeat(2, minmax(90px, 1fr)); }
+  .menu a span:last-child { font-size: 1.25rem; }
+}
+
+/* ── landscape phones (height very short) ───────────────────── */
+@media (max-height: 460px) and (orientation: landscape) {
+  .opening { overflow: auto; }
+  .opening__florals, .petal-drift { display: none; }
+  .opening__names { font-size: 1.9rem; margin-bottom: 0.2rem; }
+  .envelope { width: min(52vw, 380px); }
+  .envelope-stage { margin-block: 0.15rem 0.4rem; }
+  .opening__open { margin-top: 0.4rem; }
+  .opening__skip { margin-top: 0.35rem; }
+  .opening__hint { display: none; }
 }

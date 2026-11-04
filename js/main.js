@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   LA TERRAZZA · main.js
+   EVERMORE · main.js
    Content injection · navigation · palette swatches · wedding-day
    string of lemons · countdown · calendar files · reveals ·
    parallax · audio. Everything degrades gracefully:
@@ -222,21 +222,21 @@
       if (hex) return hex;
       current = current.parentElement;
     }
-    return '#1a2a32';
+    return '#FAF6EF';
   }
 
   /* Removable & recolourable pieces of the suite — keyed in HTML
      via data-element-key and hidden through config.hiddenElements. */
   var elementLabels = {
-    'opening-florals-top': 'Bougainvillea · top',
-    'opening-florals-bottom': 'Lemon branch · bottom',
-    'opening-glow': 'Sun glow',
-    'opening-watermark': 'Ampersand watermark',
+    'opening-florals-top': 'Garden roses · top',
+    'opening-florals-bottom': 'Garden roses · bottom',
+    'opening-glow': 'Morning glow',
+    'opening-watermark': 'Evermore watermark',
     'opening-eyebrow': 'Opening introduction',
     'opening-names': 'Opening names',
-    'envelope-shadow': 'Card shadow',
-    'envelope-stamps': 'Postage stamp',
-    'envelope-flap': 'Linen band',
+    'envelope-shadow': 'Envelope shadow',
+    'envelope-stamps': 'Rose postage stamp',
+    'envelope-flap': 'Vellum band',
     'envelope-address': 'Addressee line',
     'envelope-seal': 'Wax seal',
     'opening-hint': 'Invitation hint',
@@ -247,30 +247,30 @@
     'folio-note-one': 'Folio note i',
     'folio-note-two': 'Folio note ii',
     'folio-note-three': 'Folio note iii',
-    'story-garland-top': 'Citrus swag',
-    'story-garland-bottom': 'Lemon bloom · corner',
+    'story-garland-top': 'Rose centerpiece',
+    'story-garland-bottom': 'Rose · corner',
     'story-caption': 'Story inscription',
     'story-note': 'Story handwritten note',
     'story-keepsake': 'Stamp & postmark',
-    'std-glow': 'Golden-hour wash',
-    'std-candles': 'The evening sun',
+    'std-glow': 'Blush wash',
+    'std-candles': 'Rose centerpiece',
     'std-note': 'Save-the-date note',
     'std-seal': 'Save-the-date seal',
     'detail-ceremony': 'Details · ceremony',
     'detail-reception': 'Details · reception',
     'detail-reply': 'Details · kindly reply',
-    'details-bouquet': 'The majolica vase',
-    'details-arch': 'Monogram arch',
+    'details-bouquet': 'The wedding bouquet',
+    'details-arch': 'Laurel monogram crest',
     'palette-swatches': 'Palette swatches',
     'palette-dresscode': 'Dress code card',
-    'day-words': 'String of lemons',
-    'venue-lights': 'The lemon garland',
+    'day-words': 'Wedding-day programme',
+    'venue-lights': 'The venue painting',
     'venue-ornament': 'Venue ornament',
     'rsvp-watermark': 'RSVP watermark',
     'rsvp-ornament': 'RSVP ornament',
     'countdown-clock': 'Countdown clock',
-    'countdown-wreath': 'Citrus wreath',
-    'closing-swag': 'Closing citrus swag',
+    'countdown-wreath': 'Rose wreath',
+    'closing-swag': 'Closing garland',
     'closing-message': 'Closing message',
     'closing-seal': 'Closing wax seal',
     'footer-ornament': 'Footer ornament'
@@ -629,14 +629,14 @@
   });
 
   var themePresets = {
-    terracotta: { burgundy: '#A85432', deep: '#8A4126', wine: '#26363F', crimson: '#C2703F', champagne: '#D9A648', soft: '#C08F3E', parchment: '#EFE5D0', ivory: '#F8F1E3', paper: '#FCF7EB', night: '#243841', nightDeep: '#1A2A32', olive: '#7C7C4E', oliveDeep: '#656640', sage: '#ABAA8C', rose: '#D69080', ink: '#3C2F25', inkSoft: '#5C4B3C', charcoal: '#8A7A69' },
-    aegean: { burgundy: '#33607A', deep: '#295064', wine: '#1F333E', crimson: '#4E7D96', champagne: '#D9A648', soft: '#BE9145', parchment: '#E9E7DC', ivory: '#F4F2E9', paper: '#FAF8F0', night: '#1C2F39', nightDeep: '#14242C', olive: '#6F7C63', oliveDeep: '#5B6851', sage: '#A3AC9C', rose: '#D9A3A0', ink: '#27333A', inkSoft: '#4A5A60', charcoal: '#71817F' },
-    limone: { burgundy: '#A07B23', deep: '#856619', wine: '#2C2F1F', crimson: '#C9A23B', champagne: '#CE9A3A', soft: '#B58430', parchment: '#F1EBD2', ivory: '#FAF5E1', paper: '#FDF9EA', night: '#2A2D1E', nightDeep: '#1F2216', olive: '#77784A', oliveDeep: '#62633C', sage: '#AEAF8B', rose: '#D9B98A', ink: '#38331F', inkSoft: '#5C553A', charcoal: '#857E60' },
-    oliva: { burgundy: '#6B7048', deep: '#575C3A', wine: '#2A2C20', crimson: '#8A8F5C', champagne: '#C9A86A', soft: '#B3955A', parchment: '#EEEADB', ivory: '#F7F4E9', paper: '#FBF8F0', night: '#272A1E', nightDeep: '#1D2015', olive: '#6B7048', oliveDeep: '#575C3A', sage: '#A8A98C', rose: '#C99B8C', ink: '#2C2E22', inkSoft: '#4E503E', charcoal: '#6F7160' }
+    blush: { burgundy: '#A76A6F', deep: '#8F555C', wine: '#6E4048', crimson: '#C08587', champagne: '#C2A165', soft: '#AC8D57', parchment: '#F4ECE2', ivory: '#FAF6EF', paper: '#FDFBF6', night: '#5E343D', nightDeep: '#4C2A33', olive: '#97A28B', oliveDeep: '#7E8A73', sage: '#B4BBA6', rose: '#D8A3A1', ink: '#54444B', inkSoft: '#6F5D64', charcoal: '#97848B' },
+    porcelain: { burgundy: '#B08D57', deep: '#997747', wine: '#55483A', crimson: '#C4A472', champagne: '#C9A86A', soft: '#B39258', parchment: '#F5F0E6', ivory: '#FBF8F1', paper: '#FEFCF8', night: '#4E463C', nightDeep: '#3F382F', olive: '#A8AC96', oliveDeep: '#8B907C', sage: '#C0C2B0', rose: '#DDB4AC', ink: '#4E463F', inkSoft: '#6A6154', charcoal: '#958C7E' },
+    meadow: { burgundy: '#74836B', deep: '#5F6D57', wine: '#47523F', crimson: '#8FA383', champagne: '#BFA46A', soft: '#A98F55', parchment: '#EFF0E4', ivory: '#F8F8F0', paper: '#FCFCF5', night: '#3D4637', nightDeep: '#313A2C', olive: '#6F7F62', oliveDeep: '#5A6A4E', sage: '#AEB8A2', rose: '#CFAFA0', ink: '#454F41', inkSoft: '#5F6B58', charcoal: '#8A927F' },
+    powder: { burgundy: '#7A8FA6', deep: '#66788D', wine: '#46586B', crimson: '#93A7BC', champagne: '#C2A165', soft: '#AC8D57', parchment: '#EAEEF2', ivory: '#F7F8FA', paper: '#FCFCFE', night: '#46586B', nightDeep: '#38485A', olive: '#93A2A6', oliveDeep: '#7A8B8F', sage: '#B7C3C6', rose: '#D9A9A6', ink: '#44515E', inkSoft: '#5D6B7A', charcoal: '#8B97A3' }
   };
 
   function applyTheme() {
-    var themeName = Object.prototype.hasOwnProperty.call(themePresets, cfg.theme) ? cfg.theme : 'terracotta';
+    var themeName = Object.prototype.hasOwnProperty.call(themePresets, cfg.theme) ? cfg.theme : 'blush';
     var colors = themePresets[themeName];
     var root = document.documentElement;
     root.style.setProperty('--burgundy', colors.burgundy);
@@ -812,9 +812,9 @@
   }
   renderPalette();
 
-  /* ══ 4 · WEDDING-DAY STRING OF LEMONS ═════════════════════════ */
-  /* Each moment hangs from the vine like a ripe lemon — one short
-     word per moment, in order, with the gold doing the decoration. */
+  /* ══ 4 · WEDDING-DAY PROGRAMME ═════════════════════════════ */
+  /* One short word per moment, in order, strung along a gold
+     thread like pearls on a bridal ribbon.                     */
   function renderMoments() {
     var list = document.getElementById('day-words');
     var scene = document.getElementById('itinerary');
@@ -985,10 +985,10 @@
       var lines = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//La Terrazza//Wedding Invitation//EN',
+        'PRODID:-//Evermore//Wedding Invitation//EN',
         'CALSCALE:GREGORIAN',
         'BEGIN:VEVENT',
-        'UID:' + icsUTC(data.start.getTime()) + '-terrazza@invitation',
+        'UID:' + icsUTC(data.start.getTime()) + '-evermore@invitation',
         'DTSTAMP:' + icsUTC(Date.now()),
         'DTSTART:' + icsUTC(data.start.getTime()),
         'DTEND:' + icsUTC(data.end.getTime()),

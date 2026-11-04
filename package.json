@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "La Terrazza — a sun-warmed Mediterranean wedding invitation. Cloudflare Workers (static assets + API) + D1",
+  "description": "Evermore \u2014 a romantic garden-rose wedding invitation. Cloudflare Workers (static assets + API) + D1",
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "npm run build && npm run db:migrate:local && wrangler dev --port 8788",

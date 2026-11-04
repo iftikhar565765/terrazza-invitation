@@ -1,116 +1,97 @@
 /* ═══════════════════════════════════════════════════════════════
-   LA TERRAZZA · variables.css
+   EVERMORE · variables.css
    Design tokens — the whole visual identity in one place.
-   Sun-warmed Mediterranean stationery: alabaster paper,
-   terracotta clay, majolica blue, lemon gold and olive.
-   The token names follow the editor's colour roles so the theme
-   picker recolours every surface.
+   Porcelain paper, blush garden roses, champagne gold and
+   whisper-sage foliage. Token names follow the editor's colour
+   roles so the theme picker recolours every surface.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
   /* ── Palette (theme presets refine these at runtime) ──────────
-     terracotta   : terracotta sun, majolica dusk, lemon gold (default)
-     aegean       : majolica blue, sea-washed gold
-     limone       : lemon grove, olive shade, honeyed light
-     oliva        : the olive terrace, vine gold, soft clay        */
-  --burgundy:      #A85432;   /* primary — terracotta clay          */
-  --burgundy-deep: #8A4126;
-  --wine:          #26363F;   /* dark scenes — the sea at dusk      */
-  --crimson:       #C2703F;   /* warm accent                        */
-  --ivory:         #F8F1E3;   /* alabaster paper                    */
-  --paper-raised:  #FCF7EB;
-  --parchment:     #EFE5D0;   /* sand                               */
-  --champagne:     #D9A648;   /* lemon gold                         */
-  --champagne-soft:#C08F3E;
-  --olive:         #7C7C4E;
-  --olive-deep:    #656640;
-  --sage:          #ABAA8C;
-  --rose:          #D69080;   /* bougainvillea coral                */
-  --ink:           #3C2F25;   /* warm espresso                      */
-  --ink-soft:      #5C4B3C;
-  --charcoal:      #8A7A69;
-  /* dark editorial atmosphere — the evening interludes */
-  --night:         #243841;
-  --night-deep:    #1A2A32;
-  --gold:          #D9A648;
+     blush        : the rose garden at golden hour (default)
+     porcelain    : ivory silk and champagne
+     meadow       : sage green, lavender and rose
+     powder       : powder blue and blush                          */
+  --burgundy:      #A76A6F;   /* primary — dusty rose               */
+  --burgundy-deep: #8F555C;
+  --wine:          #6E4048;   /* deep velvet rose                   */
+  --crimson:       #C08587;   /* open rose                          */
+  --ivory:         #FAF6EF;
+  --paper-raised:  #FDFBF6;
+  --parchment:     #F4ECE2;
+  --champagne:     #C2A165;   /* gilded accents                     */
+  --champagne-soft:#AC8D57;
+  --olive:         #97A28B;   /* foliage                            */
+  --olive-deep:    #7E8A73;
+  --sage:          #B4BBA6;
+  --rose:          #D8A3A1;   /* petal pink                         */
+  --ink:           #54444B;   /* warm plum charcoal                 */
+  --ink-soft:      #6F5D64;
+  --charcoal:      #97848B;
+  /* the velvet finale — deep rose, never black                     */
+  --night:         #5E343D;
+  --night-deep:    #4C2A33;
+  --gold:          #C2A165;
+  --site-background:
+    radial-gradient(120% 90% at 85% -10%, rgba(216,163,161,.10), transparent 60%),
+    linear-gradient(180deg, #FBF7F0 0%, var(--ivory) 46%, #F8F2E9 100%);
 
   /* ── Typography — five voices, five jobs ─────────────────────
-     Editorial     : Prata            — display headings, big
-                                        numerals, the Riviera voice
-     Romantic serif: Crimson Pro      — prose, leads, small values
-     Expressive    : Tangerine        — ONLY the couple's names and
-                                        signature script moments
-     Handwritten   : Homemade Apple   — ink-pen notes & postcards
-     Functional    : Karla            — labels, nav, forms         */
-  --font-editorial: 'Prata', 'Didot', 'Times New Roman', serif;
-  --font-display: 'Crimson Pro', 'Cormorant', 'Times New Roman', Georgia, serif;
-  --font-script:  'Tangerine', 'Snell Roundhand', 'Apple Chancery', 'Segoe Script', cursive;
-  --font-hand:    'Homemade Apple', 'Bradley Hand', 'Segoe Script', cursive;
-  --font-body:    'Karla', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
+     Editorial     : Cormorant Garamond — headings, numerals, the
+                                          stationery voice
+     Romantic serif: EB Garamond       — prose, leads, small values
+     Expressive    : Parisienne        — ONLY the couple's names and
+                                          signature script moments
+     Handwritten   : La Belle Aurore   — annotations & tiny notes
+     Functional    : Jost              — labels, nav, forms         */
+  --font-editorial: 'Cormorant Garamond', 'Didot', 'Times New Roman', serif;
+  --font-display: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Parisienne', 'Snell Roundhand', 'Apple Chancery', cursive;
+  --font-hand: 'La Belle Aurore', 'Segoe Script', cursive;
+  --font-body: 'Jost', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
 
   /* fluid scale */
-  --fs-eyebrow:   clamp(.6rem, 1.6vw, .68rem);
-  --fs-small:     clamp(.74rem, 1.8vw, .84rem);
-  --fs-body:      clamp(1.02rem, 2.2vw, 1.1rem);
-  --fs-lead:      clamp(1.12rem, 2.5vw, 1.24rem);
-  --fs-h3:        clamp(1.3rem, 3.6vw, 1.55rem);
-  --fs-h2:        clamp(2rem, 6.5vw, 3.2rem);
-  --fs-h1:        clamp(2.6rem, 9.5vw, 5.4rem);
-  --fs-script:    clamp(2.6rem, 9.5vw, 6rem);
-  --fs-script-xl: clamp(3.6rem, 15vw, 9.6rem);
-  --fs-date-hero: clamp(3.2rem, 12.5vw, 8.2rem);
+  --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.86rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.06rem);
+  --step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
+  --step-2: clamp(1.45rem, 1.25rem + 1vw, 1.9rem);
+  --step-3: clamp(1.9rem, 1.5rem + 2vw, 2.9rem);
+  --step-4: clamp(2.5rem, 1.7rem + 3.6vw, 4.3rem);
+  --step-5: clamp(3.2rem, 2rem + 5.4vw, 6rem);
 
-  /* ── Architecture of the page ─────────────────────────────── */
-  --container:    68rem;
-  --gutter:       clamp(1.15rem, 4vw, 2.5rem);
-  --section-pad:  clamp(4.2rem, 11vw, 8.5rem);
+  /* rhythm */
+  --space-1: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem);
+  --space-2: clamp(0.8rem, 0.7rem + 0.5vw, 1.2rem);
+  --space-3: clamp(1.4rem, 1.1rem + 1.2vw, 2.4rem);
+  --space-4: clamp(2.4rem, 1.8rem + 2.4vw, 4.4rem);
+  --space-5: clamp(3.6rem, 2.4rem + 4.4vw, 7rem);
+  --space-6: clamp(5rem, 3rem + 6.4vw, 9.5rem);
 
-  /* ── Lines & relief (quiet by design) ─────────────────────── */
-  --hairline:     1px solid color-mix(in srgb, var(--champagne) 42%, transparent);
-  --hairline-soft:1px solid color-mix(in srgb, var(--champagne) 24%, transparent);
-  --arch-radius:  999px 999px 18px 18px;
-  --arch-radius-big: 999px 999px 26px 26px;
+  --container: 74rem;
+  --container-narrow: 46rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 
+  /* fine stationery lines */
+  --hairline: 1px solid rgba(172, 141, 87, 0.32);
+  --hairline-soft: 1px solid rgba(172, 141, 87, 0.2);
+
+  /* elevation — paper on paper, always warm */
   --shadow-card:
-    0 1px 2px color-mix(in srgb, var(--burgundy) 10%, transparent),
-    0 18px 44px color-mix(in srgb, var(--burgundy) 16%, transparent);
-  --shadow-lift:
-    0 2px 4px color-mix(in srgb, var(--burgundy) 12%, transparent),
-    0 30px 70px color-mix(in srgb, var(--burgundy) 22%, transparent);
+    0 1px 2px rgba(110, 64, 72, 0.05),
+    0 10px 34px rgba(110, 64, 72, 0.09),
+    0 30px 70px rgba(110, 64, 72, 0.08);
+  --shadow-soft: 0 2px 8px rgba(110, 64, 72, 0.06), 0 18px 44px rgba(110, 64, 72, 0.10);
   --shadow-seal:
-    0 4px 10px color-mix(in srgb, var(--burgundy) 45%, transparent),
-    0 14px 30px color-mix(in srgb, var(--burgundy) 28%, transparent);
+    0 4px 10px color-mix(in srgb, #6E4048 45%, transparent),
+    0 14px 30px color-mix(in srgb, #6E4048 28%, transparent);
 
-  /* ── Surfaces ─────────────────────────────────────────────── */
-  --paper-grain:
-    radial-gradient(1200px 500px at 15% -5%,
-      color-mix(in srgb, var(--champagne) 7%, transparent), transparent 62%),
-    radial-gradient(900px 420px at 90% 8%,
-      color-mix(in srgb, var(--rose) 5%, transparent), transparent 60%);
-  --site-background:
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
-    var(--night);
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.45, 0, 0.15, 1);
+  --dur-1: 160ms;
+  --dur-2: 340ms;
+  --dur-3: 720ms;
 
-  /* ── Derived Mediterranean tokens — computed from the theme
-     colours, so every preset recolours them automatically ──── */
-  --dusk-1: var(--night-deep);
-  --dusk-2: color-mix(in srgb, var(--night) 80%, var(--burgundy) 20%);
-  --glass:        color-mix(in srgb, var(--night) 76%, transparent);
-  --glass-deep:   color-mix(in srgb, var(--night-deep) 88%, transparent);
-  --glass-edge:   color-mix(in srgb, var(--champagne) 30%, transparent);
-  --gilding:      color-mix(in srgb, var(--champagne) 84%, white 16%);
-  --gilding-soft: color-mix(in srgb, var(--champagne) 55%, transparent);
-  --sunlit:       color-mix(in srgb, var(--ivory) 90%, var(--champagne) 10%);
-  --sunlit-soft:  color-mix(in srgb, var(--ivory) 58%, transparent);
-  --dusk-ink:     color-mix(in srgb, var(--ivory) 68%, transparent);
-
-  /* ── Motion ───────────────────────────────────────────────── */
-  --ease-out:     cubic-bezier(.22, .61, .2, 1);
-  --ease-soft:    cubic-bezier(.33, 0, .16, 1);
-  --reveal-distance: 30px;
+  --radius-card: 14px;
+  --radius-soft: 10px;
 }
-
-/* light theme presets that keep dark scenes legible */
-[data-theme="aegean"]  { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }
-[data-theme="limone"]  { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }
-[data-theme="oliva"]   { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }
