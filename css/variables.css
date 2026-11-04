@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════════
+   LA TERRAZZA · variables.css
+   Design tokens — the whole visual identity in one place.
+   Sun-warmed Mediterranean stationery: alabaster paper,
+   terracotta clay, majolica blue, lemon gold and olive.
+   The token names follow the editor's colour roles so the theme
+   picker recolours every surface.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Palette (theme presets refine these at runtime) ──────────
+     terracotta   : terracotta sun, majolica dusk, lemon gold (default)
+     aegean       : majolica blue, sea-washed gold
+     limone       : lemon grove, olive shade, honeyed light
+     oliva        : the olive terrace, vine gold, soft clay        */
+  --burgundy:      #A85432;   /* primary — terracotta clay          */
+  --burgundy-deep: #8A4126;
+  --wine:          #26363F;   /* dark scenes — the sea at dusk      */
+  --crimson:       #C2703F;   /* warm accent                        */
+  --ivory:         #F8F1E3;   /* alabaster paper                    */
+  --paper-raised:  #FCF7EB;
+  --parchment:     #EFE5D0;   /* sand                               */
+  --champagne:     #D9A648;   /* lemon gold                         */
+  --champagne-soft:#C08F3E;
+  --olive:         #7C7C4E;
+  --olive-deep:    #656640;
+  --sage:          #ABAA8C;
+  --rose:          #D69080;   /* bougainvillea coral                */
+  --ink:           #3C2F25;   /* warm espresso                      */
+  --ink-soft:      #5C4B3C;
+  --charcoal:      #8A7A69;
+  /* dark editorial atmosphere — the evening interludes */
+  --night:         #243841;
+  --night-deep:    #1A2A32;
+  --gold:          #D9A648;
+
+  /* ── Typography — five voices, five jobs ─────────────────────
+     Editorial     : Prata            — display headings, big
+                                        numerals, the Riviera voice
+     Romantic serif: Crimson Pro      — prose, leads, small values
+     Expressive    : Tangerine        — ONLY the couple's names and
+                                        signature script moments
+     Handwritten   : Homemade Apple   — ink-pen notes & postcards
+     Functional    : Karla            — labels, nav, forms         */
+  --font-editorial: 'Prata', 'Didot', 'Times New Roman', serif;
+  --font-display: 'Crimson Pro', 'Cormorant', 'Times New Roman', Georgia, serif;
+  --font-script:  'Tangerine', 'Snell Roundhand', 'Apple Chancery', 'Segoe Script', cursive;
+  --font-hand:    'Homemade Apple', 'Bradley Hand', 'Segoe Script', cursive;
+  --font-body:    'Karla', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
+
+  /* fluid scale */
+  --fs-eyebrow:   clamp(.6rem, 1.6vw, .68rem);
+  --fs-small:     clamp(.74rem, 1.8vw, .84rem);
+  --fs-body:      clamp(1.02rem, 2.2vw, 1.1rem);
+  --fs-lead:      clamp(1.12rem, 2.5vw, 1.24rem);
+  --fs-h3:        clamp(1.3rem, 3.6vw, 1.55rem);
+  --fs-h2:        clamp(2rem, 6.5vw, 3.2rem);
+  --fs-h1:        clamp(2.6rem, 9.5vw, 5.4rem);
+  --fs-script:    clamp(2.6rem, 9.5vw, 6rem);
+  --fs-script-xl: clamp(3.6rem, 15vw, 9.6rem);
+  --fs-date-hero: clamp(3.2rem, 12.5vw, 8.2rem);
+
+  /* ── Architecture of the page ─────────────────────────────── */
+  --container:    68rem;
+  --gutter:       clamp(1.15rem, 4vw, 2.5rem);
+  --section-pad:  clamp(4.2rem, 11vw, 8.5rem);
+
+  /* ── Lines & relief (quiet by design) ─────────────────────── */
+  --hairline:     1px solid color-mix(in srgb, var(--champagne) 42%, transparent);
+  --hairline-soft:1px solid color-mix(in srgb, var(--champagne) 24%, transparent);
+  --arch-radius:  999px 999px 18px 18px;
+  --arch-radius-big: 999px 999px 26px 26px;
+
+  --shadow-card:
+    0 1px 2px color-mix(in srgb, var(--burgundy) 10%, transparent),
+    0 18px 44px color-mix(in srgb, var(--burgundy) 16%, transparent);
+  --shadow-lift:
+    0 2px 4px color-mix(in srgb, var(--burgundy) 12%, transparent),
+    0 30px 70px color-mix(in srgb, var(--burgundy) 22%, transparent);
+  --shadow-seal:
+    0 4px 10px color-mix(in srgb, var(--burgundy) 45%, transparent),
+    0 14px 30px color-mix(in srgb, var(--burgundy) 28%, transparent);
+
+  /* ── Surfaces ─────────────────────────────────────────────── */
+  --paper-grain:
+    radial-gradient(1200px 500px at 15% -5%,
+      color-mix(in srgb, var(--champagne) 7%, transparent), transparent 62%),
+    radial-gradient(900px 420px at 90% 8%,
+      color-mix(in srgb, var(--rose) 5%, transparent), transparent 60%);
+  --site-background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+    var(--night);
+
+  /* ── Derived Mediterranean tokens — computed from the theme
+     colours, so every preset recolours them automatically ──── */
+  --dusk-1: var(--night-deep);
+  --dusk-2: color-mix(in srgb, var(--night) 80%, var(--burgundy) 20%);
+  --glass:        color-mix(in srgb, var(--night) 76%, transparent);
+  --glass-deep:   color-mix(in srgb, var(--night-deep) 88%, transparent);
+  --glass-edge:   color-mix(in srgb, var(--champagne) 30%, transparent);
+  --gilding:      color-mix(in srgb, var(--champagne) 84%, white 16%);
+  --gilding-soft: color-mix(in srgb, var(--champagne) 55%, transparent);
+  --sunlit:       color-mix(in srgb, var(--ivory) 90%, var(--champagne) 10%);
+  --sunlit-soft:  color-mix(in srgb, var(--ivory) 58%, transparent);
+  --dusk-ink:     color-mix(in srgb, var(--ivory) 68%, transparent);
+
+  /* ── Motion ───────────────────────────────────────────────── */
+  --ease-out:     cubic-bezier(.22, .61, .2, 1);
+  --ease-soft:    cubic-bezier(.33, 0, .16, 1);
+  --reveal-distance: 30px;
+}
+
+/* light theme presets that keep dark scenes legible */
+[data-theme="aegean"]  { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }
+[data-theme="limone"]  { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }
+[data-theme="oliva"]   { --site-background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--night); }

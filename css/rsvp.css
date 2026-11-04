@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════════════════════════════
+   LA TERRAZZA · rsvp.css
+   The reply form — quiet underlined fields, hand-tinted choices.
+   Nothing boxy: the paper receives the words like a letter.
+   ═══════════════════════════════════════════════════════════════ */
+
+.rsvp-form {
+  display: grid;
+  gap: 1.6rem;
+  text-align: left;
+}
+
+fieldset.field {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.field { display: grid; gap: .45rem; }
+
+.field label,
+.field-legend {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  padding: 0;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field textarea {
+  width: 100%;
+  padding: .58em .1em;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--burgundy) 30%, transparent);
+  border-radius: 0;
+  transition: border-color .35s ease, box-shadow .35s ease;
+}
+
+.field textarea { resize: vertical; min-height: 3.2em; line-height: 1.55; }
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 60%, transparent);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: color-mix(in srgb, var(--charcoal) 62%, transparent);
+  font-style: italic;
+}
+
+/* the attendance choice — two quiet options with lemon seals */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: .3rem;
+}
+
+.choice {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .72em 1.3em;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--burgundy) 26%, transparent);
+  cursor: pointer;
+  transition:
+    background-color .35s ease,
+    border-color .35s ease,
+    color .35s ease,
+    box-shadow .35s ease;
+}
+
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+
+.choice .diamond {
+  width: .95rem;
+  height: .95rem;
+  rotate: 45deg;
+  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--burgundy) 55%, transparent);
+  background: transparent;
+  transition: background-color .3s ease, box-shadow .3s ease, rotate .3s ease;
+}
+
+.choice .text {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+}
+
+.choice:hover { border-color: color-mix(in srgb, var(--burgundy) 52%, transparent); }
+
+.choice:has(input:checked) {
+  background: color-mix(in srgb, var(--burgundy) 8%, transparent);
+  border-color: var(--burgundy);
+}
+
+.choice:has(input:checked) .diamond {
+  background: var(--gold);
+  border-color: var(--champagne-soft);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--champagne) 26%, transparent);
+}
+
+.choice:has(input:checked) .text { color: var(--burgundy); }
+
+.choice:has(input:focus-visible) {
+  outline: 2px solid color-mix(in srgb, var(--gold) 75%, transparent);
+  outline-offset: 2px;
+}
+
+/* errors & status */
+.field-error {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: .06em;
+  color: var(--crimson);
+}
+
+.field.is-invalid input,
+.field.is-invalid .choice { border-color: var(--crimson); }
+
+.rsvp-actions {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  margin-top: .4rem;
+}
+
+.rsvp-actions .btn { justify-self: center; }
+
+.rsvp-note {
+  max-width: 26rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  line-height: 1.6;
+  letter-spacing: .04em;
+  color: var(--charcoal);
+}
+
+.rsvp-note strong { color: var(--ink-soft); font-weight: 600; }
+
+.rsvp-status { min-height: 1em; }
+
+.rsvp-status.is-error { color: var(--crimson); font-size: var(--fs-small); }
+
+.rsvp-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* the reply preview — the note we heard back */
+.rsvp-preview { display: grid; gap: 1.2rem; justify-items: center; }
+
+.script-intro {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4.8vw, 2.4rem);
+  color: var(--burgundy);
+}
+
+.rsvp-summary {
+  display: grid;
+  gap: .55rem;
+  width: 100%;
+  max-width: 26rem;
+  text-align: left;
+}
+
+.rsvp-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding-bottom: .45rem;
+  border-bottom: var(--hairline-soft);
+}
+
+.rsvp-summary dt {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.rsvp-summary dd {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+  text-align: right;
+}

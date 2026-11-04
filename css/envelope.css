@@ -1,0 +1,449 @@
+/* ═══════════════════════════════════════════════════════════════
+   LA TERRAZZA · envelope.css
+   The opening — a terracotta envelope resting on a sunlit
+   terrace table, sealed with a hand-painted majolica medallion.
+   Bougainvillea hangs into the frame; the sun warms the paper.
+   ═══════════════════════════════════════════════════════════════ */
+
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 85% at 50% -12%,
+      color-mix(in srgb, var(--champagne) 20%, transparent), transparent 60%),
+    radial-gradient(90% 60% at 88% 110%,
+      color-mix(in srgb, var(--rose) 10%, transparent), transparent 55%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--ivory) 96%, var(--champagne) 4%),
+      var(--parchment));
+}
+
+/* fine paper grain over the whole cover */
+.opening::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .5;
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 5%, transparent) .6px, transparent .6px);
+  background-size: 7px 7px;
+  mix-blend-mode: multiply;
+}
+
+/* ── living decoration ─────────────────────────────────────── */
+
+.opening__florals {
+  position: absolute;
+  z-index: 1;
+  width: clamp(11rem, 26vw, 23rem);
+  height: auto;
+  filter: drop-shadow(0 14px 22px color-mix(in srgb, var(--burgundy) 22%, transparent));
+  animation: florals-sway 9s ease-in-out infinite alternate;
+}
+
+.opening__florals--tl { top: -2.4rem; left: -2rem; transform: rotate(14deg); }
+.opening__florals--br { bottom: -2.6rem; right: -1.8rem; transform: rotate(-168deg); animation-delay: -4.5s; }
+
+@keyframes florals-sway {
+  from { translate: 0 0; rotate: 0deg; }
+  to   { translate: 0 9px; rotate: 1.6deg; }
+}
+
+.opening__glow {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 34%;
+  width: min(64rem, 120vw);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--gold) 30%, transparent),
+    color-mix(in srgb, var(--gold) 10%, transparent) 42%,
+    transparent 68%);
+  filter: blur(2px);
+  animation: glow-breathe 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glow-breathe {
+  from { opacity: .75; scale: .97; }
+  to   { opacity: 1;   scale: 1.03; }
+}
+
+.opening__watermark {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  translate: -50% -54%;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(20rem, 52vw, 44rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--champagne) 34%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── the cover's own composition ───────────────────────────── */
+
+.opening__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.1rem, 2.6vh, 1.6rem);
+  text-align: center;
+  max-width: 34rem;
+}
+
+.opening__eyebrow { color: var(--charcoal); }
+
+.opening__names {
+  font-size: var(--fs-script-xl);
+  color: var(--burgundy);
+  text-wrap: balance;
+}
+
+/* ── the envelope stage ────────────────────────────────────── */
+
+.envelope-stage {
+  position: relative;
+  width: min(23rem, 74vw);
+  margin-block: .4rem 2.6rem;
+}
+
+.table-shadow {
+  position: absolute;
+  inset-inline: -6%;
+  bottom: -9%;
+  height: 22%;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%,
+    color-mix(in srgb, var(--burgundy) 30%, transparent), transparent 72%);
+  filter: blur(6px);
+}
+
+/* the envelope is pure CSS — paper folds drawn with gradients */
+.envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 5.5;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--burgundy) 92%, white 8%),
+      var(--burgundy) 46%,
+      var(--burgundy-deep));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent),
+    var(--shadow-lift);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+
+.envelope:hover {
+  transform: translateY(-4px) rotate(-.4deg);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent),
+    0 3px 6px color-mix(in srgb, var(--burgundy) 16%, transparent),
+    0 36px 80px color-mix(in srgb, var(--burgundy) 30%, transparent);
+}
+
+.envelope:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+}
+
+/* the arch-topped card tucked inside */
+.envelope__card {
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  translate: -50% 0;
+  width: 82%;
+  aspect-ratio: 8 / 5.9;
+  border-radius: var(--arch-radius);
+  background:
+    linear-gradient(180deg, var(--paper-raised), color-mix(in srgb, var(--ivory) 92%, var(--parchment)));
+  box-shadow: 0 -2px 0 color-mix(in srgb, white 60%, transparent) inset, 0 6px 18px color-mix(in srgb, var(--burgundy) 22%, transparent);
+  overflow: hidden;
+}
+
+.envelope__card-frame {
+  position: absolute;
+  inset: 7px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  pointer-events: none;
+}
+
+.envelope__card-inner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: .3rem;
+  padding: 18% 12% 20%;
+  color: var(--ink);
+}
+
+.envelope__letter-mono {
+  font-size: clamp(.9rem, 2.6vw, 1.1rem);
+  letter-spacing: .3em;
+  color: var(--gold);
+  margin-bottom: .2rem;
+}
+
+.envelope__letter-names {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 5.4vw, 2.2rem);
+  line-height: 1;
+  color: var(--burgundy);
+}
+
+.envelope__letter-sprig {
+  width: 7.4rem;
+  color: var(--champagne);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  margin-block: .25rem;
+}
+
+.envelope__letter-date {
+  font-family: var(--font-editorial);
+  font-size: clamp(.62rem, 2vw, .74rem);
+  letter-spacing: .42em;
+  color: var(--charcoal);
+}
+
+/* the postage stamp — a perforated-edge lemon stamp */
+.envelope__stamp {
+  position: absolute;
+  top: 9%;
+  right: 8.5%;
+  width: 17%;
+  aspect-ratio: 4 / 5;
+  padding: 5.5%;
+  background:
+    radial-gradient(circle at 50% 42%, transparent 0, transparent 0) padding-box,
+    var(--paper-raised);
+  border-radius: 2px;
+  /* perforated stamp edge */
+  -webkit-mask:
+    radial-gradient(circle 2.6px at 50% 0, transparent 96%, black) top    / 12% 8.5% repeat-x,
+    radial-gradient(circle 2.6px at 50% 100%, transparent 96%, black) bottom / 12% 8.5% repeat-x,
+    radial-gradient(circle 2.6px at 0 50%, transparent 96%, black) left   / 8.5% 12% repeat-y,
+    radial-gradient(circle 2.6px at 100% 50%, transparent 96%, black) right / 8.5% 12% repeat-y,
+    linear-gradient(black, black) center / 100% 100% no-repeat;
+  mask:
+    radial-gradient(circle 2.6px at 50% 0, transparent 96%, black) top    / 12% 8.5% repeat-x,
+    radial-gradient(circle 2.6px at 50% 100%, transparent 96%, black) bottom / 12% 8.5% repeat-x,
+    radial-gradient(circle 2.6px at 0 50%, transparent 96%, black) left   / 8.5% 12% repeat-y,
+    radial-gradient(circle 2.6px at 100% 50%, transparent 96%, black) right / 8.5% 12% repeat-y,
+    linear-gradient(black, black) center / 100% 100% no-repeat;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--burgundy) 24%, transparent);
+}
+
+.envelope__stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* the linen address band across the lower envelope */
+.envelope__band {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  translate: -50% 0;
+  width: 100%;
+  padding: .7rem 1rem .95rem;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(90deg,
+      color-mix(in srgb, var(--ivory) 92%, var(--parchment)) 0 7px,
+      color-mix(in srgb, var(--parchment) 88%, white) 7px 9px);
+  box-shadow: 0 -6px 16px color-mix(in srgb, var(--burgundy) 14%, transparent);
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.envelope__address {
+  display: grid;
+  gap: .1rem;
+  align-content: start;
+}
+
+.envelope__to {
+  font-family: var(--font-body);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.envelope__address .script {
+  font-size: 1.35rem;
+  color: var(--burgundy);
+}
+
+/* the majolica medallion seal — pressed onto the arch apex of
+   the card, the classic wax-on-invitation placement */
+.envelope__seal-wrap {
+  position: absolute;
+  left: 50%;
+  top: -7%;
+  translate: -50% 0;
+  width: 25%;
+  aspect-ratio: 1;
+  filter: drop-shadow(var(--shadow-seal));
+  z-index: 2;
+}
+
+.envelope__seal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.envelope__seal {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-editorial);
+  font-size: clamp(.72rem, 2.6vw, .95rem);
+  letter-spacing: .22em;
+  color: var(--night-deep);
+  text-indent: .22em;
+  padding-bottom: 4%;
+}
+
+/* ── hint & actions ────────────────────────────────────────── */
+
+.opening__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.opening__hint-rule {
+  width: clamp(2rem, 7vw, 4rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold) 70%, transparent), transparent);
+}
+
+.opening__open { margin-top: .2rem; }
+
+.opening__skip {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: .85;
+  padding: .4em .8em;
+  transition: color .3s ease, opacity .3s ease;
+}
+
+.opening__skip:hover { color: var(--burgundy); opacity: 1; }
+
+.opening__skip:disabled,
+.opening__open:disabled { opacity: .55; cursor: default; }
+
+/* ── entrance choreography (CSS, before any JS) ────────────── */
+
+body.intro-pending .opening__inner > * {
+  opacity: 0;
+  translate: 0 14px;
+  animation: opening-enter .9s var(--ease-out) forwards;
+}
+
+body.intro-pending .opening__eyebrow { animation-delay: .1s; }
+body.intro-pending .opening__names   { animation-delay: .22s; }
+body.intro-pending .envelope-stage   { animation-delay: .4s; }
+body.intro-pending .opening__hint    { animation-delay: .62s; }
+body.intro-pending .opening__open    { animation-delay: .74s; }
+body.intro-pending .opening__skip    { animation-delay: .86s; }
+
+body.intro-pending .table-shadow { opacity: 0; animation: opening-enter 1.2s var(--ease-out) .5s forwards; }
+
+body.intro-pending .opening__florals--tl { animation: florals-enter-tl 1.4s var(--ease-out) .15s forwards, florals-sway 9s ease-in-out 1.6s infinite alternate; }
+body.intro-pending .opening__florals--br { animation: florals-enter-br 1.4s var(--ease-out) .3s forwards, florals-sway 9s ease-in-out 1.7s infinite alternate; }
+
+@keyframes opening-enter {
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes florals-enter-tl {
+  from { opacity: 0; transform: rotate(14deg) translate(-26px, -22px); }
+  to   { opacity: 1; transform: rotate(14deg) translate(0, 0); }
+}
+
+@keyframes florals-enter-br {
+  from { opacity: 0; transform: rotate(-168deg) translate(26px, -22px); }
+  to   { opacity: 1; transform: rotate(-168deg) translate(0, 0); }
+}
+
+/* ── the no-GSAP fallback opening ──────────────────────────── */
+
+.envelope.is-fallback-open {
+  animation: card-taken 2.5s var(--ease-soft) forwards;
+}
+
+.envelope.is-fallback-open .envelope__seal-wrap {
+  animation: seal-falls .72s ease-in forwards;
+}
+
+.envelope.is-fallback-open .envelope__band {
+  animation: band-slides .9s ease-in forwards .46s;
+}
+
+@keyframes seal-falls {
+  to { transform: rotate(26deg) translateY(84px) scale(.7); opacity: 0; }
+}
+
+@keyframes band-slides {
+  to { transform: translateX(128%); opacity: 0; }
+}
+
+@keyframes card-taken {
+  55% { opacity: 1; }
+  to { transform: rotate(0deg) translateY(-2%) scale(1.9); opacity: 0; }
+}
+
+/* the overlay's own quiet exit when the skip path is taken */
+.opening.is-leaving {
+  opacity: 0;
+  transform: translateY(-1.5%);
+  transition: opacity .65s ease, transform .65s ease;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope.is-fallback-open,
+  .envelope.is-fallback-open .envelope__seal-wrap,
+  .envelope.is-fallback-open .envelope__band { animation: none; }
+  .opening.is-leaving { transition: none; }
+}

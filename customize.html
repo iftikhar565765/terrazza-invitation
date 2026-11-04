@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1D0E11">
+  <title>Invitation Atelier · La Terrazza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cedarville+Cursive&family=Crimson+Pro:ital,wght@0,400;1,400&family=Cardo&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Homemade+Apple&family=Italiana&family=Jost:wght@300;400;500&family=Karla:wght@300;400;500&family=La+Belle+Aurore&family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&family=Nothing+You+Could+Do&family=Parisienne&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Prata&family=Shadows+Into+Light&family=Syne:wght@500;600;700&family=Tangerine:wght@400&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/customizer.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/customizer.js" defer></script>
+</head>
+<body>
+  <div class="atelier-topbar">
+  <header class="atelier-header">
+    <a class="wordmark" href="index.html" aria-label="Return to the invitation">
+      <span>TERRAZZA<small>INVITATION ATELIER</small></span>
+    </a>
+    <div class="header-actions">
+      <div class="header-note" id="header-save-status" role="status" aria-live="polite">
+        <span class="status-dot" id="header-save-dot"></span>
+        <span id="header-save-label">Draft · visible only to you</span>
+      </div>
+      <div class="header-menu" id="header-menu">
+        <button type="button" class="header-menu__toggle" id="header-menu-toggle"
+          aria-haspopup="true" aria-expanded="false" aria-label="More options">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="10" r="1.6"/><circle cx="10" cy="10" r="1.6"/><circle cx="16" cy="10" r="1.6"/></g></svg>
+        </button>
+        <div class="header-menu__list" id="header-menu-list" hidden>
+          <button type="button" class="header-menu__item" id="menu-reset" data-menu-item>
+            <span>Start over with the sample</span><small>Discards your edits</small>
+          </button>
+          <label class="header-menu__item" for="import-config" data-menu-item>
+            <span>Load a saved copy</span><small>From a file on this device</small>
+          </label>
+          <input id="import-config" type="file" accept=".json,application/json" hidden>
+          <button type="button" class="header-menu__item" id="menu-download" data-menu-item>
+            <span>Save a copy to your device</span>
+          </button>
+        </div>
+      </div>
+      <button type="button" class="download-button header-publish-button" id="publish-invitation">Publish invitation</button>
+    </div>
+  </header>
+
+  <div class="header-published" id="header-published" hidden>
+    <div class="header-published__inner">
+      <span class="header-published__label">Live invitation link</span>
+      <div class="header-published__row">
+        <input id="header-published-url" type="url" readonly aria-label="Live invitation link">
+        <button type="button" id="header-copy-published-url">Copy link</button>
+        <a id="header-submissions-button" class="submissions-button" href="replies.html" hidden>View submissions</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <main class="atelier">
+    <section class="atelier-intro" aria-labelledby="atelier-title">
+      <div class="atelier-intro__inner">
+        <h1 id="atelier-title">Make it yours.</h1>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Invitation customizer">
+      <div class="flow-panel">
+        <div class="flow-progress" aria-hidden="false">
+          <div class="flow-progress__row">
+            <span class="flow-progress__count" id="flow-step-count">Step 1 of 7</span>
+            <span class="flow-progress__name" id="flow-step-name">The two of you</span>
+          </div>
+          <div class="flow-progress__bar"><i id="flow-progress-fill"></i></div>
+        </div>
+
+        <div class="flow-steps" id="flow-steps">
+          <!-- Chapters 1 to 6 are rendered by the studio script.
+               Chapter 7 stays in the page so its replies panel
+               never rebuilds. -->
+          <section class="flow-step" data-step="7" data-step-key="share" hidden>
+            <header class="flow-step__head">
+              <h2>Share your invitation</h2>
+            </header>
+            <div class="share-readiness" id="share-readiness"></div>
+            <div class="share-actions">
+              <button type="button" class="backup-button finish-publish" id="publish-invitation-finish">Publish &amp; get my link</button>
+              <button type="button" class="backup-button backup-quiet" id="download-json">Save a copy to your device</button>
+            </div>
+            <div class="access-code-row" id="access-code-row" hidden>
+              <label for="access-code">Access code</label>
+              <input id="access-code" type="password" autocomplete="off" spellcheck="false"
+                placeholder="Paste the code from your purchase">
+            </div>
+            <section class="rsvp-responses-panel" id="rsvp-responses" aria-labelledby="rsvp-responses-title" hidden>
+              <div class="rsvp-responses-panel__heading">
+                <h3 id="rsvp-responses-title">Guest replies</h3>
+                <span id="rsvp-responses-count">0</span>
+              </div>
+              <ol id="rsvp-responses-list" class="rsvp-responses-list"></ol>
+              <a class="text-button" id="open-replies-page" href="replies.html" hidden>Open the full submissions page ↗</a>
+            </section>
+          </section>
+        </div>
+
+        <nav class="flow-nav" aria-label="Step navigation">
+          <button type="button" class="flow-nav__back" id="flow-back">Back</button>
+          <button type="button" class="flow-nav__next" id="flow-next">Continue</button>
+        </nav>
+        <p class="save-hint" id="save-hint" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="preview-panel">
+        <div class="preview-heading">
+          <h2>Live editing</h2>
+          <span class="preview-heading__links">
+            <button type="button" class="preview-undo" id="undo-change" hidden>Undo last change</button>
+            <a class="open-preview" id="view-replies" href="replies.html" hidden>View submissions ↗</a>
+            <a class="open-preview" id="open-preview" href="index.html?preview=1" target="_blank" rel="noopener">See it as a guest ↗</a>
+            <button type="button" class="preview-close" id="preview-close" aria-label="Close preview" hidden>✕</button>
+          </span>
+        </div>
+        <div class="preview-frame">
+          <iframe id="invitation-preview" title="Live preview of your wedding invitation" src="index.html"></iframe>
+          <div class="preview-loading" id="preview-loading">Preparing your invitation…</div>
+          <div class="canvas-color-action" id="canvas-color-action" hidden>
+            <div class="canvas-color-action__head">
+              <span class="canvas-color-action__title" id="canvas-color-label">Selected element</span>
+              <button type="button" class="canvas-color-action__close" id="close-color-tooltip">Done</button>
+            </div>
+            <div class="canvas-color-action__row">
+              <label id="canvas-text-group">
+                <span>Text</span>
+                <input id="canvas-text-color" type="color" aria-label="Selected element text colour">
+              </label>
+              <label id="canvas-bg-group">
+                <span>Background</span>
+                <input id="canvas-bg-color" type="color" aria-label="Selected element background colour">
+              </label>
+            </div>
+            <div class="canvas-color-action__row canvas-color-action__actions">
+              <button type="button" id="reset-element-colors">Reset</button>
+              <button type="button" id="remove-element" hidden>Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="preview-footer">
+          <button type="button" class="text-button" id="restore-removed" hidden>Restore removed elements</button>
+          <button type="button" class="backup-button preview-continue" id="preview-continue" hidden>Continue to publish</button>
+        </div>
+      </div>
+    </section>
+
+    <button type="button" class="preview-toggle" id="preview-toggle">Preview</button>
+  </main>
+
+  <footer class="atelier-footer">
+    <span>La Terrazza</span>
+    <span>Invitation Atelier</span>
+  </footer>
+
+  <section class="publish-celebration" id="publish-celebration" role="dialog" aria-modal="true"
+    aria-labelledby="celebration-title" hidden>
+    <div class="publish-celebration__inner">
+      <p class="publish-celebration__eyebrow">Published</p>
+      <h2 id="celebration-title">Your invitation is live</h2>
+      <p class="publish-celebration__note">This link is what your guests open. Copy it into messages, cards or the group chat.</p>
+      <div class="publish-celebration__row">
+        <input id="celebration-url" type="url" readonly aria-label="Live invitation link">
+        <button type="button" class="backup-button" id="celebration-copy">Copy link</button>
+        <a id="celebration-submissions" class="submissions-button" href="replies.html" hidden>View submissions</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

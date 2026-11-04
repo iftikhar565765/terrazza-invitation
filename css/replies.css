@@ -1,0 +1,135 @@
+/* Guest Submissions page — sits on top of the Atelier design system. */
+
+[hidden] { display: none !important; }
+
+.submissions-main {
+  width: min(860px, 92vw);
+  margin: 0 auto;
+  padding-bottom: 44px;
+}
+
+.submissions-intro { margin: clamp(28px, 5vh, 48px) 0 4px; }
+
+.submissions-intro h1 {
+  margin: 0;
+  color: var(--copy);
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  font-size: clamp(26px, 3.6vw, 34px);
+  letter-spacing: -.01em;
+  line-height: 1.1;
+}
+
+.header-actions { display: inline-flex; align-items: center; gap: 10px; }
+
+.header-actions .ghost-button { min-height: 44px; padding: 12px 17px; }
+
+.submissions-state {
+  margin: 24px 0;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: var(--well);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.submissions-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 26px 0 22px;
+}
+
+.summary-card {
+  padding: 18px 14px;
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+  text-align: center;
+}
+
+.summary-card strong {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.summary-card span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.submissions-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reply-card {
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.reply-card--declined { opacity: .75; }
+
+.reply-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.reply-card__head strong {
+  color: var(--copy);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: .02em;
+  overflow-wrap: anywhere;
+}
+
+.reply-badge {
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.reply-badge--attending { color: var(--accent); }
+
+.reply-card__meta {
+  margin: 6px 0 0;
+  color: var(--faint);
+  font-size: 11px;
+  letter-spacing: .05em;
+}
+
+.reply-card__note {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.atelier-footer--page {
+  width: min(860px, 92vw);
+  margin: 6px auto 30px;
+}
+
+@media (max-width: 560px) {
+  .submissions-summary { grid-template-columns: repeat(2, 1fr); }
+  .atelier-header { gap: 10px; }
+  .header-actions { gap: 7px; }
+  .header-actions .ghost-button { min-height: 40px; padding: 11px 12px; font-size: 12px; }
+  .download-button { min-height: 40px; padding: 11px 14px; }
+}
