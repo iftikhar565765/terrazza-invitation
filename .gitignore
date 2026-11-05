@@ -7,3 +7,4 @@ _worker.bundle
 .env.*
 node_modules/
 dist/
+_raw-art/

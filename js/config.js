@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   AURELIA · config.js
+   ROSALIND · config.js
    ---------------------------------------------------------------
    Main personalisation data for the site and visual editor.
    Longer copy, palette, and theme are editable here. Values
@@ -8,7 +8,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 window.HEIRLOOM = {
-  templateId: "aurelia",
+  templateId: "rosalind",
 
   /* ── The couple — SAMPLE content, replace with your names ────── */
   couple: {
@@ -48,9 +48,9 @@ window.HEIRLOOM = {
      The visual editor can change these values without editing HTML. */
   content: {
     pageTitle: "Arabella & Theodore · 12 June 2027 — The Orangery at Ashcombe Court",
-    pageDescription: "Arabella and Theodore request the pleasure of your company in the Orangery at Ashcombe Court on Saturday the twelfth of June 2027. Break the seal to open your invitation.",
+    pageDescription: "Arabella and Theodore request the pleasure of your company in the rose gardens of Ashcombe Court on Saturday the twelfth of June 2027. Break the seal to open your invitation.",
     socialTitle: "Arabella & Theodore — An Invitation · 12.06.2027",
-    socialDescription: "Porcelain ivory, antique gold and white roses — you are warmly invited.",
+    socialDescription: "Blush roses, candlelight and an evening garden — you are warmly invited.",
     navStory: "Story",
     navDetails: "Details",
     navVenue: "Venue",
@@ -72,7 +72,7 @@ window.HEIRLOOM = {
     sealCardLine: "for our dearest",
     sealCardGuests: "friends & family",
     invitationEyebrow: "Together with their families",
-    invitationLead: "request the honour of your presence as they exchange vows in the golden light of the Orangery, and celebrate afterwards with dinner, dancing and a toast or two.",
+    invitationLead: "request the honour of your presence as they exchange vows beneath a bower of roses in the golden light of the Orangery, and celebrate afterwards with dinner, dancing and a toast or two.",
     invitationVenueSuffix: "· The Cotswolds",
     storyKicker: "№ 02 · Their Story",
     storyTitle: "Our",
@@ -113,7 +113,7 @@ window.HEIRLOOM = {
     paletteKicker: "№ 05 · A Note on Colour",
     paletteTitleFirst: "The wedding",
     paletteTitleSecond: "palette",
-    paletteIntro: "A study in porcelain ivory, antique gold and quiet sage — chosen to feel like candlelight on fine china.",
+    paletteIntro: "A study in blush roses, deep sage and candlelight gold — gathered from the garden, tied with ribbon, and chosen to feel like a June evening that never ends.",
     dressCodeLabel: "Attire · Black tie, with gold",
     dressCodeTitle: "Black tie, with gold",
     dressCodeNote: "Ivory, gold and green are welcome — a touch of shine is warmly encouraged. The palette is only a suggestion; wear what makes you feel wonderful.",
@@ -156,24 +156,24 @@ window.HEIRLOOM = {
     countdownPromise: "“I do”",
     closingScript: "with all our love",
     closingMessage: "Thank you, from the bottom of our hearts, for being part of our story. We cannot wait to celebrate with you under the glass roof of the Orangery, in gold evening light that will forever be the beginning of our always.",
-    footerTagline: "Two hearts, one golden always."
+    footerTagline: "Two hearts, one garden, forever in bloom."
   },
 
   palette: [
-    { name: "Porcelain",    color: "#FBF8F1" },
-    { name: "Antique Gold", color: "#B08D57" },
-    { name: "Quiet Sage",   color: "#C0C2B0" },
-    { name: "Champagne",    color: "#C9A86A" },
-    { name: "Espresso",     color: "#4E463C" }
+    { name: "Blush Rose",   color: "#D8A3A1" },
+    { name: "Dusty Petal",  color: "#C08587" },
+    { name: "Sage Foliage", color: "#B4BBA6" },
+    { name: "Candle Gold",  color: "#C2A165" },
+    { name: "Wine Evening", color: "#6E4048" }
   ],
-  theme: "porcelain",
+  theme: "blush",
   themeColors: {},
   fonts: {
-    editorial: "bodoni",
-    display: "cormorant",
-    script: "pinyon",
-    hand: "laBelle",
-    body: "jost"
+    editorial: "playfair",
+    display: "ebGaramond",
+    script: "greatVibes",
+    hand: "caveat",
+    body: "dmSans"
   },
 
   /* ── Wedding-day moments — SAMPLE words for the order of the day.

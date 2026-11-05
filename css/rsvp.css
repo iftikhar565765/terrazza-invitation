@@ -1,261 +1,217 @@
 /* ═══════════════════════════════════════════════════════════════
-   AURELIA · rsvp.css
-   The reply card — engraved fields on paper, a choice marked
-   like a checked yes, and a quiet confirmation.
+   ROSALIND · rsvp.css
+   The reply card — wax-sealed, ribbon-tied, ready for the post.
    ═══════════════════════════════════════════════════════════════ */
-
-.rsvp {
-  background: var(--parchment);
-  padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(5rem, 10vw, 8rem);
-  text-align: center;
-  overflow: clip;
-}
-
-.rsvp__spray {
-  position: absolute;
-  bottom: -2.5rem;
-  left: -2.5rem;
-  width: clamp(200px, 24vw, 360px);
-  pointer-events: none;
-  opacity: .85;
-}
-
-.rsvp__lead {
-  margin-top: 1.05rem;
-  font-style: italic;
-  font-size: 1.16rem;
-  color: var(--ink-soft);
-}
-
-.rsvp__lead strong {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--wine);
-  letter-spacing: .02em;
-}
 
 .rsvp__card {
   position: relative;
   max-width: 640px;
-  margin: 2.5rem auto 0;
-  padding: clamp(2.1rem, 5vw, 3.1rem) clamp(1.5rem, 5vw, 3rem);
-  background: var(--paper-raised);
+  margin: clamp(3rem, 7vh, 4.4rem) auto 0;
+  padding: clamp(2.8rem, 6vw, 4rem) clamp(1.6rem, 5vw, 3.6rem) clamp(2.2rem, 5vw, 3rem);
+  background:
+    radial-gradient(120% 80% at 50% -8%, color-mix(in srgb, var(--rose) 16%, transparent) 0%, transparent 44%),
+    linear-gradient(168deg, var(--paper-raised) 0%, var(--ivory) 60%, var(--parchment) 100%);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-card);
-  text-align: left;
+}
+
+.rsvp__card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+
+.rsvp__card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--gold-wash-strong);
+  pointer-events: none;
+}
+
+.rsvp__seal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(72px, 10vw, 88px);
+  filter: drop-shadow(0 10px 16px color-mix(in srgb, var(--night) 30%, transparent));
+  animation: seal-pulse 2.8s ease-in-out infinite;
 }
 
 .rsvp__demo-note {
-  font-style: italic;
-  font-size: .95rem;
-  color: var(--charcoal);
   text-align: center;
-  margin-bottom: 1.4rem;
-}
-
-/* ── fields ───────────────────────────────────────────────────── */
-
-.field {
-  border: 0;
-  padding: 0;
-  margin: 0 0 1.55rem;
-}
-
-.field__label {
-  display: block;
   font-family: var(--font-body);
   font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .26em;
-  text-transform: uppercase;
+  letter-spacing: .12em;
   color: var(--ink-soft);
-  margin-bottom: .45rem;
+  background: var(--gold-wash);
+  border: 1px solid var(--gold-wash-strong);
+  border-radius: 2px;
+  padding: .55rem .9rem;
+  margin-bottom: 1.6rem;
+}
+
+.rsvp__form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.field { display: grid; gap: .5rem; }
+
+.field__label {
+  font-family: var(--font-body);
+  font-size: .66rem;
+  font-weight: 500;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--burgundy-deep);
 }
 
 .field__input {
   width: 100%;
-  padding: .65rem .15rem;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line-strong);
-  border-radius: 0;
+  padding: .9rem 1.1rem;
   font-family: var(--font-display);
-  font-size: 1.16rem;
+  font-size: 1.02rem;
   color: var(--night-deep);
+  background: color-mix(in srgb, #fff 62%, var(--ivory));
+  border: 1px solid var(--line);
+  border-radius: 2px;
   transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
-}
-
-.field__input::placeholder {
-  color: color-mix(in srgb, var(--charcoal) 72%, transparent);
-  font-style: italic;
 }
 
 .field__input:focus {
   outline: none;
-  border-bottom-color: var(--burgundy);
-  box-shadow: 0 1px 0 0 var(--burgundy);
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 3px var(--rose-wash);
 }
+
+.field__input--num { max-width: 140px; }
 
 .field__input--area { resize: vertical; min-height: 3.2rem; }
 
-.field__input--num { max-width: 120px; }
+.field--attendance { border: 0; padding: 0; }
 
-.field--hp {
-  position: absolute;
-  left: -4000px;
-  width: 200px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* the attendance choice — two cards, one quiet tick */
 .field__choices {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .8rem;
-  margin-top: .3rem;
+  gap: .7rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .choice {
-  position: relative;
   display: flex;
   align-items: center;
   gap: .7rem;
-  padding: .95rem 1.05rem;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper-raised) 70%, transparent);
+  padding: .95rem 1.2rem;
   cursor: pointer;
+  background: color-mix(in srgb, #fff 58%, var(--ivory));
+  border: 1px solid var(--line);
+  border-radius: 999px;
   transition: border-color .3s var(--ease), background-color .3s var(--ease),
               box-shadow .3s var(--ease);
 }
 
-.choice:hover { border-color: var(--line-strong); }
+.choice:hover { border-color: var(--burgundy); }
 
-.choice input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-}
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
 
 .choice__mark {
-  flex: none;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
   display: grid;
   place-items: center;
-  transition: background-color .3s var(--ease), border-color .3s var(--ease);
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
 
-.choice__mark::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: transparent;
-  transition: background-color .3s var(--ease);
+.choice input:checked + .choice__mark {
+  border-color: var(--burgundy);
+  box-shadow: inset 0 0 0 3.5px #fff, inset 0 0 0 10px var(--burgundy);
 }
+
+.choice input:checked ~ .choice__text { color: var(--night-deep); }
 
 .choice:has(input:checked) {
   border-color: var(--burgundy);
-  background: var(--gold-wash);
-  box-shadow: 0 6px 16px -10px color-mix(in srgb, var(--night) 40%, transparent);
-}
-
-.choice:has(input:checked) .choice__mark {
-  border-color: var(--burgundy-deep);
-}
-
-.choice:has(input:checked) .choice__mark::after {
-  background: var(--burgundy-deep);
-}
-
-.choice:has(input:focus-visible) {
-  outline: 1.5px solid var(--burgundy);
-  outline-offset: 2px;
+  background: var(--rose-wash);
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--night) 30%, transparent);
 }
 
 .choice__text {
-  font-family: var(--font-display);
-  font-size: 1.08rem;
-  color: var(--night-deep);
+  font-size: .98rem;
+  color: var(--ink);
 }
 
-/* errors */
 .field__error {
-  margin-top: .5rem;
-  font-size: .92rem;
-  font-style: italic;
-  color: #9A4A3E;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  color: color-mix(in srgb, #A33B4B 88%, var(--night));
 }
 
-.field.is-invalid .field__input,
-.field.is-invalid .choice { border-color: #9A4A3E; }
-
-.field.is-invalid .field__label { color: #9A4A3E; }
-
-/* submit */
-.rsvp__submit {
-  width: 100%;
-  margin-top: .4rem;
+.field--hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-/* ── the preview / confirmation ───────────────────────────────── */
+.rsvp__submit { margin-top: .4rem; width: 100%; }
 
-.rsvp__preview {
-  text-align: center;
-}
+/* ── the sent preview ─────────────────────────────────────────── */
+
+.rsvp__preview { text-align: center; }
 
 .rsvp__preview-title {
-  font-size: 2.2rem;
-  color: var(--burgundy-deep);
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  color: var(--burgundy);
 }
 
 .rsvp__summary {
-  max-width: 430px;
-  margin: 1.6rem auto;
+  margin: 1.4rem auto 0;
+  max-width: 420px;
   display: grid;
-  gap: .75rem;
+  gap: .55rem;
   text-align: left;
 }
 
-.rsvp__summary > div {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: baseline;
-  padding-bottom: .7rem;
-  border-bottom: 1px solid var(--line);
+.rsvp__summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: .5rem;
 }
 
 .rsvp__summary dt {
   font-family: var(--font-body);
   font-size: .64rem;
-  letter-spacing: .24em;
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  white-space: nowrap;
+  padding-top: .25rem;
 }
 
 .rsvp__summary dd {
-  margin: 0;
-  font-size: 1.08rem;
+  font-style: italic;
   color: var(--night-deep);
+  text-align: right;
 }
 
-.rsvp__preview .btn { margin-top: .6rem; }
+.rsvp__preview .rsvp__demo-note { margin-top: 1.4rem; margin-bottom: 0; }
 
-/* ── live status ──────────────────────────────────────────────── */
+.rsvp__preview .btn { margin-top: 1.4rem; }
 
 .rsvp__status {
-  margin-top: 1.2rem;
+  min-height: 1.4rem;
+  margin-top: 1rem;
   text-align: center;
-  font-style: italic;
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: .8rem;
   color: var(--ink-soft);
-  min-height: 1.5em;
 }
-
-.rsvp__status.is-error { color: #9A4A3E; }

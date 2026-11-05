@@ -1,4 +1,4 @@
-# Aurelia — a porcelain & gold wedding invitation
+# Rosalind — a rose-garden wedding invitation
 
 An invitation that feels like a fine engraved wedding suite: a folded
 letter sealed in gold wax that opens on arrival, a ring crest crowning

@@ -1,133 +1,134 @@
 /* ═══════════════════════════════════════════════════════════════
-   AURELIA · responsive.css
-   Every device, one suite — the breakpoints that keep the
-   letterpress feel from the largest screen to the smallest phone.
+   ROSALIND · responsive.css
+   The garden arranges itself for every screen.
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── large desktop refinement ─────────────────────────────────── */
 @media (min-width: 1600px) {
-  :root { --wrap: 1140px; }
+  :root { --wrap: 1160px; }
 }
 
-/* ── laptops & down: tighten the frame ────────────────────────── */
+/* ── desktop navigation appears ───────────────────────────────── */
+@media (min-width: 860px) {
+  .nav__links { display: flex; }
+  .nav__wordmark { display: inline; }
+  .menu-toggle { display: none; }
+}
+
 @media (max-width: 1100px) {
-  .hero__spray--tl { width: clamp(200px, 26vw, 330px); }
-  .hero__spray--br { width: clamp(210px, 27vw, 350px); }
+  .hero__spray--tl { width: clamp(200px, 28vw, 360px); }
+  .hero__spray--br { width: clamp(210px, 30vw, 380px); }
 }
 
-/* ── the nav folds into the menu ──────────────────────────────── */
+/* ── tablets & down ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .menu-toggle { display: inline-grid; }
-  .nav__links { display: none; }
+  .hero {
+    padding-inline: 1.1rem;
+  }
 
-  .savethedate__wreath { display: none; }
-  .story__columns { grid-template-columns: 1fr; max-width: 620px; }
+  .hero__frame { inset: .8rem; }
 
   .details__plates { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
 
-  .particulars { grid-template-columns: 1fr; max-width: 460px; }
+  .particulars { grid-template-columns: 1fr; }
 
-  .itinerary__swag { width: clamp(260px, 62vw, 440px); }
+  .savethedate__lights,
+  .venue__lights,
+  .closing__lights { width: min(720px, 130vw); }
+
+  .countdown__wreath { opacity: .26; }
 }
 
-/* ── small tablets & phones ───────────────────────────────────── */
+/* ── phones ───────────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  body { font-size: 1.03rem; }
+  :root { --nav-h: 62px; }
 
-  :root { --nav-h: 60px; }
+  .wrap { width: calc(100% - 2.2rem); }
 
-  .wrap { width: calc(100% - 2.4rem); }
+  .hero { padding-top: calc(var(--nav-h) + 2.4rem); }
 
-  /* the announcement keeps its frame, softly */
-  .hero__frame { inset: 10px; }
-  .hero__corner { width: 44px; }
-  .hero { padding: calc(var(--nav-h) + 2.2rem) 1.1rem 3.2rem; }
-  .hero__crest { width: 88px; margin-bottom: 1.3rem; }
-  .hero__crest-rings { width: 36px; height: 36px; }
-  .hero__names { font-size: clamp(2.25rem, 10.5vw, 3rem); }
-  .hero__words { font-size: 1.08rem; }
-  .hero__spray--tl { top: -2rem; left: -2.4rem; width: clamp(170px, 44vw, 240px); }
-  .hero__spray--br { bottom: -2rem; right: -2.2rem; width: clamp(180px, 46vw, 250px); }
-  .hero__glow { width: 130vw; top: 44%; }
-
-  .opening__spray--tl { top: -2.8rem; left: -3.2rem; width: clamp(150px, 40vw, 220px); }
-  .opening__spray--br { bottom: -2.6rem; right: -2.8rem; width: clamp(160px, 42vw, 230px); }
-
-  .vow__card { padding-inline: 1.4rem; }
-  .vow__corner { width: 42px; }
-  .vow__eyebrow { font-size: 1.6rem; }
-  .vow__lead { font-size: 1.12rem; }
-
-  .story__quote-text { font-size: 1.22rem; }
-  .story__quote-corner { width: 36px; }
-  .story__bouquet { width: clamp(130px, 40vw, 170px); }
-  .story__aside { font-size: 1.5rem; }
-
-  .savethedate__card { padding-inline: 1.4rem; }
-  .savethedate__actions .btn { width: 100%; }
-
-  .particulars__item { padding: 1rem; }
-
-  .field__choices { grid-template-columns: 1fr; }
-
-  .countdown__clock { gap: .9rem; }
-  .countdown__dial { width: 74px; }
-  .countdown__num { font-size: 1.5rem; }
-  .countdown__label { font-size: .54rem; }
-
-  .venue__painting { width: 100%; }
-  .venue__facts { text-align: center; }
-  .venue__fact { grid-template-columns: 1fr; gap: .15rem; text-align: center; }
-
-  /* the order of the day becomes a vertical gold thread */
-  .itinerary__thread {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 300px;
-    margin-inline: auto;
+  .hero__spray--tl {
+    top: -2.2rem;
+    left: -2.6rem;
+    width: clamp(150px, 44vw, 230px);
   }
 
-  .day-word { justify-content: center; }
-
-  .day-word + .day-word::before {
-    width: 1px;
-    height: 20px;
-    margin: .3rem auto;
-    background: linear-gradient(180deg, transparent, var(--line-strong) 30% 70%, transparent);
+  .hero__spray--br {
+    bottom: -2.2rem;
+    right: -2.6rem;
+    width: clamp(160px, 46vw, 250px);
   }
 
-  .closing__seal { width: 96px; }
-  .closing__actions .btn { width: 100%; }
-  .closing__script { font-size: 1.9rem; }
-  .closing__message { font-size: 1.12rem; }
+  .hero__crest-img { width: clamp(120px, 34vw, 160px); }
 
-  .rsvp__spray { width: clamp(150px, 40vw, 220px); bottom: -1.5rem; left: -1.8rem; }
+  .hero__names { font-size: clamp(2.1rem, 10.5vw, 2.9rem); }
+
+  .hero__amp { font-size: clamp(1.7rem, 8vw, 2.2rem); }
+
+  .hero__actions .btn { flex: 1 1 100%; max-width: 300px; margin-inline: auto; }
+
+  .vow { padding-inline: 1rem; }
+
+  .vow__garland { width: min(420px, 96vw); top: -22px; }
+
+  .vow__spray--tl { width: 44%; left: -8%; }
+  .vow__spray--br { width: 48%; right: -9%; }
+
+  .story__chapter { padding-inline: 1.3rem; }
+
+  .story__bouquet { width: clamp(170px, 52vw, 230px); }
+
+  .savethedate__candles { width: clamp(100px, 26vw, 140px); }
+
+  .itinerary__swag { width: min(430px, 96vw); top: -20px; }
+
+  .itinerary__thread { gap: .5rem; }
+
+  .day-word { padding: .5rem .9rem; }
+
+  .venue__scene { max-width: 100%; }
+
+  .venue__frame { border-radius: 320px 320px 6px 6px; }
+
+  .countdown__clock { gap: .8rem; }
+
+  .countdown__dial { min-width: calc(50% - .4rem); }
+
+  .rsvp__spray--tl { width: clamp(140px, 38vw, 220px); }
+  .rsvp__spray--br { width: clamp(150px, 40vw, 230px); }
+
+  .rsvp__card { padding-inline: 1.3rem; }
+
+  .closing__script { font-size: clamp(2rem, 9vw, 2.6rem); }
+
+  .footer__names { font-size: 1.3rem; }
 }
 
-/* ── very small phones ────────────────────────────────────────── */
 @media (max-width: 380px) {
-  .hero__names { font-size: clamp(2rem, 11vw, 2.6rem); }
-  .btn { padding-inline: 1.4rem; letter-spacing: .16em; }
-  .sealcard { width: min(272px, 84vw); }
-  .menu__links a em.script { font-size: 1.8rem; }
+  .hero__names { font-size: 1.9rem; }
+
+  .countdown__dial { padding: 1rem .4rem .8rem; }
+
+  .choice { padding-inline: .9rem; }
+
+  .btn { padding-inline: 1.4rem; }
 }
 
-/* ── landscape phones — keep the opening calm ─────────────────── */
+/* ── short landscape phones — keep every scene one glance ────── */
 @media (max-height: 480px) and (orientation: landscape) {
-  .opening__names { margin-top: .4rem; }
-  .sealcard-stage { margin-block: .9rem; }
-  .sealcard { width: min(220px, 52vh); }
-  .opening__hint { display: none; }
-}
+  .hero { padding-block: calc(var(--nav-h) + 1.6rem) 2.4rem; }
 
-/* ── the editor's preview pane — always show the full nav ─────── */
-body.editor-live .menu-toggle { display: none; }
-body.editor-live .nav__links { display: flex; }
+  .hero__spray--tl,
+  .hero__spray--br { width: 180px; }
 
-@media (max-width: 860px) {
-  body.editor-live .nav__links {
-    display: flex;
-    gap: 1rem;
-  }
-  body.editor-live .nav__links a { font-size: .62rem; letter-spacing: .14em; }
+  .savethedate,
+  .venue,
+  .closing { padding-block: 2.6rem; }
+
+  .savethedate__lights,
+  .venue__lights,
+  .closing__lights { display: none; }
+
+  .countdown { padding-block: 3rem; }
+
+  .countdown__wreath { opacity: .18; }
 }

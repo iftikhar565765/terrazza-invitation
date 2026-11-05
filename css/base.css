@@ -1,7 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
-   AURELIA · base.css
-   Ground rules — reset, the ivory paper ground with its whisper
-   of grain, shared typography voices, buttons, icons, reveals.
+   ROSALIND · base.css
+   Ground rules — reset, the linen-paper ground with its whisper
+   of grain, shared typography voices, buttons, icons, reveals,
+   and the small motion vocabulary of a garden in bloom.
    ═══════════════════════════════════════════════════════════════ */
 
 *,
@@ -54,7 +55,7 @@ h1, h2, h3, h4 {
 
 p { text-wrap: pretty; }
 
-::selection { background: var(--gold-wash-strong); color: var(--night-deep); }
+::selection { background: var(--rose-wash-strong); color: var(--night-deep); }
 
 :focus-visible {
   outline: 1.5px solid var(--burgundy);
@@ -94,7 +95,7 @@ section { position: relative; }
 
 .hand {
   font-family: var(--font-hand);
-  font-size: 1.28rem;
+  font-size: 1.42rem;
   color: var(--ink-soft);
 }
 
@@ -117,21 +118,22 @@ section { position: relative; }
 }
 
 .section-title {
-  font-size: clamp(2.1rem, 4.4vw, 3rem);
+  font-family: var(--font-editorial);
+  font-size: clamp(2.2rem, 4.6vw, 3.2rem);
   letter-spacing: .015em;
   margin-top: .65rem;
 }
 
 .section-title em.script {
   font-style: normal;
-  color: var(--burgundy-deep);
-  font-size: 1.22em;
+  color: var(--burgundy);
+  font-size: 1.3em;
   line-height: 0;
   margin-inline: .04em;
 }
 
 .head-divider {
-  width: 200px;
+  width: 210px;
   margin: 1.15rem auto 0;
   color: var(--line-strong);
 }
@@ -143,9 +145,9 @@ section { position: relative; }
   align-items: center;
   justify-content: center;
   gap: .6rem;
-  padding: .95rem 1.9rem;
+  padding: .95rem 2rem;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 999px;
   font-family: var(--font-body);
   font-size: .74rem;
   font-weight: 500;
@@ -161,15 +163,16 @@ section { position: relative; }
 .btn .icon { width: 17px; height: 17px; }
 
 .btn--solid {
-  background: var(--night);
+  background: linear-gradient(140deg, var(--wine), var(--night));
   color: var(--ivory);
-  box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--night) 55%, transparent);
+  box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--night) 62%, transparent),
+              inset 0 1px 0 color-mix(in srgb, var(--champagne) 34%, transparent);
 }
 
 .btn--solid:hover {
-  background: var(--night-deep);
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px -12px color-mix(in srgb, var(--night) 62%, transparent);
+  box-shadow: 0 16px 30px -12px color-mix(in srgb, var(--night) 68%, transparent),
+              inset 0 1px 0 color-mix(in srgb, var(--champagne) 40%, transparent);
 }
 
 .btn--outline {
@@ -179,7 +182,7 @@ section { position: relative; }
 }
 
 .btn--outline:hover {
-  background: var(--gold-wash);
+  background: var(--rose-wash);
   border-color: var(--burgundy);
 }
 
@@ -214,7 +217,7 @@ section { position: relative; }
   transition: border-color .3s var(--ease), background-color .3s var(--ease);
 }
 
-.icon-btn:hover { border-color: var(--burgundy); background: var(--gold-wash); }
+.icon-btn:hover { border-color: var(--burgundy); background: var(--rose-wash); }
 
 .icon-btn .icon { width: 19px; height: 19px; fill: none; stroke: currentColor; }
 
@@ -229,6 +232,33 @@ section { position: relative; }
 }
 
 .reveal.in-view { opacity: 1; transform: none; }
+
+/* ── the garden breathes — shared motion vocabulary ──────────── */
+
+@keyframes drift-sway {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(0, -9px, 0) rotate(-.6deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50%      { opacity: .9;  transform: scale(1.06); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .25; }
+  50%      { opacity: 1; }
+}
+
+@keyframes petal-fall {
+  0%   { transform: translate3d(0, -8%, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: .85; }
+  92%  { opacity: .6; }
+  100% { transform: translate3d(var(--petal-drift, 60px), 108%, 0) rotate(300deg); opacity: 0; }
+}
+
+/* gentle parallax hook for [data-drift] artwork */
+[data-drift] { will-change: transform; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

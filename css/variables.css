@@ -1,54 +1,66 @@
 /* ═══════════════════════════════════════════════════════════════
-   AURELIA · variables.css
-   Porcelain ivory & antique gold. The palette variables below are
-   the theme defaults — main.js re-applies them (and the whole
-   theme) whenever the couple picks another palette in the editor.
+   ROSALIND · variables.css
+   A rose garden in full bloom — blush and dusty rose petals,
+   deep sage foliage, antique gold and wine-dark evening scenes.
+   The palette variables below are the theme defaults; main.js
+   re-applies the whole theme whenever the couple picks another
+   palette in the editor.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
   /* ── typography (re-applied from config by main.js) ─────────── */
-  --font-editorial: 'Bodoni Moda', 'Playfair Display', serif;
-  --font-display: 'Cormorant Garamond', 'EB Garamond', serif;
-  --font-script: 'Pinyon Script', 'Great Vibes', cursive;
-  --font-hand: 'La Belle Aurore', 'Caveat', cursive;
-  --font-body: 'Jost', 'DM Sans', sans-serif;
+  --font-editorial: 'Playfair Display', 'Bodoni Moda', serif;
+  --font-display: 'EB Garamond', 'Cormorant Garamond', serif;
+  --font-script: 'Great Vibes', 'Pinyon Script', cursive;
+  --font-hand: 'Caveat', 'La Belle Aurore', cursive;
+  --font-body: 'DM Sans', 'Jost', sans-serif;
 
-  /* ── porcelain theme (defaults; themed by main.js) ──────────── */
-  --burgundy: #B08D57;        /* antique gold — the primary metal   */
-  --burgundy-deep: #997747;
-  --wine: #55483A;            /* deep bronze                        */
-  --crimson: #C4A472;
-  --champagne: #C9A86A;
-  --champagne-soft: #B39258;
-  --parchment: #F5F0E6;
-  --ivory: #FBF8F1;
-  --paper-raised: #FEFCF8;
-  --night: #4E463C;           /* espresso                           */
-  --night-deep: #3F382F;
-  --olive: #A8AC96;
-  --olive-deep: #8B907C;
-  --sage: #C0C2B0;
-  --rose: #DDB4AC;
-  --ink: #4E463F;
-  --ink-soft: #6A6154;
-  --charcoal: #958C7E;
+  /* ── blush rose-garden theme (defaults; themed by main.js) ──── */
+  --burgundy: #A76A6F;        /* dusty rose — the primary voice     */
+  --burgundy-deep: #8F555C;
+  --wine: #6E4048;            /* deep rosewood                      */
+  --crimson: #C08587;
+  --champagne: #C2A165;
+  --champagne-soft: #AC8D57;
+  --parchment: #F4ECE2;
+  --ivory: #FAF6EF;
+  --paper-raised: #FDFBF6;
+  --night: #5E343D;           /* wine-dark evening garden           */
+  --night-deep: #4C2A33;
+  --olive: #97A28B;
+  --olive-deep: #7E8A73;
+  --sage: #B4BBA6;
+  --rose: #D8A3A1;
+  --ink: #54444B;
+  --ink-soft: #6F5D64;
+  --charcoal: #97848B;
 
   --shadow-seal:
-    0 4px 10px color-mix(in srgb, var(--night) 35%, transparent),
-    0 14px 30px color-mix(in srgb, var(--night) 22%, transparent);
+    0 4px 10px color-mix(in srgb, var(--night) 45%, transparent),
+    0 14px 30px color-mix(in srgb, var(--night) 28%, transparent);
 
-  /* ── derived gold linework ──────────────────────────────────── */
-  --line: color-mix(in srgb, var(--burgundy) 26%, transparent);
-  --line-strong: color-mix(in srgb, var(--burgundy) 52%, transparent);
-  --gold-wash: color-mix(in srgb, var(--burgundy) 7%, transparent);
-  --gold-wash-strong: color-mix(in srgb, var(--burgundy) 13%, transparent);
+  /* ── derived rose & gold linework ───────────────────────────── */
+  --line: color-mix(in srgb, var(--burgundy) 28%, transparent);
+  --line-strong: color-mix(in srgb, var(--burgundy) 55%, transparent);
+  --gold-wash: color-mix(in srgb, var(--champagne) 10%, transparent);
+  --gold-wash-strong: color-mix(in srgb, var(--champagne) 18%, transparent);
+  --rose-wash: color-mix(in srgb, var(--rose) 14%, transparent);
+  --rose-wash-strong: color-mix(in srgb, var(--rose) 24%, transparent);
+
+  /* ── antique gold foil (a soft metallic sweep for accents) ──── */
+  --foil: linear-gradient(105deg,
+    color-mix(in srgb, var(--champagne) 78%, #fff) 0%,
+    var(--champagne) 26%,
+    color-mix(in srgb, var(--champagne-soft) 82%, #fff) 48%,
+    var(--champagne) 72%,
+    color-mix(in srgb, var(--champagne-soft) 88%, #fff) 100%);
 
   --shadow-card:
-    0 1px 2px color-mix(in srgb, var(--night) 6%, transparent),
-    0 26px 60px -18px color-mix(in srgb, var(--night) 22%, transparent);
+    0 1px 2px color-mix(in srgb, var(--night) 7%, transparent),
+    0 30px 64px -20px color-mix(in srgb, var(--night) 26%, transparent);
   --shadow-card-soft:
     0 1px 2px color-mix(in srgb, var(--night) 5%, transparent),
-    0 16px 40px -16px color-mix(in srgb, var(--night) 16%, transparent);
+    0 18px 44px -18px color-mix(in srgb, var(--night) 18%, transparent);
 
   /* ── paper grain (an inline whisper of texture) ─────────────── */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.055'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
