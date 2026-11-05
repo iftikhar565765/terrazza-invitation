@@ -255,6 +255,7 @@
     'story-bouquet': 'The wedding posy',
     'story-quote': 'Keepsake quote card',
     'std-glow': 'Candlelight glow · save the date',
+    'std-chandelier': 'The gilded chandelier · save the date',
     'std-wreath': 'Save-the-date wreath',
     'std-card': 'Save-the-date card',
     'std-numerals': 'Save-the-date numerals',
@@ -267,8 +268,7 @@
     'palette-dresscode': 'Dress code card',
     'itinerary-swag': 'Order-of-the-day garland',
     'day-words': 'Order of the day',
-    'venue-scene': 'The Orangery painting',
-    'venue-arch': 'The Orangery painting',
+    'venue-scene': 'The gilded arch',
     'venue-card': 'Venue details card',
     'rsvp-frame': 'Reply card petals',
     'countdown-clock': 'Countdown dials',
@@ -452,7 +452,7 @@
       '.opening__spray,.opening__glow,.seal,.sealcard__front,' +
       '.sealcard__wreath,.hero__spray,.hero__glow,.hero__frame,.hero__crest,' +
       '.story__keepsake,.story__bouquet,.story__quote,.savethedate__glow,' +
-      '.savethedate__wreath,.itinerary__swag,.venue__painting,.rsvp__spray,' +
+      '.savethedate__wreath,.itinerary__swag,.venue__arch,.venue__bouquet,.rsvp__spray,' +
       '.closing__swag,.closing__seal,.hero__corner,.vow__corner,' +
       '.story__quote-corner,.footer__ornament,.opening__hint-orn{' +
         'pointer-events:auto!important;' +
@@ -818,8 +818,13 @@
   renderPalette();
 
   /* ══ 4 · WEDDING-DAY PROGRAMME ═════════════════════════════ */
-  /* One short word per moment, in order, strung along a gold
-     thread like pearls on a bridal ribbon.                     */
+  /* One short word per moment, numbered in small roman numerals
+     like the movements of a printed order of service.          */
+  function romanNumeral(n) {
+    var table = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+      'xi', 'xii', 'xiii', 'xiv', 'xv'];
+    return table[n] || String(n + 1);
+  }
   function renderMoments() {
     var list = document.getElementById('day-words');
     var scene = document.getElementById('itinerary');
@@ -836,7 +841,7 @@
     if (scene) scene.hidden = false;
     list.innerHTML = items.map(function (item) {
       return '<li class="day-word reveal">' +
-        '<span class="day-word__bulb" aria-hidden="true"></span>' +
+        '<span class="day-word__num script" aria-hidden="true">' + romanNumeral(item.index) + '</span>' +
         '<span class="day-word__text" data-editor-path="moments.' + item.index + '">' +
         escapeHTML(item.word.trim()) + '</span></li>';
     }).join('');

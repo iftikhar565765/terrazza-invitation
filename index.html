@@ -424,11 +424,9 @@
            and Bodoni numerals.
            ══════════════════════════════════════════════════════ -->
       <section class="savethedate" id="save-date" aria-label="Save the date">
-        <img class="savethedate__lights" src="assets/art/lights.webp" alt="" aria-hidden="true"
-          data-element-key="std-lights">
+        <img class="savethedate__chandelier" src="assets/art/chandelier.webp" alt="" aria-hidden="true"
+          data-element-key="std-chandelier">
         <span class="savethedate__glow" aria-hidden="true" data-element-key="std-glow"></span>
-        <img class="savethedate__candles" src="assets/art/candles.webp" alt="" aria-hidden="true"
-          data-element-key="std-candles" data-drift>
 
         <div class="wrap">
           <div class="savethedate__card reveal" data-stagger data-element-key="std-card">
@@ -466,30 +464,23 @@
             <p class="details__intro" data-content="content.detailsIntro">The day, at a glance.</p>
           </header>
 
-          <div class="details__plates reveal" data-stagger>
-            <article class="plate" data-element-key="detail-ceremony">
-              <span class="plate__medal" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><use href="#icon-rings" /></svg>
-              </span>
-              <h3 class="plate__label" data-content="content.ceremonyLabel">The Ceremony</h3>
-              <p class="plate__time" data-content="content.ceremonyTime">Four in the afternoon</p>
-              <p class="plate__note" data-content="content.ceremonyNote">Vows in the Orangery as the light turns to gold.</p>
+          <div class="programme reveal" data-stagger data-element-key="detail-plates">
+            <article class="programme__item" data-element-key="detail-ceremony">
+              <h3 class="programme__label" data-content="content.ceremonyLabel">The Ceremony</h3>
+              <p class="programme__time" data-content="content.ceremonyTime">Four in the afternoon</p>
+              <p class="programme__note" data-content="content.ceremonyNote">Vows in the Orangery as the light turns to gold.</p>
             </article>
-            <article class="plate" data-element-key="detail-reception">
-              <span class="plate__medal" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><use href="#icon-toast" /></svg>
-              </span>
-              <h3 class="plate__label" data-content="content.receptionLabel">The Reception</h3>
-              <p class="plate__time" data-content="content.receptionTime">Six in the evening</p>
-              <p class="plate__note" data-content="content.receptionNote">A long dinner under the glass roof and dancing until the stars arrive.</p>
+            <span class="programme__rule" aria-hidden="true"></span>
+            <article class="programme__item" data-element-key="detail-reception">
+              <h3 class="programme__label" data-content="content.receptionLabel">The Reception</h3>
+              <p class="programme__time" data-content="content.receptionTime">Six in the evening</p>
+              <p class="programme__note" data-content="content.receptionNote">A long dinner under the glass roof and dancing until the stars arrive.</p>
             </article>
-            <article class="plate" data-element-key="detail-reply">
-              <span class="plate__medal" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24"><use href="#icon-envelope" /></svg>
-              </span>
-              <h3 class="plate__label" data-content="content.kindlyReplyLabel">Kindly Reply</h3>
-              <p class="plate__time plate__time--script" data-content="rsvp.deadline">the twelfth of May, 2027</p>
-              <p class="plate__note" data-content="content.kindlyReplyNote">Kindly send your response using the reply card further below.</p>
+            <span class="programme__rule" aria-hidden="true"></span>
+            <article class="programme__item" data-element-key="detail-reply">
+              <h3 class="programme__label" data-content="content.kindlyReplyLabel">Kindly Reply</h3>
+              <p class="programme__time programme__time--script" data-content="rsvp.deadline">the twelfth of May, 2027</p>
+              <p class="programme__note" data-content="content.kindlyReplyNote">Kindly send your response using the reply card further below.</p>
             </article>
           </div>
 
@@ -577,8 +568,6 @@
            particulars of the place.
            ══════════════════════════════════════════════════════ -->
       <section class="venue" id="venue" aria-label="Venue and location">
-        <img class="venue__lights" src="assets/art/lights.webp" alt="" aria-hidden="true"
-          data-element-key="venue-lights">
         <div class="wrap">
           <header class="venue__head reveal" data-stagger>
             <p class="kicker" data-content="content.venueKicker">№ 07 · The Place</p>
@@ -586,10 +575,13 @@
           </header>
 
           <figure class="venue__scene reveal" data-element-key="venue-scene">
-            <div class="venue__frame">
-              <img class="venue__painting" src="assets/art/orangery.webp" data-drift
-                alt="A watercolour painting of a glass orangery wrapped in climbing roses" data-element-key="venue-arch">
+            <div class="venue__arch" data-drift>
+              <span class="venue__arch-inner" aria-hidden="true">
+                <img class="venue__bouquet" src="assets/art/bouquet.webp" alt="" aria-hidden="true">
+                <span class="venue__mono script" data-couple-initials aria-hidden="true">A · T</span>
+              </span>
             </div>
+            <figcaption class="venue__scene-caption script" data-content="content.venueSceneCaption">beneath the glass roof</figcaption>
           </figure>
 
           <div class="venue__card reveal" data-stagger data-element-key="venue-card">
@@ -751,8 +743,8 @@
            A CLOSING NOTE — the seal once more, on espresso ground
            ══════════════════════════════════════════════════════ -->
       <section class="closing" id="closing" aria-label="A closing note">
-        <img class="closing__lights" src="assets/art/lights.webp" alt="" aria-hidden="true"
-          data-element-key="closing-lights">
+        <img class="closing__chandelier" src="assets/art/chandelier.webp" alt="" aria-hidden="true"
+          data-element-key="closing-chandelier">
         <div class="closing__inner reveal" data-stagger>
           <svg class="closing__sprig" viewBox="0 0 120 34" aria-hidden="true" data-element-key="closing-sprig">
             <use href="#orn-sprig" />

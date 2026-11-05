@@ -18,8 +18,8 @@ html {
 
 body {
   font-family: var(--font-display);
-  font-size: 1.0625rem;
-  line-height: 1.72;
+  font-size: 1.0938rem;
+  line-height: 1.75;
   color: var(--ink);
   background-color: var(--ivory);
   -webkit-font-smoothing: antialiased;
@@ -248,6 +248,11 @@ section { position: relative; }
 @keyframes twinkle {
   0%, 100% { opacity: .25; }
   50%      { opacity: 1; }
+}
+
+@keyframes chandelier-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(1.1deg); }
 }
 
 @keyframes petal-fall {

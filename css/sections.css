@@ -146,9 +146,9 @@
   justify-content: center;
   gap: .8rem;
   text-decoration: none;
-  color: color-mix(in srgb, var(--ivory) 86%, transparent);
+  color: color-mix(in srgb, var(--ivory) 94%, transparent);
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: .74rem;
   letter-spacing: .3em;
   text-transform: uppercase;
   transition: color .3s var(--ease);
@@ -515,7 +515,8 @@
 }
 
 .story__text {
-  font-size: 1.06rem;
+  font-size: 1.1rem;
+  line-height: 1.85;
   color: var(--ink);
   text-align: center;
 }
@@ -630,28 +631,38 @@
     linear-gradient(172deg, var(--night) 0%, var(--night-deep) 100%);
 }
 
-.savethedate__lights {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(900px, 108vw);
+/* the gilded chandelier hangs in the flow, above the card */
+.savethedate__chandelier {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(600px, 74vw);
+  margin: 0 auto;
   pointer-events: none;
-  animation: glow-pulse 6s ease-in-out infinite;
+  filter: drop-shadow(0 20px 34px rgba(0,0,0,.4));
+  animation: chandelier-sway 10s ease-in-out infinite;
+  transform-origin: top center;
 }
 
-.savethedate__candles {
-  position: relative;
-  width: clamp(120px, 18vw, 180px);
-  margin: 0 auto clamp(1.4rem, 4vh, 2.2rem);
-  filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));
-  animation: glow-pulse 5s ease-in-out infinite;
+.savethedate__glow {
+  position: absolute;
+  left: 50%;
+  top: clamp(6rem, 16vw, 13rem);
+  width: min(760px, 96vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side,
+    color-mix(in srgb, var(--champagne) 13%, transparent), transparent 72%);
+  animation: glow-pulse 8s ease-in-out infinite;
 }
 
 .savethedate__card {
   position: relative;
+  z-index: 1;
   max-width: 660px;
-  margin-inline: auto;
+  margin: clamp(.6rem, 2vh, 1.4rem) auto 0;
   text-align: center;
   padding: clamp(2.6rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3.6rem);
   background:
@@ -682,7 +693,7 @@
 .savethedate__crossing {
   margin-top: 1.1rem;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
-  color: color-mix(in srgb, var(--rose) 82%, #fff);
+  color: color-mix(in srgb, var(--rose) 60%, #fff);
 }
 
 .savethedate__title {
@@ -708,13 +719,13 @@
 .savethedate__display {
   margin-top: .9rem;
   font-style: italic;
-  color: color-mix(in srgb, var(--ivory) 88%, transparent);
+  color: color-mix(in srgb, var(--ivory) 94%, transparent);
 }
 
 .savethedate__note {
   margin-top: 1.1rem;
-  font-size: .98rem;
-  color: color-mix(in srgb, var(--ivory) 74%, transparent);
+  font-size: 1.02rem;
+  color: color-mix(in srgb, var(--ivory) 88%, transparent);
 }
 
 .savethedate__actions {
@@ -761,137 +772,141 @@
   color: var(--ink-soft);
 }
 
-.details__plates {
-  display: grid;
-  gap: clamp(1.2rem, 3vw, 1.8rem);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-top: clamp(2.4rem, 6vh, 3.6rem);
-}
-
-.plate {
+/* ── the programme — one engraved panel, ruled like a
+      printed order of service. No cards, no medals. ─────────── */
+.programme {
   position: relative;
-  text-align: center;
-  padding: clamp(2.6rem, 5vw, 3.2rem) clamp(1.4rem, 3vw, 2rem) clamp(1.8rem, 4vw, 2.4rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  max-width: 1020px;
+  margin: clamp(2.4rem, 6vh, 3.6rem) auto 0;
+  padding: clamp(2.4rem, 5vw, 3.4rem) clamp(1.4rem, 4vw, 3rem);
   background:
-    radial-gradient(120% 80% at 50% -8%, color-mix(in srgb, var(--rose) 15%, transparent) 0%, transparent 46%),
+    radial-gradient(120% 90% at 50% -8%, color-mix(in srgb, var(--rose) 12%, transparent) 0%, transparent 44%),
     linear-gradient(170deg, var(--paper-raised), var(--ivory));
   border: 1px solid var(--line);
   box-shadow: var(--shadow-card-soft);
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
 
-.plate:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
-}
-
-.plate::before {
+.programme::before {
   content: "";
   position: absolute;
-  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  inset: 9px;
   border: 1px solid var(--gold-wash-strong);
   pointer-events: none;
 }
 
-.plate__medal {
-  position: absolute;
-  top: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+.programme__item {
+  position: relative;
+  text-align: center;
+  padding: .5rem clamp(.9rem, 2.6vw, 2rem);
   display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: linear-gradient(140deg, var(--wine), var(--night));
-  color: color-mix(in srgb, var(--champagne) 90%, #fff);
-  box-shadow: 0 8px 16px color-mix(in srgb, var(--night) 30%, transparent);
+  justify-items: center;
+  align-content: start;
+  gap: .55rem;
 }
 
-.plate__medal .icon { width: 22px; height: 22px; fill: none; stroke: currentColor; }
+.programme__rule {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line-strong) 22%, var(--line-strong) 78%, transparent);
+}
 
-.plate__label {
+.programme__label {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: .7rem;
   font-weight: 500;
-  letter-spacing: .28em;
+  letter-spacing: .3em;
   text-transform: uppercase;
   color: var(--burgundy-deep);
 }
 
-.plate__time {
-  margin-top: .55rem;
+.programme__time {
   font-family: var(--font-editorial);
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  line-height: 1.25;
   color: var(--night-deep);
 }
 
-.plate__time--script {
+.programme__time--script {
   font-family: var(--font-script);
-  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
   color: var(--burgundy);
 }
 
-.plate__note {
-  margin-top: .55rem;
-  font-size: .95rem;
+.programme__note {
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--ink-soft);
+  max-width: 30ch;
 }
 
+/* the particulars — a fine ruled list, like the back of
+   a letterpress invitation card */
 .particulars {
   list-style: none;
   padding: 0;
   display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  margin-top: clamp(2.2rem, 5vh, 3.2rem);
-  background: var(--line);
-  border: 1px solid var(--line);
+  max-width: 900px;
+  margin: clamp(2.4rem, 5vh, 3.2rem) auto 0;
 }
 
 .particulars__item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.5rem 1.6rem;
-  background: var(--paper-raised);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: .45rem;
+  padding: 1.7rem clamp(1.2rem, 3vw, 2.6rem) 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.particulars__item:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .particulars__icon {
   display: grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  flex: none;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  color: var(--burgundy);
-  background: var(--rose-wash);
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  color: var(--champagne-soft);
+  background: none;
 }
 
-.particulars__icon .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; }
+.particulars__icon .icon { width: 24px; height: 24px; fill: none; stroke: currentColor; }
 
 .particulars__label {
   font-family: var(--font-body);
-  font-size: .64rem;
+  font-size: .66rem;
   font-weight: 500;
-  letter-spacing: .28em;
+  letter-spacing: .3em;
   text-transform: uppercase;
   color: var(--burgundy-deep);
 }
 
 .particulars__value {
-  margin-top: .3rem;
+  margin-top: .1rem;
   font-family: var(--font-editorial);
-  font-size: 1.06rem;
+  font-size: 1.16rem;
   color: var(--night-deep);
   line-height: 1.5;
 }
 
 .particulars__note {
-  margin-top: .3rem;
-  font-size: .92rem;
+  margin-top: .1rem;
+  font-size: .98rem;
   color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+@media (min-width: 780px) {
+  .particulars { grid-template-columns: 1fr 1fr; }
+
+  .particulars__item:nth-child(odd) { border-right: 1px solid var(--line); }
+
+  .particulars__item:nth-child(n+3) { border-bottom: 1px solid var(--line); }
 }
 
 /* ═══ 8 · THE PALETTE — silk swatches ══════════════════════════ */
@@ -1019,62 +1034,73 @@
 
 .itinerary__swag {
   position: absolute;
-  top: -34px;
+  top: -44px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(560px, 82vw);
-  opacity: .82;
+  width: min(500px, 78vw);
+  opacity: .5;
   pointer-events: none;
-  filter: drop-shadow(0 14px 22px color-mix(in srgb, var(--night) 14%, transparent));
+  filter: drop-shadow(0 14px 22px color-mix(in srgb, var(--night) 12%, transparent));
 }
 
 .itinerary__head {
   text-align: center;
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(1.4rem, 4vh, 2.4rem);
 }
 
+/* the order of service — small roman numerals, words set in
+   letterspaced capitals, joined by fine gold rules */
 .itinerary__thread {
   list-style: none;
-  margin: clamp(3.4rem, 8vh, 4.6rem) auto 0;
+  margin: clamp(2.6rem, 6vh, 3.8rem) auto 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(.6rem, 2vw, 1.1rem);
-  max-width: 860px;
+  align-items: baseline;
+  column-gap: clamp(1.1rem, 2.8vw, 1.9rem);
+  row-gap: 1.2rem;
+  max-width: 940px;
   position: relative;
+  z-index: 2;
 }
 
 .day-word {
   display: flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .55rem 1.1rem;
-  background: linear-gradient(170deg, var(--paper-raised), var(--ivory));
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  box-shadow: var(--shadow-card-soft);
+  align-items: baseline;
+  gap: .65rem;
 }
 
-.day-word__bulb {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 30%,
-    color-mix(in srgb, var(--champagne) 62%, #fff), var(--champagne) 58%, var(--champagne-soft));
-  box-shadow: 0 0 8px color-mix(in srgb, var(--champagne) 65%, transparent);
-  animation: twinkle 3.2s ease-in-out infinite;
+.day-word::after {
+  content: "";
+  width: clamp(18px, 2.4vw, 30px);
+  height: 1px;
+  margin-left: clamp(1.1rem, 2.8vw, 1.9rem);
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+  align-self: center;
+}
+
+.day-word:last-child::after { display: none; }
+
+.day-word__num {
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--champagne-soft);
 }
 
 .day-word__text {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: .78rem;
   font-weight: 500;
-  letter-spacing: .22em;
+  letter-spacing: .24em;
   text-transform: uppercase;
-  color: var(--wine);
+  color: var(--night-deep);
 }
 
-/* ═══ 10 · THE VENUE — the orangery at dusk ════════════════════ */
+/* ═══ 10 · THE VENUE — the orangery at dusk ═══════════════ */
 
 .venue {
   position: relative;
@@ -1089,7 +1115,7 @@
   text-align: center;
 }
 
-.venue .kicker { color: color-mix(in srgb, var(--champagne) 82%, #fff); }
+.venue .kicker { color: color-mix(in srgb, var(--champagne) 90%, #fff); }
 
 .venue .section-title { color: var(--ivory); }
 
@@ -1097,42 +1123,74 @@
   color: color-mix(in srgb, var(--rose) 86%, #fff);
 }
 
-.venue__lights {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(860px, 106vw);
-  pointer-events: none;
-  animation: glow-pulse 7s ease-in-out 1s infinite;
-}
-
+/* the gilded arch — a fine double-framed arch with a wash of
+   orangery glass and the wedding posy, all decoration, no photo */
 .venue__scene {
   position: relative;
-  max-width: 520px;
-  margin: clamp(2.4rem, 6vh, 3.6rem) auto 0;
+  max-width: 440px;
+  margin: clamp(2.6rem, 7vh, 4rem) auto 0;
 }
 
-.venue__frame {
+.venue__arch {
   position: relative;
-  overflow: hidden;
-  border-radius: 999px 999px 8px 8px;
-  border: 1px solid color-mix(in srgb, var(--champagne) 46%, transparent);
-  box-shadow: 0 44px 90px -30px rgba(0,0,0,.6);
-  background: color-mix(in srgb, var(--parchment) 8%, transparent);
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 10px 10px;
+  border: 1px solid color-mix(in srgb, var(--champagne) 55%, transparent);
+  background:
+    linear-gradient(90deg,
+      transparent calc(33.33% - .5px),
+      color-mix(in srgb, var(--ivory) 14%, transparent) calc(33.33% - .5px) calc(33.33% + .5px),
+      transparent calc(33.33% + .5px),
+      transparent calc(66.66% - .5px),
+      color-mix(in srgb, var(--ivory) 14%, transparent) calc(66.66% - .5px) calc(66.66% + .5px),
+      transparent calc(66.66% + .5px)),
+    linear-gradient(0deg,
+      transparent calc(52% - .5px),
+      color-mix(in srgb, var(--ivory) 14%, transparent) calc(52% - .5px) calc(52% + .5px),
+      transparent calc(52% + .5px)),
+    radial-gradient(130% 100% at 50% 0%, color-mix(in srgb, var(--crimson) 16%, transparent) 0%, transparent 58%),
+    color-mix(in srgb, var(--ivory) 7%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ivory) 10%, transparent),
+    0 44px 90px -34px rgba(0,0,0,.6);
 }
 
-.venue__frame::after {
+.venue__arch::after {
   content: "";
   position: absolute;
-  inset: 10px;
+  inset: 9px;
   border: 1px solid color-mix(in srgb, var(--champagne) 26%, transparent);
   border-radius: inherit;
   pointer-events: none;
 }
 
-.venue__painting {
-  width: 100%;
+.venue__arch-inner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.venue__bouquet {
+  width: 82%;
+  filter: drop-shadow(0 22px 34px rgba(0,0,0,.45));
+}
+
+.venue__mono {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  font-size: clamp(1.7rem, 4.4vw, 2.3rem);
+  color: color-mix(in srgb, var(--champagne) 84%, #fff);
+  text-shadow: 0 2px 14px rgba(0,0,0,.45);
+}
+
+.venue__scene-caption {
+  margin-top: 1.15rem;
+  text-align: center;
+  font-size: clamp(1.45rem, 3vw, 1.8rem);
+  color: color-mix(in srgb, var(--champagne) 74%, #fff);
 }
 
 .venue__card {
@@ -1165,16 +1223,17 @@
 .venue__address {
   margin-top: .4rem;
   font-family: var(--font-body);
-  font-size: .68rem;
+  font-size: .7rem;
   letter-spacing: .28em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--champagne) 80%, #fff);
+  color: color-mix(in srgb, var(--champagne) 88%, #fff);
 }
 
 .venue__desc {
   margin-top: 1.1rem;
   font-style: italic;
-  color: color-mix(in srgb, var(--ivory) 84%, transparent);
+  color: color-mix(in srgb, var(--ivory) 94%, transparent);
+  line-height: 1.85;
 }
 
 .venue__facts {
@@ -1190,12 +1249,12 @@
   font-size: .64rem;
   letter-spacing: .3em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--rose) 88%, #fff);
+  color: color-mix(in srgb, var(--rose) 74%, #fff);
 }
 
 .venue__fact dd {
   margin-top: .2rem;
-  color: color-mix(in srgb, var(--ivory) 88%, transparent);
+  color: color-mix(in srgb, var(--ivory) 96%, transparent);
 }
 
 .venue__card .btn--solid { margin-top: 1.8rem; }
@@ -1255,33 +1314,47 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(1.4rem, 4vw, 3rem);
+  row-gap: 1.4rem;
   margin-top: clamp(2.2rem, 5vh, 3.2rem);
 }
 
+/* no boxes — gilded numerals parted by fine hairlines, like
+   the ticker of a grand clock */
 .countdown__dial {
   display: grid;
   justify-items: center;
-  gap: .5rem;
-  min-width: clamp(70px, 12vw, 108px);
-  padding: 1.2rem .6rem 1rem;
-  background: linear-gradient(170deg, var(--paper-raised), color-mix(in srgb, var(--rose) 8%, var(--ivory)));
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  box-shadow: var(--shadow-card-soft);
+  gap: .6rem;
+  min-width: clamp(88px, 12vw, 148px);
+  padding: .3rem clamp(.9rem, 2.4vw, 2rem);
+  position: relative;
+}
+
+.countdown__dial + .countdown__dial::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 62%;
+  background: linear-gradient(180deg, transparent, var(--line-strong) 30% 70%, transparent);
 }
 
 .countdown__num {
   font-family: var(--font-editorial);
-  font-size: clamp(1.9rem, 4.6vw, 3rem);
-  color: var(--night-deep);
+  font-size: clamp(2.4rem, 5.4vw, 3.8rem);
+  line-height: 1;
+  background: var(--foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-variant-numeric: tabular-nums;
 }
 
 .countdown__label {
   font-family: var(--font-body);
-  font-size: .6rem;
-  letter-spacing: .3em;
+  font-size: .62rem;
+  letter-spacing: .32em;
   text-transform: uppercase;
   color: var(--burgundy-deep);
 }
@@ -1343,7 +1416,7 @@
   font-weight: 600;
 }
 
-/* ═══ 13 · A CLOSING NOTE — under the evening lights ═══════════ */
+/* ═══ 13 · A CLOSING NOTE — beneath the gilded chandelier ═══ */
 
 .closing {
   position: relative;
@@ -1355,14 +1428,17 @@
     linear-gradient(172deg, var(--night) 0%, var(--night-deep) 100%);
 }
 
-.closing__lights {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(900px, 108vw);
+.closing__chandelier {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(520px, 68vw);
+  margin: 0 auto;
   pointer-events: none;
-  animation: glow-pulse 6.5s ease-in-out infinite;
+  opacity: .96;
+  filter: drop-shadow(0 20px 34px rgba(0,0,0,.4));
+  animation: chandelier-sway 12s ease-in-out 1s infinite;
+  transform-origin: top center;
 }
 
 .closing__inner {
@@ -1397,8 +1473,9 @@
 .closing__message {
   margin-top: 1.7rem;
   font-style: italic;
-  color: color-mix(in srgb, var(--ivory) 86%, transparent);
-  line-height: 1.85;
+  color: color-mix(in srgb, var(--ivory) 96%, transparent);
+  line-height: 1.9;
+  font-size: 1.05rem;
 }
 
 .closing__actions {
@@ -1417,7 +1494,7 @@
   padding: 2.6rem 1.25rem 3rem;
   background: var(--night-deep);
   border-top: 1px solid color-mix(in srgb, var(--champagne) 26%, transparent);
-  color: color-mix(in srgb, var(--ivory) 70%, transparent);
+  color: color-mix(in srgb, var(--ivory) 82%, transparent);
 }
 
 .footer__ornament {
@@ -1439,7 +1516,7 @@
   font-size: .66rem;
   letter-spacing: .3em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--rose) 80%, transparent);
+  color: color-mix(in srgb, var(--rose) 72%, transparent);
 }
 
 /* ═══ 15 · EDITOR-SELECT HIGHLIGHT (customizer live editing) ═══ */
